@@ -1,0 +1,117 @@
+;; Basic working Kanata configuration for macOS
+;; - CapsLock as hyper key (tap = escape)
+;; - Home row modifiers (Miryoku style)
+;; - Space layer for hjkl navigation
+
+(defcfg
+  process-unmapped-keys false
+  danger-enable-cmd true
+)
+
+;; Physical keyboard layout
+(defsrc
+  tab   q w e r t y u i o p
+  caps  a s d f g h j k l ;
+  lsft  z x c v b n m , . /
+  lctl  lalt lmet spc rmet ralt
+)
+
+;; Key aliases
+(defalias
+  ;; Home row modifiers (Miryoku GACS)
+  a-gui (tap-hold-press 200 200 a lmet)
+  s-alt (tap-hold-press 200 200 s lalt)
+  d-ctl (tap-hold-press 200 200 d lctl)
+  f-sft (tap-hold-press 200 200 f lsft)
+  
+  ;; Right hand home row
+  j-sft (tap-hold-press 200 200 j rsft)
+  k-ctl (tap-hold-press 200 200 k rctl)
+  l-alt (tap-hold-press 200 200 l ralt)
+  ;-gui (tap-hold-press 200 200 ; rmet)
+  
+  ;; CapsLock as escape when tapped, hyper when held
+  caps-hyper (tap-hold-press 200 200 esc (layer-while-held hyper))
+  
+  ;; Space navigation layer
+  spc-nav (tap-hold-press 200 200 spc (layer-while-held nav))
+)
+
+;; === BASE LAYER ===
+(deflayer base
+  tab           q        w        e        r        t        y    u        i        o        p
+  @caps-hyper   @a-gui   @s-alt   @d-ctl   @f-sft   g        h    @j-sft   @k-ctl   @l-alt   @;-gui
+  lsft          z        x        c        v        b        n    m        ,        .        /
+  lctl          lalt     lmet     @spc-nav                        rmet     ralt
+)
+
+;; === HYPER LAYER (CapsLock + keys) ===
+(deflayer hyper
+  _        _       _        _        _        _                     _        _        _        (layer-while-held app)  _
+  _        _       _        _        _        _                     _        _        _        _                       _
+  _        _       _        _        _        (layer-while-held br) _        _        _        _                       _
+  _        _       _        _        _        _                     
+)
+
+;; === NAVIGATION LAYER (Space + hjkl) ===
+(deflayer nav
+  _    _    _    _    _    _       _     _     _   _      _
+  esc  lmet lalt lctl lsft _       left  down  up  right  ;
+  _    _    _    _    _    _       _     _     _   _      _
+       _    _    _    _            _     _         
+)
+
+;; Application shortcuts (same as Karabiner config)
+(defalias
+    anki    (cmd "open" "-a" "Anki")
+    books   (cmd "open" "-a" "Books")
+    chatgpt (cmd "open" "-a" "ChatGPT")
+    emacs   (cmd "open" "raycast://script-commands/emacsclient")
+    finder  (cmd "open" "-a" "Finder")
+    ghostty (cmd "open" "-a" "Ghostty")
+    safari  (cmd "open" "-a" "Safari")
+    ayugram (cmd "open" "-a" "AyuGram")
+    warp    (cmd "open" "-a" "Warp")
+    zen     (cmd "open" "-a" "Zen")
+
+    ;; Browser shortcuts
+    reddit  (cmd "sh" "-c" "open 'https://reddit.com'")
+    lsj     (cmd "sh" "-c" "open 'https://lsj.gr'")
+    e-docs  (cmd "sh" "-c" "open 'https://emacsdocs.org'")
+
+    ;; Raycast shortcuts  
+    ;; bt1 (cmd "open 'raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1'")
+    ;; bt2 (cmd "open 'raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2'")
+    ;; cbd (cmd "open 'raycast://extensions/raycast/clipboard-history/clipboard-history'")
+    ;; tsl (cmd "open 'raycast://extensions/gebeto/translate/quick-translate'")
+)
+
+;; === APPLICATIONS LAYER (Hyper + o) ===
+(deflayer app 
+  _        _       @warp    @emacs   _        @ayugram           _        _        _        _        _                 
+  _        @anki   @safari  _        @finder  @ghostty           _        _        _        _        _
+  _        @zen    _        @chatgpt _        @books             _        _        _        _        _
+           _       _        _        _                                             _        _         
+)
+
+;; === BROWSER LAYER (Hyper + b) ===
+(deflayer br
+  _        _       _        @e-docs  @reddit  _                  _        _        _        _        _
+  _        _       _        _        _        _                  _        _        _        @lsj     _
+  _        _       _        _        _        _                  _        _        _        _	     _
+           _       _        _        _                                             _        _	       
+)
+
+;; === RAYCAST LAYER (Hyper + r) ===
+(deflayer rc
+  _        _       _        _        _        _                  _        _        _        _        _
+  _        _       _        _        _        _                  _        _        _        _        _
+  _        _       _        _        _        _                  _        _        _        _        _
+           _       _        _        _                                             _        _	       
+)
+
+;; Cmd+Tab remapping to Ctrl+Cmd+Tab for AeroSpace
+(defoverrides
+  (lmet tab) (lctl lmet tab)
+  (rmet tab) (lctl lmet tab)
+)
