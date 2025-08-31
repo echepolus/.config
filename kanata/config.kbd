@@ -1,117 +1,99 @@
-;; Basic working Kanata configuration for macOS
-;; - CapsLock as hyper key (tap = escape)
-;; - Home row modifiers (Miryoku style)
-;; - Space layer for hjkl navigation
+;;==========================================================================;;
+;;                                                                          ;;
+;;  With Arsenik, choose the features you want for your keyboard:           ;;
+;;  angle mods, Vim-like navigation layer, Mac/Azerty/Qwertz support, etc.  ;;
+;;                                                                          ;;
+;;==========================================================================;;
+
+;; Every section is mandatory and should enable one and only one `include`
+;; - enable each feature by un-commenting the related line.
+;; - a commented line starts with ;;
+
+;; Live-reload the configuration with Space+Backspace (requires layer-taps).
+
+;; Timing variables for tap-hold effects.
+(defvar
+  ;; The key must be pressed twice in 200ms to enable repetitions.
+  tap_timeout 200
+  ;; The key must be held 200ms to become a layer shift.
+  hold_timeout 200
+  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
+  long_hold_timeout 300
+)
+
+;;-----------------------------------------------------------------------------
+;; Original key arrangement on your keyboard: Mac or PC.
+;; Choose here if you want to add an angle mod: ZXCVB are shifted to the left.
+;; See https://colemakmods.github.io/ergonomic-mods/angle.html for more details.
+
+;; (include defsrc/pc.kbd)  ;; PC, standard finger assignment
+(include defsrc/mac.kbd)  ;; Mac, standard finger assignment
+;; (include defsrc/pc_anglemod.kbd)  ;; PC, ZXCVB are shifted to the left
+;; (include defsrc/mac_anglemod.kbd)  ;; Mac, ZXCVB are shifted to the left
+;; (include defsrc/pc_wide_anglemod.kbd)  ;; PC, angle-mod + right hand shifted by one key
+;; (include defsrc/mac_wide_anglemod.kbd)  ;; Mac, angle-mod + right hand shifted by one key
+
+
+;;-----------------------------------------------------------------------------
+;; `Base` layer: standard or dual keys? (layer-taps, homerow mods?)
+;; If you just want angle mod, you still have to enable the standard base.
+
+;; (include deflayer/base.kbd)  ;; standard keyboard behavior
+;; (include deflayer/base_lt.kbd)  ;; layer-taps on both thumb keys
+(include deflayer/base_lt_hrm.kbd)  ;; layer-taps + home-row mods
+
+;; Note: not enabling layer-taps here makes the rest of the file useless.
+
+
+;;-----------------------------------------------------------------------------
+;; `Symbols` layer
+
+;; (include deflayer/symbols_noop.kbd)  ;; AltGr stays as-is
+;; (include deflayer/symbols_lafayette.kbd)  ;; AltGr programmation layer like Ergo‑L
+;; (include deflayer/symbols_noop_num.kbd)  ;; AltGr stays as-is + NumRow layers
+(include deflayer/symbols_lafayette_num.kbd)  ;; AltGr prog layer + NumRow layers
+
+
+;;-----------------------------------------------------------------------------
+;; `Navigation` layer: ESDF or HJKL?
+
+;; (include deflayer/navigation.kbd)  ;; ESDF on the left, NumPad on the right
+(include deflayer/navigation_vim.kbd)  ;; HJKL + NumPad on [Space]+[Q]
+
+;; Replace XX by the keyboard shortcut of your application launcher, if any.
+;; Mapped on [Space]+[P] in both navigation layers.
+
+;; (defalias run M-p)  ;; [Command]-[P]
+(defalias run XX)  ;; do nothing
+
+;;-----------------------------------------------------------------------------
+;; `HYPER` layer: 
+
+(include deflayer/hyper.kbd)  ;; 
+
+;;-----------------------------------------------------------------------------
+;; Aliases for `Symbols` and `Navigation` layers
+;; Depends on PC/Mac and keyboard layout
+
+;; (include defalias/ergol_pc.kbd)  ;; Ergo‑L PC
+;; (include defalias/qwerty-lafayette_pc.kbd)  ;; Qwerty‑Lafayette PC
+;; (include defalias/qwerty_pc.kbd)  ;; Qwerty / Colemak PC
+(include defalias/qwerty_mac.kbd)  ;; Qwerty / Colemak Mac
+;; (include defalias/azerty_pc.kbd)  ;; Azerty PC
+;; (include defalias/qwertz_pc.kbd)  ;; Qwertz PC
+;; (include defalias/bepo_pc.kbd)  ;; Bépo PC
+;; (include defalias/optimot_pc.kbd)  ;; Optimot PC
+
+;;-----------------------------------------------------------------------------
+;; Extra configuration
+;; You should not modify this, only if you need to.
 
 (defcfg
-  process-unmapped-keys false
+  ;; Enabled makes kanata process keys that are not defined in defsrc
+  ;; Fixes altgr for Windows (see Arsenik issue #22)
+  process-unmapped-keys yes
+  windows-altgr cancel-lctl-press
   danger-enable-cmd true
 )
 
-;; Physical keyboard layout
-(defsrc
-  tab   q w e r t y u i o p
-  caps  a s d f g h j k l ;
-  lsft  z x c v b n m , . /
-  lctl  lalt lmet spc rmet ralt
-)
-
-;; Key aliases
-(defalias
-  ;; Home row modifiers (Miryoku GACS)
-  a-gui (tap-hold-press 200 200 a lmet)
-  s-alt (tap-hold-press 200 200 s lalt)
-  d-ctl (tap-hold-press 200 200 d lctl)
-  f-sft (tap-hold-press 200 200 f lsft)
-  
-  ;; Right hand home row
-  j-sft (tap-hold-press 200 200 j rsft)
-  k-ctl (tap-hold-press 200 200 k rctl)
-  l-alt (tap-hold-press 200 200 l ralt)
-  ;-gui (tap-hold-press 200 200 ; rmet)
-  
-  ;; CapsLock as escape when tapped, hyper when held
-  caps-hyper (tap-hold-press 200 200 esc (layer-while-held hyper))
-  
-  ;; Space navigation layer
-  spc-nav (tap-hold-press 200 200 spc (layer-while-held nav))
-)
-
-;; === BASE LAYER ===
-(deflayer base
-  tab           q        w        e        r        t        y    u        i        o        p
-  @caps-hyper   @a-gui   @s-alt   @d-ctl   @f-sft   g        h    @j-sft   @k-ctl   @l-alt   @;-gui
-  lsft          z        x        c        v        b        n    m        ,        .        /
-  lctl          lalt     lmet     @spc-nav                        rmet     ralt
-)
-
-;; === HYPER LAYER (CapsLock + keys) ===
-(deflayer hyper
-  _        _       _        _        _        _                     _        _        _        (layer-while-held app)  _
-  _        _       _        _        _        _                     _        _        _        _                       _
-  _        _       _        _        _        (layer-while-held br) _        _        _        _                       _
-  _        _       _        _        _        _                     
-)
-
-;; === NAVIGATION LAYER (Space + hjkl) ===
-(deflayer nav
-  _    _    _    _    _    _       _     _     _   _      _
-  esc  lmet lalt lctl lsft _       left  down  up  right  ;
-  _    _    _    _    _    _       _     _     _   _      _
-       _    _    _    _            _     _         
-)
-
-;; Application shortcuts (same as Karabiner config)
-(defalias
-    anki    (cmd "open" "-a" "Anki")
-    books   (cmd "open" "-a" "Books")
-    chatgpt (cmd "open" "-a" "ChatGPT")
-    emacs   (cmd "open" "raycast://script-commands/emacsclient")
-    finder  (cmd "open" "-a" "Finder")
-    ghostty (cmd "open" "-a" "Ghostty")
-    safari  (cmd "open" "-a" "Safari")
-    ayugram (cmd "open" "-a" "AyuGram")
-    warp    (cmd "open" "-a" "Warp")
-    zen     (cmd "open" "-a" "Zen")
-
-    ;; Browser shortcuts
-    reddit  (cmd "sh" "-c" "open 'https://reddit.com'")
-    lsj     (cmd "sh" "-c" "open 'https://lsj.gr'")
-    e-docs  (cmd "sh" "-c" "open 'https://emacsdocs.org'")
-
-    ;; Raycast shortcuts  
-    ;; bt1 (cmd "open 'raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1'")
-    ;; bt2 (cmd "open 'raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2'")
-    ;; cbd (cmd "open 'raycast://extensions/raycast/clipboard-history/clipboard-history'")
-    ;; tsl (cmd "open 'raycast://extensions/gebeto/translate/quick-translate'")
-)
-
-;; === APPLICATIONS LAYER (Hyper + o) ===
-(deflayer app 
-  _        _       @warp    @emacs   _        @ayugram           _        _        _        _        _                 
-  _        @anki   @safari  _        @finder  @ghostty           _        _        _        _        _
-  _        @zen    _        @chatgpt _        @books             _        _        _        _        _
-           _       _        _        _                                             _        _         
-)
-
-;; === BROWSER LAYER (Hyper + b) ===
-(deflayer br
-  _        _       _        @e-docs  @reddit  _                  _        _        _        _        _
-  _        _       _        _        _        _                  _        _        _        @lsj     _
-  _        _       _        _        _        _                  _        _        _        _	     _
-           _       _        _        _                                             _        _	       
-)
-
-;; === RAYCAST LAYER (Hyper + r) ===
-(deflayer rc
-  _        _       _        _        _        _                  _        _        _        _        _
-  _        _       _        _        _        _                  _        _        _        _        _
-  _        _       _        _        _        _                  _        _        _        _        _
-           _       _        _        _                                             _        _	       
-)
-
-;; Cmd+Tab remapping to Ctrl+Cmd+Tab for AeroSpace
-(defoverrides
-  (lmet tab) (lctl lmet tab)
-  (rmet tab) (lctl lmet tab)
-)
+;; vim: set ft=lisp

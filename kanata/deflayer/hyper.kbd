@@ -1,0 +1,63 @@
+;; (deflayer [NAME] 
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _    _    _    _    _           _    _    _    _    _
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _         _               _               _          
+;; )
+
+;; === HYPER LAYER CONFIGURATION ===
+
+;; --- Hyper Layer (CapsLock + keys) ---
+(deflayer hyper
+  _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     @hyo  _
+  _     _     _     _     _           _     _     _     _     _
+  _     _     _     _     @hyb  _     _     _     _     _     _
+  _           _                 _                 _            
+)
+
+;; --- Applications Layer (Hyper + o) ---
+(deflayer app 
+  _     _     _     _     @ayug _     _     _     _     _     _
+  _     @warp @emcs _     _     _     _     _     _     _     _
+  @anki @sfri _     @find @ghst       _     _     _     _     _
+  @zen  _     @cgpt _     @book _     _     _     _     _     _
+  _           _                 _                 _            
+)
+
+;; --- Browser Layer (Hyper + b) ---
+(deflayer br 
+  _     _     _     _     _     _     _     _     _     _     _
+  _     _     @edcs @rddt _     _     _     _     _     _     _
+  _     _     _     _     _           _     _     _     @lsj  _
+  _     _     _     _     _     _     _     _     _     _     _
+  _           _                 _                 _            
+)
+
+(defalias
+
+  ;; --- General ---
+  hyo (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held app))
+  hyb (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held br))
+
+  ;; --- Application shortcuts ---
+  anki   (cmd "open" "-a" "Anki")
+  book   (cmd "open" "-a" "Books")
+  cgpt   (cmd "open" "-a" "ChatGPT")
+  emcs   (cmd "open" "raycast://script-commands/emacsclient")
+  find   (cmd "open" "-a" "Finder")
+  ghst   (cmd "open" "-a" "Ghostty")
+  sfri   (cmd "open" "-a" "Safari")
+  ayug   (cmd "open" "-a" "AyuGram")
+  warp   (cmd "open" "-a" "Warp")
+  zen    (cmd "open" "-a" "Zen")
+
+  ;; Browser shortcuts
+  rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
+  lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")
+  edcs   (cmd "sh" "-c" "open 'https://emacsdocs.org'")
+)
+
+;; vim: set ft=lisp
+

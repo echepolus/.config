@@ -1,0 +1,264 @@
+{
+  "actions" : [
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "type" : "application",
+          "value" : "/System/Applications/Mail.app"
+        },
+        {
+          "key" : "g",
+          "type" : "application",
+          "value" : "/Applications/GoldenDict.app"
+        },
+        {
+          "key" : "o",
+          "type" : "application",
+          "value" : "/Applications/Obsidian.app"
+        },
+        {
+          "key" : "j",
+          "type" : "application",
+          "value" : "/Applications/Jan.app"
+        },
+        {
+          "key" : "z",
+          "type" : "application",
+          "value" : "/Applications/Zen.app"
+        },
+        {
+          "actions" : [
+            {
+              "actions" : [
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "f",
+                  "label" : "darwin files.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-darwin-files"
+                },
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "h",
+                  "label" : "darwin h-m.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-darwin-home-manager"
+                },
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "p",
+                  "label" : "darwin packages.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-darwin-packages"
+                }
+              ],
+              "iconPath" : "snowflake",
+              "key" : "d",
+              "label" : "darwin",
+              "type" : "group"
+            },
+            {
+              "actions" : [
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "f",
+                  "label" : "shared files.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-shared-files"
+                },
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "h",
+                  "label" : "shared h-m.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-shared-home-manager"
+                },
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "p",
+                  "label" : "shared packages.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-shared-packages"
+                },
+                {
+                  "iconPath" : "snowflake",
+                  "key" : "o",
+                  "label" : "fonts.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-shared-fonts"
+                },
+                {
+                  "key" : "c",
+                  "label" : "config",
+                  "type" : "command",
+                  "value" : "emacsclient -c -n -a \"\" /Users/alexeykotomin/nixos-config/modules/shared/config"
+                }
+              ],
+              "iconPath" : "snowflake",
+              "key" : "s",
+              "label" : "shared",
+              "type" : "group"
+            },
+            {
+              "iconPath" : "snowflake",
+              "key" : "f",
+              "label" : "flake.nix",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-nixos-config-flake"
+            },
+            {
+              "iconPath" : "snowflake",
+              "key" : "h",
+              "label" : "host default.nix",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-nixos-config-hosts-darwin"
+            },
+            {
+              "iconPath" : "/Applications/Karabiner-Elements.app",
+              "key" : "k",
+              "label" : "karabiner.nix",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-karabiner-config"
+            },
+            {
+              "actions" : [
+                {
+                  "iconPath" : "/nix/store/7xk1dh99cpsvji3zvf6blrzcc8gc1ph3-emacs-unstable-with-packages-30.2/Applications/Emacs.app",
+                  "key" : "i",
+                  "label" : "init.el",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-emacs-config-init"
+                },
+                {
+                  "iconPath" : "/nix/store/7xk1dh99cpsvji3zvf6blrzcc8gc1ph3-emacs-unstable-with-packages-30.2/Applications/Emacs.app",
+                  "key" : "c",
+                  "label" : "config.org",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-emacs-config-config"
+                },
+                {
+                  "iconPath" : "/nix/store/7xk1dh99cpsvji3zvf6blrzcc8gc1ph3-emacs-unstable-with-packages-30.2/Applications/Emacs.app",
+                  "key" : "n",
+                  "label" : "emacs.nix",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-emacs-config-nix"
+                },
+                {
+                  "iconPath" : "/nix/store/7xk1dh99cpsvji3zvf6blrzcc8gc1ph3-emacs-unstable-with-packages-30.2/Applications/Emacs.app",
+                  "key" : "a",
+                  "label" : "emacs-app",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-emacs-config-emacs-app"
+                }
+              ],
+              "iconPath" : "/nix/store/7xk1dh99cpsvji3zvf6blrzcc8gc1ph3-emacs-unstable-with-packages-30.2/Applications/Emacs.app",
+              "key" : "e",
+              "label" : "emacs config",
+              "type" : "group"
+            },
+            {
+              "iconPath" : "snowflake",
+              "key" : "c",
+              "label" : "casks.nix",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-nixos-config-modules-darwin-casks"
+            },
+            {
+              "iconPath" : "/Applications/AeroSpace.app",
+              "key" : "a",
+              "label" : "aerospace.toml",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-aerospace-config"
+            },
+            {
+              "iconPath" : "/nix/store/fvl7vqqlqfqp5f1rqzd3v8vx5j0cxsnl-ghostty-bin-1.1.3/Applications/Ghostty.app",
+              "key" : "g",
+              "label" : "ghostty config",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-ghostty-config"
+            },
+            {
+              "iconPath" : "macwindow.on.rectangle",
+              "key" : "j",
+              "label" : "jankyborders",
+              "type" : "url",
+              "value" : "raycast://script-commands/open-jankyborders-config"
+            },
+            {
+              "iconPath" : "s.circle",
+              "key" : "b",
+              "label" : "sketchybar",
+              "type" : "command",
+              "value" : "emacsclient -c -n -a \"\" /Users/alexeykotomin/nixos-config/modules/shared/config/sketchybar/"
+            },
+            {
+              "actions" : [
+                {
+                  "key" : "p",
+                  "label" : "overlays PLUG IN",
+                  "type" : "url",
+                  "value" : "raycast://script-commands/open-nixos-config-modules-shared-default"
+                },
+                {
+                  "key" : "o",
+                  "label" : "overlays THEMSELVES",
+                  "type" : "command",
+                  "value" : "emacsclient -c -n -a \"\" /Users/alexeykotomin/nixos-config/overlays/"
+                }
+              ],
+              "iconPath" : "square.3.layers.3d.down.right",
+              "key" : "o",
+              "label" : "OVERLAYS",
+              "type" : "group"
+            }
+          ],
+          "iconPath" : "snowflake",
+          "key" : "n",
+          "type" : "group"
+        }
+      ],
+      "key" : "o",
+      "type" : "group"
+    },
+    {
+      "actions" : [
+        {
+          "key" : "e",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+        },
+        {
+          "key" : "p",
+          "type" : "url",
+          "value" : "raycast://confetti"
+        },
+        {
+          "key" : "c",
+          "type" : "url",
+          "value" : "raycast://extensions/raycast/system/open-camera"
+        }
+      ],
+      "key" : "r",
+      "type" : "group"
+    },
+    {
+      "key" : "f",
+      "type" : "application",
+      "value" : "/Users/alexeykotomin/Applications/Focumon.app"
+    },
+    {
+      "key" : " ",
+      "type" : "url",
+      "value" : "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
+    },
+    {
+      "actions" : [
+
+      ],
+      "key" : "a",
+      "type" : "group"
+    }
+  ],
+  "type" : "group"
+}
