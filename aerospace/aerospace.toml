@@ -6,7 +6,9 @@
 # =========================================================
 
 after-login-command = []
-after-startup-command = []
+after-startup-command = [
+  'exec-and-forget /Users/alexeykotomin/.config/borders/bordersrc &'
+]
 start-at-login = true
 
 enable-normalization-flatten-containers = true
