@@ -3,7 +3,6 @@
 !.gitignore
 !/kanata/
 !/scripts/
-!/emacs/
 !/nvim/
 !/ghostty/
 !/leader-key/
