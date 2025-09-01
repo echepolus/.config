@@ -19,8 +19,8 @@
 
 ;; --- Applications Layer (Hyper + o) ---
 (deflayer app 
-  _     _     _     _     @ayug _     _     _     _     _     _
-  _     @warp @emcs _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _
+  _     @warp @emcs _     @ayug _     _     _     _     _     _
   @anki @sfri _     @find @ghst       _     _     _     _     _
   @zen  _     @cgpt _     @book _     _     _     _     _     _
   _           _                 _                 _            

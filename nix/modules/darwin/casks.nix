@@ -1,8 +1,9 @@
 { ... }:
+
 [
   # Development Tools
   "wireshark-app"
-  "tailscale-app"
+  # "tailscale-app"
 
   # Communication Tools
   "zoom"
