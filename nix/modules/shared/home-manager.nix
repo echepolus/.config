@@ -282,7 +282,7 @@ in
 
   ssh = {
     enable = true;
-    enableDefaultConfig = true;
+    enableDefaultConfig = false;
     includes = [
       (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
         "/home/${user}/.ssh/config_external"
