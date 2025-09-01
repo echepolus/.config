@@ -51,7 +51,6 @@
   "homerow"
 
   # R
-  "raycast"
 
   # S
 

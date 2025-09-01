@@ -282,6 +282,7 @@ in
 
   ssh = {
     enable = true;
+    enableDefaultConfig = true;
     includes = [
       (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
         "/home/${user}/.ssh/config_external"
@@ -290,7 +291,7 @@ in
         "/Users/${user}/.ssh/config_external"
       )
     ];
-    #matchBlocks = {
+   #matchBlocks = {
     #   "github.com" = {
     #     identitiesOnly = true;
     #     identityFile = [
