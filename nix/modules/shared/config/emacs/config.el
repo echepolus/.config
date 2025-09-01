@@ -1144,24 +1144,21 @@ Note the weekly scope of the command's precision.")
                 gptel-display-buffer-action '(pop-to-buffer-same-window))
 
   (defalias 'my/gptel-easy-page
-    (let ((map (make-composed-keymap
-                (define-keymap
-                  "RET" 'gptel-end-of-response
-                  "n"   'gptel-end-of-response
-                  "p"   'gptel-beginning-of-response)
-                my-pager-map))
-          (scrolling
-           (propertize  "SCRL" 'face '(:inherit highlight))))
+    (let ((map (define-keymap
+               "RET" 'gptel-end-of-response
+               "n"   'gptel-end-of-response
+               "p"   'gptel-beginning-of-response))
+          (scrolling (propertize "SCRL" 'face '(:inherit highlight))))
       (require 'pixel-scroll)
       (lambda ()
-        (interactive)
-        (when (eq (window-buffer (selected-window))
-                  (current-buffer))
+      (interactive)
+      (when (eq (window-buffer (selected-window)) (current-buffer))
           (add-to-list 'mode-line-format scrolling)
           (set-transient-map
            map t
-           (lambda () (setq mode-line-format
-                       (delete scrolling mode-line-format))))))))
+           (lambda ()
+             (setq mode-line-format
+                   (delete scrolling mode-line-format))))))))
 
   (defun my/gptel-remove-headings (beg end)
     (when (derived-mode-p 'org-mode)
@@ -1207,21 +1204,21 @@ Note the weekly scope of the command's precision.")
   (cl-pushnew '(:propertize
                 (:eval
                  (when (local-variable-p 'gptel--system-message)
-                  (concat
-                   "["
-                   (if-let ((n (car-safe (rassoc gptel--system-message gptel-directives))))
-                       (symbol-name n)
-                     (gptel--describe-directive gptel--system-message 12))
-                   "]")))
+                   (concat
+                    "["
+                    (if-let ((n (car-safe (rassoc gptel--system-message gptel-directives))))
+			(symbol-name n)
+                      (gptel--describe-directive gptel--system-message 12))
+                    "]")))
                 'face 'gptel-rewrite-highlight-face)
               mode-line-misc-info)
   (add-to-list
    'mode-line-misc-info
    '(:eval
      (unless gptel-mode
-      (when (and (local-variable-p 'gptel-model)
-             (not (eq gptel-model (default-value 'gptel-model))))
-       (concat "[" (gptel--model-name gptel-model) "]"))))))
+       (when (and (local-variable-p 'gptel-model)
+		  (not (eq gptel-model (default-value 'gptel-model))))
+	 (concat "[" (gptel--model-name gptel-model) "]"))))))
 
 (use-package gptel
   :after gptel
