@@ -8,8 +8,8 @@
 # Optional parameters:
 # @raycast.icon /Users/alexeykotomin/.local/share/img/icons/emacs.png
 # @raycast.packageName nixos-config
-# @raycast.description open ~/nixos-config/modules/shared/config/emacs/init.el via emacsclient
+# @raycast.description open ~/.config/nix/modules/shared/config/emacs/init.el via emacsclient
 
-FILE="$HOME/nixos-config/modules/shared/config/emacs/init.el"
+FILE="$CONFIG_DIR/nix/modules/shared/config/emacs/init.el"
 
 /Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"

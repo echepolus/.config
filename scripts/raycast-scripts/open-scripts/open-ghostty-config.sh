@@ -8,8 +8,8 @@
 # Optional parameters:
 # @raycast.icon /Users/alexeykotomin/.local/share/img/icons/nix.png
 # @raycast.packageName nixos-config
-# @raycast.description open ~/nixos-config/modules/shared/config/ghostty/config via emacsclient
+# @raycast.description open ~/.config/nix/modules/shared/config/ghostty/config via emacsclient
 
-FILE="$HOME/nixos-config/modules/shared/config/ghostty/config"
+FILE="$CONFIG_DIR/nix/modules/shared/config/ghostty/config"
 
-/users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"
+/Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"

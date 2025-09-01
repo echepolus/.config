@@ -1,4 +1,5 @@
 /*
+.DS_Store
 !.gitignore
 !/kanata/
 !/scripts/
@@ -9,3 +10,5 @@
 !/yazi/
 !/aerospace/
 !/jankybordersrc/
+!/nix/
+
