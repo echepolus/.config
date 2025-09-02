@@ -1080,8 +1080,6 @@ These settings keep emacs from littering the filesystem with buffer backups. The
 
 ** Managing projects
 *** Projectile
-Projectile enables me to organize projects with a killer grep interface.
-
 #+NAME: projectile
 #+BEGIN_SRC emacs-lisp
   (use-package ripgrep)
@@ -1127,6 +1125,13 @@ Projectile enables me to organize projects with a killer grep interface.
   (global-set-key (kbd "C-c C-s") 'counsel-projectile-rg)
   (global-set-key (kbd "C-c s p") 'my/swiper-project)
   (global-set-key (kbd "C-c s a") 'swiper-all)
+#+END_SRC
+
+*** Perspective
+#+NAME: perspective 
+#+BEGIN_SRC emacs-lisp
+  (setq persp-mode-prefix-key (kbd "C-x j"))
+  (persp-mode 1)
 #+END_SRC
 
 ** Writing

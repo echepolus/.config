@@ -901,6 +901,9 @@ Note the weekly scope of the command's precision.")
 (global-set-key (kbd "C-c s p") 'my/swiper-project)
 (global-set-key (kbd "C-c s a") 'swiper-all)
 
+(setq persp-mode-prefix-key (kbd "C-x j"))
+(persp-mode 1)
+
 (when (system-is-mac)
   (with-eval-after-load "ispell"
     (setq ispell-program-name (executable-find "hunspell"))

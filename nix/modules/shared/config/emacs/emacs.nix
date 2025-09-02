@@ -65,6 +65,7 @@ let
     treemacs-nerd-icons
     dired-ranger
     dired-collapse
+    perspective
     
     # Project management
     projectile

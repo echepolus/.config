@@ -10,6 +10,6 @@
 # @raycast.packageName nixos-config
 # @raycast.description open ~/.config/nix/modules/shared/packages.nix via emacsclient
 
-FILE="$CONFIG_DIR/nix/modules/shared/packages.nix"
+FILE="/Users/alexeykotomin/.config/nix/modules/shared/packages.nix"
 
-/Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"
+/Users/alexeykotomin/.config/scripts/raycast-scripts/open-scripts/emacsclient -n "$FILE"

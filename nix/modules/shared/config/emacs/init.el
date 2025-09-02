@@ -220,3 +220,38 @@
   (when (file-exists-p custom-config)
     (load custom-config)
     (message "Loaded custom.el for customize interface.")))
+
+
+;; -------------------------
+;; Умная авто-подгрузка local.el и custom.el с префиксом ak
+;; -------------------------
+(defun ak/smart-reload-config (file)
+  "Smart reload for local.el or custom.el.
+Reloads the file safely without clobbering existing state."
+  (when (file-exists-p file)
+    (condition-case err
+        (progn
+          ;; Сохраняем текущее состояние Evil и ключевых пакетов
+          (let ((evil-was-enabled (fboundp 'evil-mode))
+                (leader-keys (if (fboundp 'general-create-definer) 'ak/leader-keys nil)))
+            (load-file file)
+            ;; Восстанавливаем evil-mode, если был включен
+            (when evil-was-enabled
+              (evil-mode 1)))
+          (message "Smart reloaded %s successfully." file))
+      (error (message "Error reloading %s: %s" file (error-message-string err))))))
+
+(defun ak/auto-reload-config-on-save ()
+  "Reload local.el or custom.el when saved in a smart way."
+  (let ((fname (buffer-file-name)))
+    (when fname
+      (cond
+       ((string-equal (file-truename fname)
+                      (expand-file-name "local.el" user-emacs-directory))
+        (ak/smart-reload-config fname))
+       ((string-equal (file-truename fname)
+                      (expand-file-name "custom.el" user-emacs-directory))
+        (ak/smart-reload-config fname))))))
+
+;; Хук для автоматической перезагрузки при сохранении
+(add-hook 'after-save-hook #'ak/auto-reload-config-on-save)

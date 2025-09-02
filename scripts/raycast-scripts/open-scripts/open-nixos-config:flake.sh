@@ -10,6 +10,6 @@
 # @raycast.packageName nixos-config
 # @raycast.description open ~/.config/nix/flake.nix via emacsclient
 
-FILE="$CONFIG_DIR/nix/flake.nix"
+FILE="/Users/alexeykotomin/.config/nix/flake.nix"
 
-/Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"
+/Users/alexeykotomin/.config/scripts/raycast-scripts/open-scripts/emacsclient -n "$FILE"

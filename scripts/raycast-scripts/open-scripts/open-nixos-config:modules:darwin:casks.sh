@@ -10,6 +10,6 @@
 # @raycast.packageName nixos-config
 # @raycast.description open ~/.config/nix/modules/darwin/casks.nix via emacsclient
 
-FILE="$CONFIG_DIR/nix/modules/darwin/casks.nix"
+FILE="/Users/alexeykotomin/.config/nix/modules/darwin/casks.nix"
 
-/Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"
+/Users/alexeykotomin/.config/scripts/raycast-scripts/open-scripts/emacsclient -n "$FILE"

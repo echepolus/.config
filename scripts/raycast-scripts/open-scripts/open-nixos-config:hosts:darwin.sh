@@ -10,6 +10,6 @@
 # @raycast.packageName nixos-config
 # @raycast.description open ~/.config/nix/hosts/darwin/default.nix via emacsclient
 
-FILE="$CONFIG_DIR/nix/hosts/darwin/default.nix"
+FILE="/Users/alexeykotomin/.config/nix/hosts/darwin/default.nix"
 
-/Users/alexeykotomin/.local/share/bin/emacsclient -n "$FILE"
+/Users/alexeykotomin/.config/scripts/raycast-scripts/open-scripts/emacsclient -n "$FILE"
