@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# Safe Kanata startup script
+# Ensures proper startup order and handles port conflicts
+#
+
+set -euo pipefail
+
+KANATA_PORT=10000
+KANATA_CONFIG="/Users/alexeykotomin/.config/kanata/config.kbd"
+KANATA_BIN="/Users/alexeykotomin/.nix-profile/bin/kanata"
+LOG_FILE="/var/log/kanata-startup.log"
+
+log() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') $*" | tee -a "$LOG_FILE"
+}
+
+# Kill any existing kanata processes on our port
+if lsof -i :"$KANATA_PORT" >/dev/null 2>&1; then
+    log "Port $KANATA_PORT is in use, killing existing processes"
+    lsof -ti :"$KANATA_PORT" | xargs kill -9 2>/dev/null || true
+    sleep 2
+fi
+
+# Kill any zombie kanata processes
+if pgrep -f "kanata.*config.kbd" >/dev/null 2>&1; then
+    log "Found existing kanata processes, terminating them"
+    pkill -f "kanata.*config.kbd" 2>/dev/null || true
+    sleep 2
+fi
+
+# Ensure Karabiner VirtualHIDDevice services are ready
+log "Checking Karabiner VirtualHIDDevice services"
+
+# Start VirtualHIDDevice Manager if not running
+if ! launchctl print system/com.example.karabiner-vhidmanager >/dev/null 2>&1; then
+    log "Starting Karabiner VirtualHIDDevice Manager"
+    launchctl bootstrap system /Library/LaunchDaemons/com.example.karabiner-vhidmanager.plist
+fi
+
+# Give services time to initialize
+sleep 5
+
+# Verify system extension is active
+if ! systemextensionsctl list | grep -q "org.pqrs.Karabiner-DriverKit-VirtualHIDDevice.*activated"; then
+    log "ERROR: Karabiner system extension not activated"
+    exit 1
+fi
+
+log "Starting Kanata"
+exec "$KANATA_BIN" -c "$KANATA_CONFIG" --port "$KANATA_PORT"
