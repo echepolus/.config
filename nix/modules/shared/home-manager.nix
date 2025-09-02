@@ -396,9 +396,11 @@ in
 
   sketchybar = {
     enable = true;
-    configType = "lua";
-    sbarLuaPackage = pkgs.sbarlua;
-    luaPackage = pkgs.lua5_4;
+    # configType = "lua";
+    configType = "bash";
+    includeSystemPath = true;
+    # sbarLuaPackage = pkgs.sbarlua;
+    # luaPackage = pkgs.lua5_4;
     # config = {
     #   source = "/Users/${user}/.config/sketchybar/";
     #   recursive = true;
@@ -407,7 +409,12 @@ in
       pkgs.sketchybar-app-font
       pkgs.switchaudio-osx
       pkgs.nowplaying-cli
-      # pkgs.aerospace
+      pkgs.aerospace
     ];
+    service = {
+      enable = true;
+      errorLogFile = "/Users/${user}/.config/sketchybar/logs/sketchybar.err.log";
+      outLogFile = "/Users/${user}/.config/sketchybar/logs/sketchybar.out.log";
+    };
   };
 }
