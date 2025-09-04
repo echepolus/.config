@@ -3,7 +3,7 @@
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title 🔄 Restart Kanata
-# @raycast.mode inline
+# @raycast.mode fullOutput
 
 # Optional parameters:
 # @raycast.icon /Users/alexeykotomin/.config/kanata/icons/default.ico
@@ -27,7 +27,7 @@ if ! cli_password=$(security find-generic-password -w -s "$pw_name" -a "$pw_acco
   exit 1
 fi
 
-if echo "$cli_password" | sudo -S -k launchctl stop com.example.kanata >/dev/null 2>&1; then
+if echo "$cli_password" | sudo -S -k launchctl stop org.nixos.kanata >/dev/null 2>&1; then
   echo "✅ Kanata restarted successfully!"
 else
   echo "❌ Failed to start Kanata."

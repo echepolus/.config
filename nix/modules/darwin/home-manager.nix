@@ -28,6 +28,7 @@ in
     casks = pkgs.callPackage ./casks.nix {};
     brews = [
       # "kanata"
+      "speedtest-cli"
     ];
     masApps = {
       #"1password" = 1333542190;

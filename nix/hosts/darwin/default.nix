@@ -8,6 +8,7 @@ in
   imports = [
     ../../modules/darwin/secrets.nix
     ../../modules/darwin/home-manager.nix
+    ../../modules/darwin/kanata.nix
     ../../modules/shared
      agenix.darwinModules.default
   ];
@@ -49,6 +50,14 @@ in
 
   # Отпечаток пальца вместо пароля везде
   security.pam.services.sudo_local.touchIdAuth = true;
+
+  # Enable kanata keyboard remapping daemon
+  services.kanata = {
+    enable = true;
+    configFile = "/Users/${user}/.config/kanata/config.kbd";
+    # Optional: add extra args like logging level
+    # extraArgs = [ "--log" "info" ];
+  };
     
   system = {
     checks.verifyNixPath = false;

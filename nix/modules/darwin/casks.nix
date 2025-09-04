@@ -48,11 +48,7 @@
   # O
   "outline-manager"
 
-  # H
-  "homerow"
-
   # R
 
   # S
-
 ]

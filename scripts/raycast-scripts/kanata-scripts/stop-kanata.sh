@@ -27,7 +27,7 @@ if ! cli_password=$(security find-generic-password -w -s "$pw_name" -a "$pw_acco
   exit 1
 fi
 
-if echo "$cli_password" | sudo -S -k launchctl bootout system /Library/LaunchDaemons/com.example.kanata.plist >/dev/null 2>&1; then
+if echo "$cli_password" | sudo -S -k launchctl bootout system /Library/LaunchDaemons/org.nixos.kanata.plist >/dev/null 2>&1; then
   echo "✅ Kanata stopped successfully!"
 else
   echo "❌ Failed to stop Kanata."

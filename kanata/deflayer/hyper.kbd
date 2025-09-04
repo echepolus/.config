@@ -12,7 +12,7 @@
 (deflayer hyper
   _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     _     _     _     _     _     @hyo  _
-  _     _     _     _     _           _     _     _     _     _
+  _     _     _     _     _           _     @hypj _     _     _
   _     _     _     _     @hyb  _     _     _     _     _     _
   _           _                 fn                _            
 )
@@ -40,6 +40,7 @@
   ;; --- General ---
   hyo (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held app))
   hyb (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held br))
+  hypj (cmd bash -c "/Users/alexeykotomin/.nix-profile/bin/aerospace focus left")
 
   ;; --- Application shortcuts ---
   anki   (cmd "open" "-a" "Anki")

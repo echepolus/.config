@@ -48,4 +48,4 @@ if ! systemextensionsctl list | grep -q "org.pqrs.Karabiner-DriverKit-VirtualHID
 fi
 
 log "Starting Kanata"
-exec "$KANATA_BIN" -c "$KANATA_CONFIG" --port "$KANATA_PORT"
+exec "$KANATA_BIN" -c "$KANATA_CONFIG" --port "$KANATA_PORT" >/dev/null 2>&1

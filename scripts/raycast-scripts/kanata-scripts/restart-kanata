@@ -10,7 +10,7 @@ echo "🔄 Restarting Kanata service..."
 
 # Stop the service
 echo "Stopping Kanata daemon..."
-sudo launchctl bootout system/com.example.kanata 2>/dev/null || true
+sudo launchctl bootout system/org.nixos.kanata 2>/dev/null || true
 
 # Kill any remaining processes
 echo "Cleaning up any remaining processes..."
@@ -21,12 +21,12 @@ sleep 3
 
 # Restart the service
 echo "Starting Kanata daemon..."
-sudo launchctl bootstrap system /Library/LaunchDaemons/com.example.kanata.plist
+sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist >/dev/null 2>&1
 
 # Wait and check status
 sleep 5
 echo "Checking status..."
-if sudo launchctl print system/com.example.kanata | grep -q "state = running"; then
+if sudo launchctl print system/org.nixos.kanata | grep -q "state = running"; then
     echo "✅ Kanata is now running successfully!"
     ps aux | grep "[k]anata.*config.kbd" || echo "Process details not found"
 else
