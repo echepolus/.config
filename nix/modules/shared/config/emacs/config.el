@@ -744,6 +744,7 @@ Note the weekly scope of the command's precision.")
 (defun dl/evil-hook ()
   (dolist (mode '(eshell-mode
                   git-rebase-mode
+                  dashboard-mode
                   term-mode))
   (add-to-list 'evil-emacs-state-modes mode))) ;; no evil mode for these modes
 
@@ -864,10 +865,16 @@ Note the weekly scope of the command's precision.")
     ((projectile-completion-system 'ivy))
   :bind-keymap
 	    ("C-c p" . projectile-command-map)
-  :init
+    :init
     (setq projectile-enable-caching t)
     (setq projectile-sort-order 'recently-active)
     (setq projectile-switch-project-action #'projectile-dired))
+
+    ;; Пути к кэшу и списку проектов в ~/.config/emacs/
+    (setq projectile-cache-file
+      (expand-file-name "projectile.cache" ak/config-dir))
+    (setq projectile-known-projects-file
+      (expand-file-name "projectile-bookmarks.eld" ak/config-dir))
 
 (setq projectile-project-root-files-bottom-up '("package.json" ".projectile" ".project" ".git"))
 (setq projectile-ignored-projects '("~/.emacs.d/"))

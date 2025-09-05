@@ -70,6 +70,7 @@
             (lambda (_frame)
               (exec-path-from-shell-initialize))))
 
+(defvar ak/config-dir (expand-file-name "~/.config/emacs/"))
 ;; -------------------------
 ;; Window and UI Setup
 ;; -------------------------
@@ -206,52 +207,64 @@
        :keymaps '(normal visual emacs)
        :prefix ","))))
 
+;; ------------------------------------
+;; Храним все служебные файлы в ~/.config/emacs/
+;; ------------------------------------
+
+;; bookmarks
+(setq bookmark-default-file (expand-file-name "bookmarks" ak/config-dir))
+(setq bookmark-save-flag 1) ;; Автосохранение закладок
+
+;; projectile (если используешь)
+(when (boundp 'projectile-cache-file)
+  (setq projectile-cache-file (expand-file-name "projectile.cache" ak/config-dir)))
+(when (boundp 'projectile-known-projects-file)
+  (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" ak/config-dir)))
+
 ;; -------------------------
 ;; Load local overrides and custom settings
 ;; -------------------------
-(let ((local-config (expand-file-name "local.el" user-emacs-directory))
-      (custom-config (expand-file-name "custom.el" user-emacs-directory)))
-  ;; Подгружаем local.el, если есть
-  (when (file-exists-p local-config)
-    (load local-config)
-    (message "Loaded local.el overrides."))
 
-  ;; Подгружаем custom.el, если есть
-  (when (file-exists-p custom-config)
-    (load custom-config)
-    (message "Loaded custom.el for customize interface.")))
+(defvar ak/local-config (expand-file-name "local.el" ak/config-dir))
+(defvar ak/custom-config (expand-file-name "custom.el" ak/config-dir))
 
+;; Подгружаем local.el, если есть
+(when (file-exists-p ak/local-config)
+  (load ak/local-config)
+  (message "Loaded local.el overrides."))
+
+;; Подгружаем custom.el, если есть
+(when (file-exists-p ak/custom-config)
+  (load ak/custom-config)
+  (message "Loaded custom.el for customize interface."))
 
 ;; -------------------------
 ;; Умная авто-подгрузка local.el и custom.el с префиксом ak
 ;; -------------------------
 (defun ak/smart-reload-config (file)
-  "Smart reload for local.el or custom.el.
-Reloads the file safely without clobbering existing state."
+  "Smart reload for local.el or custom.el."
   (when (file-exists-p file)
     (condition-case err
         (progn
-          ;; Сохраняем текущее состояние Evil и ключевых пакетов
           (let ((evil-was-enabled (fboundp 'evil-mode))
                 (leader-keys (if (fboundp 'general-create-definer) 'ak/leader-keys nil)))
             (load-file file)
-            ;; Восстанавливаем evil-mode, если был включен
             (when evil-was-enabled
               (evil-mode 1)))
           (message "Smart reloaded %s successfully." file))
-      (error (message "Error reloading %s: %s" file (error-message-string err))))))
+      (error (message "Error reloading %s: %s"
+                      file (error-message-string err))))))
 
 (defun ak/auto-reload-config-on-save ()
-  "Reload local.el or custom.el when saved in a smart way."
+  "Reload local.el or custom.el from ~/.config/emacs/ when saved."
   (let ((fname (buffer-file-name)))
     (when fname
       (cond
-       ((string-equal (file-truename fname)
-                      (expand-file-name "local.el" user-emacs-directory))
+       ((string-equal (file-truename fname) ak/local-config)
         (ak/smart-reload-config fname))
-       ((string-equal (file-truename fname)
-                      (expand-file-name "custom.el" user-emacs-directory))
+       ((string-equal (file-truename fname) ak/custom-config)
         (ak/smart-reload-config fname))))))
 
 ;; Хук для автоматической перезагрузки при сохранении
 (add-hook 'after-save-hook #'ak/auto-reload-config-on-save)
+
