@@ -43,7 +43,7 @@ with pkgs; [
   du-dust # Disk usage analyzer
 
   # E
-  espanso # Cross-platform Text Expander written in Rust
+#  espanso # Cross-platform Text Expander written in Rust
 
   # F
   fd # Fast find alternative

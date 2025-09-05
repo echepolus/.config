@@ -14,6 +14,7 @@
   "syncthing-app"
   "leader-key"
   "input-source-pro"
+  "espanso"
 
   # Entertainment Tools
   "vlc"
