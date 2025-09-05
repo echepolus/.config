@@ -19,8 +19,7 @@
 # toggle_key: ALT
 # You can also disable the toggle key completely with
 # toggle_key: OFF
-search_shortcut: Some("ALT+CTRL+SPACE")
-
+search_shortcut: ALT+CTRL+SPACE
 # --- Injection Backend
 
 # Espanso supports multiple ways of injecting text into applications. Each of
