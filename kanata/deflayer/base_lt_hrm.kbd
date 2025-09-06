@@ -7,7 +7,7 @@
   q    w    e    r    t   @hy   y    u    i    o    p
   a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
   z    x    c    v    b    `    n    m    ,    .    /
-  fn        @sft          @nav            @sym
+  @fnl      @sft          @nav            @sym
 )
 
 ;; Timing variables are defined in `kanata.kbd` file.
@@ -31,6 +31,8 @@
 
   hy (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
 
+  fnl (tap-hold 200 200 fn (layer-toggle fn))
+
   ;; macOS function key glyphs
   mc C-up ;; Mission Control
   sls M-spc ;; Spotlight Search
@@ -38,4 +40,13 @@
   dnd S-C-A-M-f6 ;; Do Not Disturb
 )
 
+;; macOS function key glyphs
+(deflayer fn
+  f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+  _    _    _    _    _     _     _    _    _    _    _
+  _    _    _    _    _     _     _    _    _    _    _
+  _    _    _    _    _           _    _    _    _    _
+  _    _    _    _    _     _     _    _    _    _    _
+  _         _               _               _          
+)
 ;; vim: set ft=lisp
