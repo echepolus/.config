@@ -8,6 +8,7 @@
   # Communication Tools
   "zoom"
   "ayugram"
+  "volt"
 
   # Utility Tools
   "pearcleaner"
