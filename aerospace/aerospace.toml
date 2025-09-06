@@ -276,75 +276,71 @@ run = 'move-node-to-workspace B'
 # --- 🔧 System Administration ---
 [[on-window-detected]]
 if.app-id = 'com.apple.AccessibilityInspector'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.FontBook'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Passwords'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.shortcuts'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
-run = ['layout tiling', 'move-node-to-workspace S']
+run = ['layout floating', 'move-node-to-workspace 0']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Terminal'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.brnbw.Leader-Key'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.github.xor-gate.syncthing-macosx'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.alienator88.Pearcleaner'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.termius-dmg.mac'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.superultra.Homerow'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'com.zenangst.Keyboard-Cowboy'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-EventViewer'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-id = 'site.kaylees.Wipr2'
-run = 'move-node-to-workspace S'
-
-[[on-window-detected]]
-if.app-id = 'com.objective-see.lulu.app'
-run = ['layout floating', 'move-node-to-workspace S']
+run = 'move-node-to-workspace 0'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Outline'
-run = ['layout floating', 'move-node-to-workspace S']
+run = ['layout floating', 'move-node-to-workspace 0']
 
 # --- ✈️ Tele︙Communication ---
 [[on-window-detected]]
