@@ -1,4 +1,5 @@
 ;; (deflayer [NAME] 
+;;   _ _ _ _ _ _ _ _ _ _ _ _ _
 ;;   _    _    _    _    _     _     _    _    _    _    _
 ;;   _    _    _    _    _     _     _    _    _    _    _
 ;;   _    _    _    _    _           _    _    _    _    _
@@ -10,6 +11,7 @@
 
 ;; --- Hyper Layer (CapsLock + keys) ---
 (deflayer hyper
+  _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     _     _     _     _     _     @hyo  _
   _     _     _     _     _           _     @hypj _     _     _
@@ -19,6 +21,7 @@
 
 ;; --- Applications Layer (Hyper + o) ---
 (deflayer app 
+  _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
   _     @warp @emcs _     @ayug _     _     _     _     _     _
   @anki @sfri _     @find @ghst       _     _     _     _     _
@@ -28,6 +31,7 @@
 
 ;; --- Browser Layer (Hyper + b) ---
 (deflayer br 
+  _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
   _     _     @edcs @rddt _     _     _     _     _     _     _
   _     _     _     _     _           _     _     _     @lsj  _

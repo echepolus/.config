@@ -1,6 +1,8 @@
 ;; Base layer: layer-taps under the thumbs + home-row mods on SDF and JKL
 
 (deflayer base
+;; brdn brup @mc @sls @dtn @dnd prev pp  next mute vold volu
+   🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
   _    _    _    _    _    _    _    _    _    _    _
   q    w    e    r    t   @hy   y    u    i    o    p
   a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
@@ -28,6 +30,12 @@
   ll (tap-hold $tap_timeout $long_hold_timeout l rmet)
 
   hy (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
+
+  ;; macOS function key glyphs
+  mc C-up ;; Mission Control
+  sls M-spc ;; Spotlight Search
+  dtn S-C-A-M-f5 ;; Dictation
+  dnd S-C-A-M-f6 ;; Do Not Disturb
 )
 
 ;; vim: set ft=lisp
