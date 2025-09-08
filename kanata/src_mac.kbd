@@ -1,4 +1,4 @@
-;; `defsrc` defines the keys that will be intercepted by kanata.
+;; angle-mod: the ISO key (a.k.a. LSGT or 102 key) becomes Z
 
 (defsrc
   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12

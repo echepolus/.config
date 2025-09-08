@@ -4,11 +4,12 @@
 ;; brdn brup @mc @sls @dtn @dnd prev pp  next mute vold volu
    🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
    _    _    _    _    _    _    _    _    _    _    _
-   q    w    e    r    t   @hy   y    u    i    o    p
-   a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
-   z    x    c    v    b    `    n    m    ,    .    /
+   q    w    f    p    b   @hy   j    l    u    y    ;
+   a    @rr  @ss  @tt  g         m    @nn  @ee  @ii  o
+   z    x    c    d    v    <    k    h    ,    .    /
    @fnl      @sft          @nav            @sym
 )
+
 
 ;; Timing variables are defined in `kanata.kbd` file.
 
@@ -22,12 +23,12 @@
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
 
   ;; Home-row mods
-  ss (tap-hold $tap_timeout $long_hold_timeout s lmet)
-  dd (tap-hold $tap_timeout $long_hold_timeout d lctl)
-  ff (tap-hold $tap_timeout $long_hold_timeout f lalt)
-  jj (tap-hold $tap_timeout $long_hold_timeout j lalt)
-  kk (tap-hold $tap_timeout $long_hold_timeout k rctl)
-  ll (tap-hold $tap_timeout $long_hold_timeout l rmet)
+  rr (tap-hold $tap_timeout $long_hold_timeout r lmet)
+  ss (tap-hold $tap_timeout $long_hold_timeout s lctl)
+  tt (tap-hold $tap_timeout $long_hold_timeout t lalt)
+  nn (tap-hold $tap_timeout $long_hold_timeout n lalt)
+  ee (tap-hold $tap_timeout $long_hold_timeout e rctl)
+  ii (tap-hold $tap_timeout $long_hold_timeout i rmet)
 
   hy (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
 

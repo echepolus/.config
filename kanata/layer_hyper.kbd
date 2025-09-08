@@ -16,8 +16,8 @@
 (deflayer hyper
   _ _ _ _ _ _ _ _ _ _ _ _ 
   @aer1 @aer2 @aer3 @aer4 @aer5 _  _     _     _     _     @aer0  
-  _     _     @aerf @aerp @aerb _  @ajh  @ajj  @ajk  @ajl  @aserv
-  _     @aerr @hys  @aert @aerg    @aerh @aerj @aerk @aerl @hyo
+  @aerq @aerw @aerf @aerp @aerb _  @ajh  @ajj  @ajk  @ajl  @aserv
+  @aera @aerr @hys  @aert @aerg    @aerh @aerj @aerk @aerl @hyo
   @aerz @aerx @aerc _     @aerv _  _     _     @aer- @aer+ _
   _           lsft              fn             _            
 )
@@ -50,6 +50,7 @@
   aer4 C-A-M-4
   aer5 C-A-M-5
   aer0 C-A-M-0
+  aera (cmd "open" "-a" "Anki")
   aerf C-A-M-f
   aerp C-A-M-p
   aerb C-A-M-b
@@ -57,7 +58,7 @@
   aert C-A-M-t
   aerg C-A-M-g
   aerz C-A-M-z
-  aerx C-A-M-x
+  aerx C-A-M-e
   aerc C-A-M-c
   aerv C-A-M-v
   ;; --- Aerospace motion ---
@@ -66,14 +67,16 @@
   aerk C-A-M-up
   aerl C-A-M-rght
   ;; --- Aerospace join ---
-  ajh C-A-y
-  ajj C-A-u
-  ajk C-A-i
-  ajl C-A-o
+  ajh C-A-lft
+  ajj C-A-down
+  ajk C-A-up
+  ajl C-A-rght
   ;; --- Aerospace misc ---
   aserv C-A-p
   aer+ C-A-M-eql
   aer- C-A-M-min
+  aerq M-q
+  aerw M-w
 
   ;; --- General ---
   hyo (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held app))
