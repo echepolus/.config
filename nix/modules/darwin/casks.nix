@@ -8,7 +8,6 @@
   # Communication Tools
   "zoom"
   "ayugram"
-  "volt"
 
   # Utility Tools
   "pearcleaner"
@@ -16,6 +15,7 @@
   "leader-key"
   "input-source-pro"
   "espanso"
+  "colemak-dh"
 
   # Entertainment Tools
   "vlc"
@@ -43,7 +43,7 @@
   "jan"
 
   # K
-  "keycastr"
+  # "keycastr"
 
   # L
 

@@ -10,42 +10,75 @@
 ;; === HYPER LAYER CONFIGURATION ===
 
 ;; --- Hyper Layer (CapsLock + keys) ---
+;; hjkl = mnei in Colemak
+;; aj~hjlk~ - join windows
+
 (deflayer hyper
   _ _ _ _ _ _ _ _ _ _ _ _ 
-  _     _     _     _     _     _     _     _     _     _     _
-  _     _     _     _     _     _     _     _     _     @hyo  _
-  _     _     _     _     _           _     @hypj _     _     _
-  _     _     _     _     @hyb  _     _     _     _     _     _
-  _           _                 fn                _            
+  @aer1 @aer2 @aer3 @aer4 @aer5 _  _     _     _     _     @aer0  
+  _     _     @aerf @aerp @aerb _  @ajh  @ajj  @ajk  @ajl  @aserv
+  _     @aerr @hys  @aert @aerg    @aerh @aerj @aerk @aerl @hyo
+  @aerz @aerx @aerc _     @aerv _  _     _     @aer- @aer+ _
+  _           lsft              fn             _            
 )
 
 ;; --- Applications Layer (Hyper + o) ---
 (deflayer app 
   _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
-  _     @warp @emcs _     @ayug _     _     _     _     _     _
-  @anki @sfri _     @find @ghst       _     _     _     _     _
-  @zen  _     @cgpt _     @book _     _     _     _     _     _
+  _     _     _     _     @book _     _     _     _     _     _
+  @anki _     @sfri @gram @ghst       _     _     @emcs _     _
+  @zen  _     @cgpt _     _     _     _     _     _     _     _
   _           _                 _                 _            
 )
 
-;; --- Browser Layer (Hyper + b) ---
-(deflayer br 
+;; --- Safari Layer (Hyper + s) ---
+(deflayer safari
   _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
-  _     _     @edcs @rddt _     _     _     _     _     _     _
-  _     _     _     _     _           _     _     _     @lsj  _
+  _     _     _     _     _     _     _     @lsj  _     _     _
+  _     @rddt _     _     _           _     _     @edcs _     _
   _     _     _     _     _     _     _     _     _     _     _
   _           _                 _                 _            
 )
 
 (defalias
+  ;; --- Aerospace ---
+  aer1 C-A-M-1
+  aer2 C-A-M-2
+  aer3 C-A-M-3
+  aer4 C-A-M-4
+  aer5 C-A-M-5
+  aer0 C-A-M-0
+  aerf C-A-M-f
+  aerp C-A-M-p
+  aerb C-A-M-b
+  aerr C-A-M-r
+  aert C-A-M-t
+  aerg C-A-M-g
+  aerz C-A-M-z
+  aerx C-A-M-x
+  aerc C-A-M-c
+  aerv C-A-M-v
+  ;; --- Aerospace motion ---
+  aerh C-A-M-lft
+  aerj C-A-M-down
+  aerk C-A-M-up
+  aerl C-A-M-rght
+  ;; --- Aerospace join ---
+  ajh C-A-y
+  ajj C-A-u
+  ajk C-A-i
+  ajl C-A-o
+  ;; --- Aerospace misc ---
+  aserv C-A-p
+  aer+ C-A-M-eql
+  aer- C-A-M-min
 
   ;; --- General ---
   hyo (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held app))
-  hyb (tap-hold-press $tap_timeout $hold_timeout XX (layer-while-held br))
-  hypj (cmd bash -c "/Users/alexeykotomin/.nix-profile/bin/aerospace focus left")
-
+  hys (tap-hold-press $tap_timeout $hold_timeout C-A-M-s (layer-while-held safari))
+ 
   ;; --- Application shortcuts ---
   anki   (cmd "open" "-a" "Anki")
   book   (cmd "open" "-a" "Books")
@@ -54,11 +87,10 @@
   find   (cmd "open" "-a" "Finder")
   ghst   (cmd "open" "-a" "Ghostty")
   sfri   (cmd "open" "-a" "Safari")
-  ayug   (cmd "open" "-a" "AyuGram")
-  warp   (cmd "open" "-a" "Warp")
+  gram   (cmd "open" "-a" "AyuGram")
   zen    (cmd "open" "-a" "Zen")
 
-  ;; Browser shortcuts
+  ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
   lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")
   edcs   (cmd "sh" "-c" "open 'https://emacsdocs.org'")

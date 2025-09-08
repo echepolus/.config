@@ -31,7 +31,7 @@
 
   hy (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
 
-  fnl (tap-hold 200 200 fn (layer-toggle fn))
+  fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
 
   ;; macOS function key glyphs
   mc C-up ;; Mission Control
@@ -41,7 +41,7 @@
 )
 
 ;; macOS function key glyphs
-(deflayer fn
+(deflayer fnlayer
   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
   _    _    _    _    _     _     _    _    _    _    _
   _    _    _    _    _     _     _    _    _    _    _

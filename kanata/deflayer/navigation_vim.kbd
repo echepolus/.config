@@ -8,11 +8,11 @@
 
 (deflayer navigation
   _ _ _ _ _ _ _ _ _ _ _ _ 
-  M-1  M-2  M-3  M-4  M-5  lrld M-6  M-7  M-8  M-9  M-0
-  @pad @cls bck  fwd  XX    _   home pgdn pgup end  @run
-  @all @sav S-tab tab fn        lft  down up   rght @fun
-  @ndo @cut @cpy @pst XX    _   @mwl @mwd @mwu @mwr XX
-  _         del             _             esc
+  M-1  M-2  M-3  M-4  M-5     lrld M-6  M-7  M-8  M-9  M-0
+  @pad @cls @tbl @tbr @airtab  fn  home pgdn pgup end  @airmax
+  @all @sav S-tab tab @crctab      lft  down up   rght @fun
+  @ndo @cut @cpy @pst M-[ M-]      @mwl @mwd @mwu @mwr @airgee
+  _         del                 _            esc
 )
 
 ;; NumPad
@@ -46,6 +46,15 @@
   mwd (mwheel-down  50 120)
   mwl (mwheel-left  50 120)
   mwr (mwheel-right 50 120)
+
+  tbl M-A-left
+  tbr M-A-right
+  crctab S-M-tab
+
+  ;; Aerospace
+  airtab C-A-M-tab
+  airmax C-A-M-e
+  airgee C-A-M-g
 )
 
 ;; vim: set ft=lisp

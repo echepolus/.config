@@ -48,7 +48,7 @@ matches:
     label: "o3 address"
     replace: "o3shopdgo2t74jpwnaowiq6ms2z47udy774aznx5xakto4fexkvgykid.onion"
   
-  - triggers: ["!o3login"]
+  - triggers: ["!o3log"]
     label: "o3 login"
     replace: "k6tt75"
   
