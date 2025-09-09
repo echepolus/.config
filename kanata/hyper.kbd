@@ -27,7 +27,7 @@
   _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     @book _     _     _     _     _     _
-  @anki _     @sfri @gram @ghst       _     _     @emcs _     _
+  @anki @tor  @sfri @gram @ghst       _     _     @emcs _     _
   @zen  _     @cgpt _     _     _     _     _     _     _     _
   _           _                 _                 _            
 )
@@ -94,7 +94,7 @@
   sfri   (cmd "open" "-a" "Safari")
   gram   (cmd "open" "-a" "AyuGram")
   zen    (cmd "open" "-a" "Zen")
-
+  tor    (cmd "open" "-a" "Tor Browser")
   ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
   lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")

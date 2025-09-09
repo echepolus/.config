@@ -44,15 +44,15 @@ matches:
   
 
 
-  - triggers: ["!o3tor"]
+  - triggers: ["!o3a"]
     label: "o3 address"
     replace: "o3shopdgo2t74jpwnaowiq6ms2z47udy774aznx5xakto4fexkvgykid.onion"
   
-  - triggers: ["!o3log"]
+  - triggers: ["!o3l"]
     label: "o3 login"
     replace: "k6tt75"
   
-  - triggers: ["!o3pass"]
+  - triggers: ["!o3p"]
     label: "o3 password"
     replace: "YHMi145PCq6a-2Rz5iK5Gg04FCWJjnY8UABKMFJyZX8"
   
