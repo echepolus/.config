@@ -1,0 +1,49 @@
+# =========================
+# Конфиг Clash Verge Rev
+# =========================
+
+#dns:
+#  enable: true
+#  enhanced-mode: fake-ip
+#  nameserver:
+#    - 1.1.1.1
+#    - 8.8.8.8
+
+proxies:
+  - name: "VLESS-Reality (MyVPS)"
+    type: vless
+    server: 216.144.235.186
+    port: 443
+    uuid: mac1711
+    flow: xtls-rprx-vision
+    network: tcp
+    udp: true
+    tls: true
+    client-fingerprint: chrome
+    servername: google.com
+    xudp: false
+    reality-opts:
+      public-key: DN1SIu_-P3h3zFo8HQnHkMEZzP_Vg7LWIHuXpBwRfwQ
+      short-id: d9acaded7bfd
+    skip-cert-verify: true
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - "VLESS-Reality (MyVPS)"
+      - "DIRECT"
+
+rules:
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.com,DIRECT
+  - DOMAIN-SUFFIX,appstore.com,DIRECT
+  - DOMAIN-SUFFIX,appleid.apple.com,DIRECT
+  - DOMAIN-SUFFIX,pure.app,DIRECT
+  - DOMAIN-SUFFIX,thepure.app,DIRECT
+  - DOMAIN-SUFFIX,gosuslugi.ru,DIRECT
+  - DOMAIN-SUFFIX,vk.com,DIRECT
+  - DOMAIN-SUFFIX,vkusvill.ru,DIRECT
+  - DOMAIN-SUFFIX,zoom.us,DIRECT
+  - MATCH,PROXY
