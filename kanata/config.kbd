@@ -1,32 +1,198 @@
-;; Timing variables for tap-hold effects.
-(defvar
-  ;; The key must be pressed twice in 200ms to enable repetitions.
-  tap_timeout 200
-  ;; The key must be held 200ms to become a layer shift.
-  hold_timeout 200
-  ;; Slightly higher value for typing keys, to prevent unexpected hold effect.
-  long_hold_timeout 300
+;; ======================================================================
+;; =====  SOURCE  =======================================================
+;; ======================================================================
+(defsrc
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  1    2    3    4    5   bspc   6    7    8    9    0
+  q    w    e    r    t   caps   y    u    i    o    p
+  a    s    d    f    g          h    j    k    l    ;
+  `    z    x    c    v    b     n    m    ,    .    /
+  fn        lmet          spc              rmet
 )
 
-;; Basic configuration
-;;---------------------------------------------------
-(include src_mac.kbd)  
-(include layer_base.kbd)  
-(include layer_sym.kbd)  
-(include layer_nav.kbd)  
-(include layer_hyper.kbd)
-(include alias.kbd)
-;;---------------------------------------------------
+;; ======================================================================
+;; =====  SETTINGS  =====================================================
+;; ======================================================================
+(defvar
+  ;; REPETITIONS: the key must be pressed twice in 200ms
+  tap_timeout 200
 
-;; Extra configuration
-;; You should not modify this, only if you need to.
+  ;; SHIFT LAYER: the key must be held 200ms/300ms
+  hold_timeout 200
+  long_hold_timeout 300
+
+  tap-time 200
+  hold-time 200
+
+  hold-index 200
+  hold-middle 200
+  hold-ring 200
+  hold-pinky 200
+)
 
 (defcfg
-  ;; Enabled makes kanata process keys that are not defined in defsrc
-  ;; Fixes altgr for Windows (see Arsenik issue #22)
   process-unmapped-keys yes
-  windows-altgr cancel-lctl-press
   danger-enable-cmd true
+  concurrent-tap-hold yes
 )
+;; ======================================================================
+;; =====  DEFINE BUTTONS  ===============================================
+;; ======================================================================
+
+;; -----  FILES  --------------------------------------------------------
+(include control.kbd)  
+(include symbols.kbd)
+
+;; -----  SWITCHERS  ----------------------------------------------------
+(defalias
+  ;; ---- to Layouts ----------------------------------------
+  qwe (multi (layer-switch qwe) @en)
+  eng (multi (layer-switch eng) @en)
+  rus (multi (layer-switch rus) @ru)
+  gre (multi (layer-switch gre) @el)
+
+  ;; ---- to Sublayers --------------------------------------
+  l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
+  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
+  sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
+  hy  (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
+  fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
+  num (layer-toggle numrow)
+  std (layer-switch eng)
+  pad (layer-switch numpad)
+  fun (layer-while-held funpad)
+)
+
+
+;; ======================================================================
+;; =====  LAYERS  =======================================================
+;; ======================================================================
+;; -----  ENG 🇬🇧  ------
+(include colemak-dh.kbd)
+
+;; -----  RUS 🇷🇺  ------
+(include qwerty-rus.kbd)
+
+;; -----  GRE 🇬🇷  ------
+(include qwerty-gre.kbd)
+
+;; -----  HYPER  -------
+(include hyper.kbd)
+
+;; -----  CLEAN  --------------------------------------------------------
+(deflayer qwe 
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _  @l_    _
+  _    _    _    _    _         _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _
+  _         _              _              _          
+)
+
+
+;; -----  SWITCH  --------------------------------------------------------
+(deflayer swi 
+  _ _ _ _ _ _ _ _ _ _ _ _
+  _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _   @rus @eng  XX  @qwe
+  _   @gre @rus @eng  _         _    _   @gre  _    _
+  _    _    _    _    _    _    _    _    _    _    _
+  _         _              _              _          
+)
+
+
+;; -----  Fn's  ---------------------------------------------------------
+(deflayer fnlayer
+  f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+  _    _    _    _    _     _     _    _    _    _    _
+  _    _    _    _    _     _     _    _    _    _    _
+  _    _    _    _    _           _    _    _    _    _
+  _    _    _    _    _     _     _    _    _    _    _
+  _         _               _               _          
+)
+
+;; -----  NAVIGATION  --------------------------------------------------
+(deflayer navigation
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  M-1  M-2  M-3  M-4  M-5     lrld M-6  M-7  M-8  M-9  M-0
+  @pad @cls @tbl @tbr @airtab  fn  home pgdn pgup end  @airmax
+  @all @sav S-tab tab @crctab      lft  down up   rght @fun
+  @ndo @cut @cpy @pst M-[ M-]      @mwl @mwd @mwu @mwr @airgee
+  _         del                 _            esc
+)
+
+
+;; -----  NUMPAD  ------------------------------------------------------
+(deflayer numpad
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  _    _    _    _    _     _   _    _    _    _    _
+  XX   home up   end  pgup  _   @/   @7   @8   @9   XX
+  XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+  XX   XX   XX   XX   XX    _   @,   @1   @2   @3   @.
+  _         @std           @nbs           @std
+)
+
+
+;; -----  FUNPAD  ------------------------------------------------------
+(deflayer funpad
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  f1   f2   f3   f4   XX    _   XX   XX   XX   XX   XX
+  f5   f6   f7   f8   XX        XX   lctl lalt lmet _
+  f9   f10  f11  f12  XX   XX   XX   XX   XX   XX   XX
+  _         _               _             _
+)
+
+
+;; -----  SYMBOLS  -----------------------------------------------------
+(deflayer symbols
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  AG-1 AG-2 AG-3 AG-4 AG-5 XX   AG-6 AG-7 AG-8 AG-9 AG-0
+  @^   @<   @>   @$   @%    _   @@   @&   @*   @'   @`
+  @{   @pl  @pr  @}   @=        @\   @+   @-   @/   @''
+  @~   @[   @]   @_   @#   XX   @|   @!   @;   @:   @?
+  _         @num          spc             _
+)
+
+
+;; -----  NUMROW  ------------------------------------------------------
+(deflayer numrow
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  _    _    _    _    _     _   _    _    _    _    _
+  @s1  @s2  @s3  @s4  @s5   _   @s6  @s7  @s8  @s9  @s0
+  @1   @2   @3   @4   @5        @6   @7   @8   @9   @0
+  @dk1 @dk2 @dk3 @dk4 @dk5  _   XX   @-   @,   @.   @/
+  _         _              @nbs           @sym
+)
+
+
+
+
+;; -------------------------------------------------------------------------------------
+;; combo definition
+
+(defchordsv2
+  ;; left side
+  (e r) @eng $hold-time all-released    (        symbols funpad navigation qwe)
+  (w e) @rus $hold-time all-released    (        symbols funpad navigation qwe)
+  (z x) @_   $hold-time all-released    (        symbols     navigation qwe)
+  (x c) -    $hold-time all-released    (        symbols     navigation qwe)
+  (r f) @``  $hold-time all-released    (        symbols funpad navigation qwe)
+  (e d) @''  $hold-time all-released    (        symbols funpad navigation qwe)
+  (w r) @<>  $hold-time all-released    (eng rus     funpad navigation qwe)
+  (s f) @brc $hold-time all-released    (eng rus     funpad navigation qwe)
+  ;; right side
+  (u j) @“”  $hold-time all-released    (        symbols funpad navigation qwe)
+  (i k) @brc $hold-time all-released    (        symbols funpad navigation qwe)
+  (u o) @[]  $hold-time all-released    (eng rus     funpad navigation qwe)
+  (j l) @{}  $hold-time all-released    (eng rus     funpad navigation qwe)
+)
+
+
+
+
+
+
 
 ;; vim: set ft=lisp

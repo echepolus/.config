@@ -18,7 +18,7 @@
   @aer1 @aer2 @aer3 @aer4 @aer5 _  _     _     _     _     @aer0  
   @aerq @aerw @aerf @aerp @aerb _  @ajh  @ajj  @ajk  @ajl  @aserv
   @aera @aerr @hys  @aert @aerg    @aerh @aerj @aerk @aerl @hyo
-  @aerz @aerx @aerc _     @aerv _  _     _     @aer- @aer+ _
+  @aerz @aerx @aerc _     @aerv _  _     @acco @aer- @aer+ @atls
   _           lsft              fn             _            
 )
 
@@ -75,6 +75,8 @@
   aserv C-A-p
   aer+ C-A-M-eql
   aer- C-A-M-min
+  acco C-A-M-h
+  atls C-A-M-/
   aerq M-q
   aerw M-w
 

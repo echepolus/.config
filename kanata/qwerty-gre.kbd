@@ -1,0 +1,53 @@
+
+(deflayer gre 
+;; brdn brup @mc @sls @dtn @dnd prev pp  next mute vold volu
+   🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
+   _    _    _    _    _    _    _    _    _    _    _
+   _    @ς   @ε   @ρ   @τ  @hy   @υ   @θ   @ι   @lο  @π                                
+   @α   @hσ  @hδ  @hφ  @γ        @η   @hξ  @hκ  @hλ  _                               
+   @ζ   @χ   @ψ   @ω   @β   <    @ν   @μ   _    _    _                                
+   @fnl      @sft          @nav            @sym
+)
+
+
+
+(defalias
+  ς w
+  μ m
+  ζ z
+  π p
+  δ d
+  ρ r
+  λ l
+  χ x
+  ι i
+  ο o
+  ε e
+  β b
+  τ t
+  ξ j
+  φ f
+  κ k
+  υ y
+  ν n
+  ψ c
+  η h
+  α a
+  ῀ [
+  ` ]
+  σ s
+  ω v
+  γ g
+  θ u
+  ῎ ;
+  lο (tap-hold $tap-time $hold-pinky @ο (layer-toggle swi))
+
+  ;; modtaps (GCAS)
+  hφ (tap-hold $tap-time $hold-ring @φ (multi lalt (layer-while-held eng)))
+  hδ (tap-hold $tap-time $hold-pinky @δ (multi lctl (layer-while-held eng)))
+  hσ (tap-hold $tap-time $hold-middle @σ (multi lmet (layer-while-held eng)))
+  hλ (tap-hold $tap-time $hold-middle @λ (multi lmet (layer-while-held eng)))
+  hκ (tap-hold $tap-time $hold-pinky @κ (multi lctl (layer-while-held eng)))
+  hξ (tap-hold $tap-time $hold-ring @ξ (multi lalt (layer-while-held eng)))
+)
+

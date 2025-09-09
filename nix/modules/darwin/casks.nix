@@ -12,10 +12,6 @@
   # Utility Tools
   "pearcleaner"
   "syncthing-app"
-  "leader-key"
-  "input-source-pro"
-  "espanso"
-  "colemak-dh"
 
   # Entertainment Tools
   "vlc"
@@ -42,7 +38,11 @@
   # J
   "jan"
 
-  # K
+  # Keyboard
+  "leader-key"
+  "input-source-pro"
+  "espanso"
+  "kawa"
   # "keycastr"
 
   # L

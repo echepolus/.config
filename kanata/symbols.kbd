@@ -1,0 +1,232 @@
+;; src -> https://github.com/XelorR/Extend/blob/master/symbols.kbd
+
+(defalias
+  ;; sym
+  ;; to use this symbols, you have to ensure:
+  ;; - that you have US (qwerty) and RU (йцукен) layouts set in the system
+  ;; - set separate activation shortcuts for @en and @ru - just look at the definitions
+;;  % S-5
+;;  + S-=
+;;  * S-8
+;;  _ S--
+;;  lb S-9
+;;  rb S-0
+;;  { (switch ((base-layer rus)) (macro @en 50 S-[ 50 @ru) break () S-[ break )
+;;  ; (switch ((base-layer rus)) S-4 break () ; break )
+;;  } (switch ((base-layer rus)) (macro @en 50 S-] 50 @ru) break () S-] break )
+;;  ! S-1
+;;  # (switch ((base-layer rus)) (macro @en 50 S-3 50 @ru) break () S-3 break)
+;;  $ (switch ((base-layer rus)) (macro @en 50 S-4 50 @ru) break () S-4 break)
+;;  & (switch ((base-layer rus)) (macro @en 50 S-7 50 @ru) break () S-7 break)
+;;  ' (switch ((base-layer rus)) (macro @en 50 ' 50 @ru) break () ' break)
+;;  < (switch ((base-layer rus)) (macro @en 50 S-, 50 @ru) break () S-, break)
+;;  > (switch ((base-layer rus)) (macro @en 50 S-. 50 @ru) break () S-. break)
+;;  [ (switch ((base-layer rus)) (macro @en 50 [ 50 @ru) break () [ break)
+;;  ] (switch ((base-layer rus)) (macro @en 50 ] 50 @ru) break () ] break)
+;;  ^ (switch ((base-layer rus)) (macro @en 50 S-6 50 @ru) break () S-6 break)
+;;  ` (switch ((base-layer rus)) (macro @en 50 grv 50 @ru) break () grv break)
+;;  at (switch ((base-layer rus)) (macro @en 50 S-2 50 @ru) break () S-2 break)
+;;  “ (switch ((base-layer rus)) S-2 break () S-' break)
+;;  : (switch ((base-layer rus)) S-6 break () S-; break)
+;;  | (switch ((base-layer rus)) (macro @en 50 S-\ 50 @ru) break () S-\ break)
+;;  ~ (switch ((base-layer rus)) (macro @en 50 S-grv 50 @ru) break () S-grv break)
+;;  , (switch ((base-layer rus)) S-/ break () , break )
+;;  . (switch ((base-layer rus)) / break () . break )
+;;  ? (switch ((base-layer rus)) S-7 break () S-/ break )
+;;  / (switch ((base-layer rus)) S-\ break () / break )
+;;  \ (unmod \)
+;;  № (switch ((base-layer rus)) S-3 break () (macro @ru 50 S-3 50 @en) break)
+
+  ;; -------------------------------------------------------------------------------------
+  ;; Unicode symbols
+
+  u— (unicode —)
+  ur— (macro @en 50 @u— 50 @ru)
+  — (switch ((base-layer rus)) @ur— break () @u— break )
+  u₽ (unicode ₽)
+  ur₽ (macro @en 50 @u₽ 50 @ru)
+  ₽ (switch ((base-layer rus)) @ur₽ break () @u₽ break )
+  u¦ (unicode ¦)
+  ur¦ (macro @en 50 @u¦ 50 @ru)
+  ¦ (switch ((base-layer rus)) @ur¦ break () @u¦ break )
+  u° (unicode °)
+  ur° (macro @en 50 @u° 50 @ru)
+  ° (switch ((base-layer rus)) @ur° break () @u° break )
+  u≈ (unicode ≈)
+  ur≈ (macro @en 50 @u≈ 50 @ru)
+  ≈ (switch ((base-layer rus)) @ur≈ break () @u≈ break )
+  u± (unicode ±)
+  ur± (macro @en 50 @u± 50 @ru)
+  ± (switch ((base-layer rus)) @ur± break () @u± break )
+  u« (unicode «)
+  u» (unicode »)
+  ur« (macro @en 50 @u« 50 @ru)
+  ur» (macro @en 50 @u» 50 @ru)
+  « (switch ((base-layer rus)) @ur« break () @u« break )
+  » (switch ((base-layer rus)) @ur» break () @u» break )
+  u«» (macro @u« 50 @u» 50 left)
+  ur«» (macro @en 50 @u« 50 @u» 50 left 50 @ru)
+  u“ (unicode “)
+  u” (unicode ”)
+  u“” (macro @u“ 50 @u” 50 left)
+  ur“” (macro @en 50 @u“ 50 @u” 50 left 50 @ru)
+  «” (switch ((base-layer rus)) @ur«» break () @u“” break )
+
+  ;; -------------------------------------------------------------------------------------
+  ;; Combined symbols
+
+  ,? (switch ((base-layer rus)) (fork S-/ S-7 (lsft rsft)) break () (fork , S-/ (lsft rsft)) break )
+  .! (switch ((base-layer rus)) (fork / S-1 (lsft rsft)) break () (fork . S-1 (lsft rsft)) break )
+  ., (switch ((base-layer rus)) (fork / S-/ (lsft rsft)) break () (fork . , (lsft rsft)) break )
+  “” (switch ((base-layer rus)) (macro S-2 20 S-2 20 left) break () (macro S-' 20 S-' 20 left) break )
+  '' (switch ((base-layer rus)) (macro @en 50 ' 20 ' 20 left  50 @ru) break () (macro ' 20 ' 20 left) break )
+  `` (switch ((base-layer rus)) (macro @en 50 ` 20 ` 20 left  50 @ru) break () (macro ` 20 ` 20 left) break )
+  td'' (switch ((base-layer rus)) (tap-dance-eager 400 ( (macro @en 50 ' 50 @ru) (macro @en 50 ' 30 @ru 20 left) (macro @en 50 ' ' 30 @ru 20 left) (macro @en 50 ' ' 30 @ru 20 left))) break () (tap-dance-eager 300 ( (macro ') (macro ' left) (macro ' ' left) (macro ' ' left))) break )
+  td`` (switch ((base-layer rus)) (tap-dance-eager 400 ( (macro @en 50 ` 50 @ru) (macro @en 50 ` 30 @ru 20 left) (macro @en 50 ` ` 30 @ru 20 left) (macro @en 50 ` ` 30 @ru 20 left))) break () (tap-dance-eager 300 ( (macro `) (macro ` left) (macro ` ` left) (macro ` ` left))) break )
+  brc (macro S-9 20 S-0 20 left)
+  []  (switch ((base-layer rus)) (macro @en 50 [ 20 ] 20 left 50 @ru) break () (macro [ 20 ] 20 left) break )
+  {}  (switch ((base-layer rus)) (macro @en 50 S-[ 20 S-] 20 left 50 @ru) break () (macro S-[ 20 S-] 20 left) break )
+  <>  (switch ((base-layer rus)) (macro @en 50 S-, 20 S-. 20 left 50 @ru) break () (macro S-, 20 S-. 20 left) break )
+
+  ;; -------------------------------------------------------------------------------------
+  ;; magic letters
+
+  *k (tap-dance 300 (
+    (switch
+      ((key-history b 1)) (macro e f o r e) break
+      ((key-history w 1)) (macro h i c h) break
+      ((key-history m 1)) (macro e n t) break
+      ((key-history q 1)) (macro u e) break
+      ((key-history n 1)) (macro i o n) break
+      ((key-history j 1)) (macro u s t) break
+      ((key-history v 1)) (macro e r) break
+      ((key-history . 1)) (macro . /) break
+      ((key-history , 1)) (macro spc b u t) break
+      ((key-history - 1)) (macro S-.) break
+      ((key-history = 1)) (macro S-.) break
+      () k break
+    )
+    k)
+  )
+
+  *q (switch
+    ((and (key-history g 2) (key-history b 1))) (macro 30 bspc bspc 30 S-g 10 S-b 10 S-q 30) break
+    () q break
+  )
+
+  *m (switch
+    ((and (key-history c 2) (key-history r 1))) (macro 30 bspc bspc 30 S-c 10 S-r 10 S-m 30) break
+    () m break
+  )
+
+  *c (switch
+    ((and (key-history s 3) (key-history f 2) (key-history m 1))) (macro 30 bspc bspc bspc 30 S-s 10 S-f 10 S-m 10 S-c 30) break
+    ((and (key-history l 3) (key-history m 2) (key-history r 1))) (macro 30 bspc bspc bspc 30 S-l 10 S-m 10 S-r 10 S-c 30) break
+    () c break
+  )
+
+  *x (switch
+    ((key-history s 1)) c break
+    () x break
+  )
+
+  *' (switch
+    ((key-history spc 1)) (macro S-' 20 S-' 20 left) break
+    ((and (key-history 0 2) (key-history left 1))) (macro S-' 20 S-' 20 left) break
+    ((and (key-history ] 2) (key-history left 1))) (macro S-' 20 S-' 20 left) break
+    ((and (key-history , 2) (key-history left 1))) (macro S-' 20 S-' 20 left) break
+    () ' break
+  )
+
+  *,? (switch
+    ((or (key-history . 1) (key-history / 1))) (multi bspc @brc) break
+    () @,? break
+  )
+
+)
+
+;; Navigation layer
+(defalias
+
+  all M-a
+  sav M-s
+  cls M-w
+  ndo M-z
+  cut M-x
+  cpy M-c
+  pst M-v
+
+  0 0
+  1 1
+  2 2
+  3 3
+  4 4
+  5 5
+  6 6
+  7 7
+  8 8
+  9 9
+  , ,
+  . .
+)
+
+;; Symbols layer
+(defalias
+
+  ^  S-6
+  <  S-,
+  >  S-.
+  $  S-4
+  %  S-5
+  @  S-2
+  &  S-7
+  *  S-8
+  '  '
+  `  `
+
+  {  S-[
+  pl S-9
+  pr S-0
+  }  S-]
+  =  =
+  \  \
+  +  S-=
+  -  -
+  /  /
+
+  ~  S-`
+  [  [
+  ]  ]
+  _  S--
+  #  S-3
+  |  S-\
+  !  S-1
+  ;  ;
+  :  S-;
+  ?  S-/
+)
+
+;; NumRow layer
+(defalias
+
+  s0 S-0
+  s1 S-1
+  s2 S-2
+  s3 S-3
+  s4 S-4
+  s5 S-5
+  s6 S-6
+  s7 S-7
+  s8 S-8
+  s9 S-9
+  nbs spc ;; no narrow no-break space in Qwerty
+
+  dk1 XX
+  dk2 XX
+  dk3 XX
+  dk4 XX
+  dk5 XX
+)
+
+
+;; vim: set ft=lisp
