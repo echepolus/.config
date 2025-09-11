@@ -116,8 +116,8 @@
 (deflayer navigation
   _ _ _ _ _ _ _ _ _ _ _ _ 
   M-1  M-2  M-3  M-4  M-5     lrld M-6  M-7  M-8  M-9  M-0
-  @pad @cls @tbl @tbr @airtab  fn  home pgdn pgup end  @airmax
-  @all @sav S-tab tab @crctab      lft  down up   rght @fun
+  @pad @cls @tbl @tbr @crctab  fn  home pgdn pgup end  @airmax
+  @all @sav S-tab tab @airtab      lft  down up   rght @fun
   @ndo @cut @cpy @pst M-[ M-]      @mwl @mwd @mwu @mwr @airgee
   _         del                 _            esc
 )
