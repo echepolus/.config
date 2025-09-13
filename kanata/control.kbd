@@ -6,7 +6,7 @@
   (defalias
 
     ;; Languages
-    en C-S-8 
+    en C-S-6 
     ru C-S-9 
     el C-S-7
 

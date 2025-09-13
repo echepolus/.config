@@ -30,6 +30,7 @@
   hold-pinky 200
 )
 
+
 (defcfg
   process-unmapped-keys yes
   danger-enable-cmd true

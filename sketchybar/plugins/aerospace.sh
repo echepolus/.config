@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
-# make sure it's executable with:
-# chmod +x ~/.config/sketchybar/plugins/aerospace.sh
+sid="$1"
+windows=$(aerospace list-windows --workspace "$sid")
 
-if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-    sketchybar --set $NAME background.drawing=on
+if [ -z "$windows" ]; then
+  sketchybar --set $NAME drawing=off
+  exit 0
+fi
+
+sketchybar --set $NAME drawing=on
+
+if [ "$sid" = "$FOCUSED_WORKSPACE" ]; then
+  sketchybar --set $NAME background.color=0xff5ac8fa label.color=0xff000000
 else
-    sketchybar --set $NAME background.drawing=off
+  sketchybar --set $NAME background.color=0x44ffffff label.color=0xffffffff
 fi

@@ -4,6 +4,7 @@
   # Development Tools
   "wireshark-app"
   "tailscale-app"
+  "font-hack-nerd-font"
 
   # Communication Tools
   "zoom"

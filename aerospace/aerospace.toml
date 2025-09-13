@@ -7,12 +7,13 @@
 
 after-login-command = []
 after-startup-command = [
-  'exec-and-forget /Users/alexeykotomin/.config/borders/bordersrc'
+  'exec-and-forget /Users/alexeykotomin/.config/borders/bordersrc',
+  'exec-and-forget /Users/alexeykotomin/.nix-profile/bin/sketchybar'
 ]
 start-at-login = true
 
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    '/Users/alexeykotomin/.nix-profile/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
 ]
 
 enable-normalization-flatten-containers = true
@@ -30,12 +31,12 @@ automatically-unhide-macos-hidden-apps = true
 preset = 'qwerty'
 
 [gaps]
-inner.horizontal = 6 
-inner.vertical = 6 
-outer.left = 6 
-outer.bottom = 6 
-outer.top = 2
-outer.right = 6 
+inner.horizontal = 5 
+inner.vertical = 5 
+outer.left = 5 
+outer.bottom = 5 
+outer.top = 4
+outer.right = 5 
 
 # ======================
 # 2. Основной режим (main)
@@ -77,7 +78,6 @@ ctrl-alt-cmd-m = 'workspace M'
 ctrl-alt-cmd-p = 'workspace P'
 ctrl-alt-cmd-r = 'workspace R'
 ctrl-alt-cmd-s = 'workspace S'
-ctrl-alt-cmd-t = 'workspace T'
 ctrl-alt-cmd-v = 'workspace V'
 
 # --- Workspaces (Move + Switch) ---
@@ -95,11 +95,10 @@ ctrl-alt-cmd-shift-m = ['move-node-to-workspace M --focus-follows-window']
 ctrl-alt-cmd-shift-p = ['move-node-to-workspace P --focus-follows-window']
 ctrl-alt-cmd-shift-r = ['move-node-to-workspace R --focus-follows-window']
 ctrl-alt-cmd-shift-s = ['move-node-to-workspace S --focus-follows-window']
-ctrl-alt-cmd-shift-t = ['move-node-to-workspace T --focus-follows-window']
 ctrl-alt-cmd-shift-v = ['move-node-to-workspace V --focus-follows-window']
 
 # --- Fullscreen and utility ---
-ctrl-alt-cmd-f = 'fullscreen'
+ctrl-alt-cmd-t = 'fullscreen'
 ctrl-alt-cmd-tab = ['workspace-back-and-forth']
 alt-tab = ['focus-back-and-forth']
 ctrl-cmd-shift-tab = 'move-workspace-to-monitor --wrap-around next'
@@ -142,10 +141,6 @@ run = 'move-node-to-workspace S'
 
 # --- 💬 ChatGPT / Code ---
 [[on-window-detected]]
-if.app-id = 'app.spokenly'
-run = 'move-node-to-workspace C'
-
-[[on-window-detected]]
 if.app-id = 'com.electron.ollama'
 run = 'move-node-to-workspace C'
 
@@ -155,10 +150,6 @@ run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = 'move-node-to-workspace C'
-
-[[on-window-detected]]
-if.app-id = 'dev.warp.Warp-Stable'
 run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
@@ -342,42 +333,42 @@ run = 'move-node-to-workspace 0'
 if.app-name-regex-substring = 'Outline'
 run = ['layout floating', 'move-node-to-workspace 0']
 
-# --- ✈️ Tele︙Communication ---
+# --- 💬 Chat/Connections---
 [[on-window-detected]]
 if.app-id = 'chat.rocket'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AddressBook'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.FaceTime'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'com.ferdium.app'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'one.ayugram.AyuGramDesktop'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'salutejazz.jazz-app'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 [[on-window-detected]]
 if.app-id = 'us.zoom.xos'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace C'
 
 # --- Vocabulary ---
 [[on-window-detected]]
