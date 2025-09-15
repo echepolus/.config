@@ -113,7 +113,6 @@
 #+END_SRC
 
 ***** Treemacs
-Although I'm primarily a keyboard user and use ~projectile~ for quickly finding files, I still find the need to browse stuf in a more visual way. Treemacs does the job, and beautifully might I add.
 
 #+NAME: treemacs
 #+BEGIN_SRC emacs-lisp
@@ -132,7 +131,6 @@ Although I'm primarily a keyboard user and use ~projectile~ for quickly finding 
 #+END_SRC
 
 **** Easy window motions with ace-window
-Predefine windows with hotkeys and jump to them.
 
 #+NAME: easy-window-motions
 #+BEGIN_SRC emacs-lisp
@@ -143,7 +141,7 @@ Predefine windows with hotkeys and jump to them.
   :bind (("M-o" . ace-window))
   :custom
     (aw-scope 'frame)
-    (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    (aw-keys '(?a ?r ?s ?t ?g ?m ?n ?e ?i ?o))
     (aw-minibuffer-flag t)
   :config
     (ace-window-display-mode 1)
@@ -1450,8 +1448,6 @@ Nix is my package manager and operating system of choice; this mode enables me t
            :map gptel-mode-map
            ("C-c C-x t" . gptel-set-topic)
            :map embark-region-map
-           ("+" . gptel-add)
-           :map this-buffer-file-map
            ("+" . gptel-add))
     :config
     (auth-source-pass-enable)  
@@ -1507,7 +1503,8 @@ Nix is my package manager and operating system of choice; this mode enables me t
     (with-eval-after-load 'gptel-org
       (setq-default gptel-org-branching-context t))
 
-    (add-to-list 'popper-reference-buffers "\\*gptel-log\\*")
+    (with-eval-after-load 'popper
+        (add-to-list 'popper-reference-buffers "\\*gptel-log\\*"))
     (setf (alist-get "\\*gptel-log\\*" display-buffer-alist nil nil #'equal)
           `((display-buffer-reuse-window display-buffer-in-side-window)
             (side . right)

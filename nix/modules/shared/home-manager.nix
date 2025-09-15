@@ -393,6 +393,28 @@ in
       set -g default-command "$SHELL"
     '';
   };
+  yazi = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    plugins = {
+      git          = pkgs.yaziPlugins.git;
+      sudo         = pkgs.yaziPlugins.sudo;
+      starship     = pkgs.yaziPlugins.starship;
+      smart-paste  = pkgs.yaziPlugins.smart-paste;
+      rsync        = pkgs.yaziPlugins.rsync;
+      restore      = pkgs.yaziPlugins.restore;
+      recycle-bin  = pkgs.yaziPlugins.recycle-bin;
+      projects     = pkgs.yaziPlugins.projects;
+      piper        = pkgs.yaziPlugins.piper;
+      ouch         = pkgs.yaziPlugins.ouch;
+      vcs-files    = pkgs.yaziPlugins.vcs-files;
+      smart-enter  = pkgs.yaziPlugins.smart-enter;
+      full-border  = pkgs.yaziPlugins.full-border;
+      mactag       = pkgs.yaziPlugins.mactag;
+      chmod        = pkgs.yaziPlugins.chmod;
+    };
+  };
 
   sketchybar = {
     enable = true;

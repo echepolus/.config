@@ -56,3 +56,8 @@ matches:
     label: "o3 password"
     replace: "YHMi145PCq6a-2Rz5iK5Gg04FCWJjnY8UABKMFJyZX8"
   
+
+  - triggers: ["!uz"]
+    label: "UZ telephone"
+    replace: "+998908299932"
+  

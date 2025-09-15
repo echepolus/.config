@@ -1144,8 +1144,6 @@ Note the weekly scope of the command's precision.")
          :map gptel-mode-map
          ("C-c C-x t" . gptel-set-topic)
          :map embark-region-map
-         ("+" . gptel-add)
-         :map this-buffer-file-map
          ("+" . gptel-add))
   :config
   (auth-source-pass-enable)  
@@ -1201,7 +1199,8 @@ Note the weekly scope of the command's precision.")
   (with-eval-after-load 'gptel-org
     (setq-default gptel-org-branching-context t))
 
-  (add-to-list 'popper-reference-buffers "\\*gptel-log\\*")
+  (with-eval-after-load 'popper
+      (add-to-list 'popper-reference-buffers "\\*gptel-log\\*"))
   (setf (alist-get "\\*gptel-log\\*" display-buffer-alist nil nil #'equal)
         `((display-buffer-reuse-window display-buffer-in-side-window)
           (side . right)

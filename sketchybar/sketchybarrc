@@ -12,7 +12,7 @@ sketchybar --bar height=32       \
                  position=top    \
                  padding_left=10 \
                  padding_right=10\
-                 color=0x15ffffff \
+                 color=$TRANSPARENT \
                  shadow=off
 
 ##### Defaults #####
@@ -34,27 +34,28 @@ sketchybar --default "${default[@]}"
 
 ##### Left: Workspaces #####
 declare -A ws_icons=(
-  [1]="􀃊"    # цифра 1
-  [2]="􀃌"
-  [3]="􀃎"
-  [4]="􀃐"
-  [5]="􀃒"
-  [0]="􀀹"    # "home"
+# [1]="1"    # цифра 1
+# [2]="2"
+# [3]="3"
+# [4]="4"
+# [5]="5"
+# [6]="0"    # "home"
 
-  [B]="􀂖"    # browser
-  [C]="􀂸"    # chat
-  [E]="􀂜"    # emacs
-  [G]="􀂠"    # terminal
-  [M]="􀂬"    # music note
-  [P]="􀂲"    # planning / tasks
-  [R]="􀂶"    # reading
-  [S]="􀂸"    # surfing / safari
-  [V]="􀂾"    # vocabulary / book
+# [B]="B"    # browser
+# [C]="C"    # chat
+# [E]="E"    # emacs
+# [G]="G"    # terminal
+# [M]="M"    # music note
+# [P]="P"    # planning / tasks
+# [R]="R"    # reading
+# [S]="S"    # surfing / safari
+# [V]="V"    # vocabulary / book
 )
 
 sketchybar --add event aerospace_workspace_change
 
 for sid in $(aerospace list-workspaces --all); do
+  echo "DEBUG: sid='$sid' icon='${ws_icons[$sid]}'"
   sketchybar --add item space.$sid left \
       --subscribe space.$sid aerospace_workspace_change \
       --set space.$sid \

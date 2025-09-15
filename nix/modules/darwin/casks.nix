@@ -37,22 +37,21 @@
   "jordanbaird-ice"
   
   # J
-  "jan"
 
   # Keyboard
   "leader-key"
   "input-source-pro"
   "espanso"
   "kawa"
-  # "keycastr"
 
   # L
 
   # O
-  "outline-manager"
 
   # R
 
   # S
   "sfm"
+  "sf-symbols"
+
 ]

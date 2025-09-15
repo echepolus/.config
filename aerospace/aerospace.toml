@@ -45,7 +45,7 @@ outer.right = 5
 
 # --- Layout ---
 ctrl-alt-cmd-slash = 'layout tiles horizontal vertical'
-ctrl-alt-cmd-comma = 'layout accordion horizontal vertical'
+ctrl-alt-cmd-shift-comma = 'layout accordion horizontal vertical'
 
 # --- Focus ---
 ctrl-alt-cmd-left  = 'focus left'

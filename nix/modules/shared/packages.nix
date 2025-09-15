@@ -120,7 +120,7 @@ with pkgs; [
   # starship
 
   # T
-  tabby
+  # tabby
   tmux # Terminal multiplexer
   tree # Directory tree viewer
 
@@ -136,7 +136,7 @@ with pkgs; [
   # X
 
   # Y
-  yazi
+  # yazi
 
   # Z
   zip # ZIP archive creator
