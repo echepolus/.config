@@ -87,7 +87,7 @@
   :bind (("M-o" . ace-window))
   :custom
     (aw-scope 'frame)
-    (aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    (aw-keys '(?a ?r ?s ?t ?g ?m ?n ?e ?i ?o))
     (aw-minibuffer-flag t)
   :config
     (ace-window-display-mode 1)

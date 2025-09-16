@@ -3,12 +3,11 @@
 ;; brdn brup @mc @sls @dtn @dnd prev pp  next mute vold volu
    🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
    _    _    _    _    _    _    _    _    _    _    _
-   _    @ς   @ε   @ρ   @τ  @hy   @υ   @θ   @ι   @lο  @π                                
+   _    @ς   @ε   @ρ   @τ  @hy   @υ   @θ   @ι   @ο   @π                                
    @α   @hσ  @hδ  @hφ  @γ        @η   @hξ  @hκ  @hλ  _                               
-   @ζ   @χ   @ψ   @ω   @β   <    @ν   @μ   @´   @᾽   @῀
-   @fnl      @sft          @nav            @sym
+   @ζ   @χ   @ψ   @ω   @β   <    @ν   @μ   @,   @.   @/
+   _         @sft          @nav            @sym
 )
-
 
 
 (defalias
@@ -38,7 +37,7 @@
   γ g
   θ u
   ῎ ;
-  lο (tap-hold $tap-time $hold-pinky @ο (layer-toggle swi))
+;;  lο (tap-hold $tap-time $hold-pinky @ο (layer-toggle swi))
 
   ;; modtaps (GCAS)
   hφ (tap-hold $tap-time $hold-ring @φ (multi lalt (layer-while-held eng)))

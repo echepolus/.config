@@ -1,11 +1,11 @@
 ;; -------------------------
 ;; Evil early setup (must be before evil or evil-collection is loaded!)
 ;; -------------------------
-(setq evil-want-integration t)      ;; default = t
-(setq evil-want-keybinding nil)     ;; disable default bindings so evil-collection can set them
-(setq evil-want-fine-undo 'fine)    ;; granular undo
-(setq evil-want-Y-yank-to-eol t)    ;; Y yanks to end of line
-(setq evil-want-C-u-scroll t)       ;; C-u scrolls like in Vim
+;; (setq evil-want-integration t)      ;; default = t
+;; (setq evil-want-keybinding nil)     ;; disable default bindings so evil-collection can set them
+;; (setq evil-want-fine-undo 'fine)    ;; granular undo
+;; (setq evil-want-Y-yank-to-eol t)    ;; Y yanks to end of line
+;; (setq evil-want-C-u-scroll t)       ;; C-u scrolls like in Vim
 
 ;; -------------------------
 ;; Variable Declarations
@@ -157,7 +157,7 @@
         (variable-pitch-mode 1)
         (auto-fill-mode 0)
         (visual-line-mode 1)
-        (setq evil-auto-indent nil)
+        ;; (setq evil-auto-indent nil)
         (message "Org mode setup completed successfully."))
     (error (message "Error occurred in Org mode setup."))))
 
@@ -200,8 +200,8 @@
   (error 
    (message "Error occurred while loading the configuration: %s" (error-message-string err))
    ;; fallback for evil-mode and leader-keys
-   (when (fboundp 'evil-mode)
-     (evil-mode 1))
+   ;; (when (fboundp 'evil-mode)
+   ;;   (evil-mode 1))
    (when (fboundp 'general-create-definer)
      (general-create-definer dl/leader-keys
        :keymaps '(normal visual emacs)
@@ -242,18 +242,16 @@
 ;; Умная авто-подгрузка local.el и custom.el с префиксом ak
 ;; -------------------------
 (defun ak/smart-reload-config (file)
-  "Smart reload for local.el or custom.el."
   (when (file-exists-p file)
     (condition-case err
-        (progn
-          (let ((evil-was-enabled (fboundp 'evil-mode))
-                (leader-keys (if (fboundp 'general-create-definer) 'ak/leader-keys nil)))
-            (load-file file)
-            (when evil-was-enabled
-              (evil-mode 1)))
+        (let ((has-leader-definer (fboundp 'ak/leader-keys)))
+          (load file nil 'nomessage)
+          (when has-leader-definer
+            (ak/leader-keys))
           (message "Smart reloaded %s successfully." file))
-      (error (message "Error reloading %s: %s"
-                      file (error-message-string err))))))
+      (error
+       (message "Error reloading %s: %s"
+                file (error-message-string err))))))
 
 (defun ak/auto-reload-config-on-save ()
   "Reload local.el or custom.el from ~/.config/emacs/ when saved."

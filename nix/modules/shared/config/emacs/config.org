@@ -127,7 +127,7 @@
   (use-package treemacs-nerd-icons)
   (use-package treemacs-projectile)
   (use-package treemacs-magit)
-  (use-package treemacs-evil)
+  ;; (use-package treemacs-evil)
 #+END_SRC
 
 **** Easy window motions with ace-window
@@ -839,12 +839,12 @@ Use 'golden-ratio-toggle-widescreen' if splits are too wide
 **** Leader key shortcuts
 #+NAME::org-mode-quick-entry
 #+BEGIN_SRC emacs-lisp
-  
+
   ;; ESC will also cancel/quit/etc.
   (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
   (use-package general
     :config
-  	(general-evil-setup t)
+  	;; (general-evil-setup t)
   	(general-create-definer dl/leader-keys
   	:keymaps '(normal visual emacs)
   	:prefix ","))
@@ -938,61 +938,61 @@ These are templates used to create new notes.
 *** Install package
 #+NAME: evil-packages
 #+BEGIN_SRC emacs-lisp
-  (defun dl/evil-hook ()
-    (dolist (mode '(eshell-mode
-                    git-rebase-mode
-                    dashboard-mode
-                    term-mode))
-    (add-to-list 'evil-emacs-state-modes mode))) ;; no evil mode for these modes
+  ;; (defun dl/evil-hook ()
+  ;;   (dolist (mode '(eshell-mode
+  ;;                   git-rebase-mode
+  ;;                   dashboard-mode
+  ;;                   term-mode))
+  ;;   (add-to-list 'evil-emacs-state-modes mode))) ;; no evil mode for these modes
 
 
-  (use-package evil
-    :init
-      (setq evil-want-integration t) ;; TODO: resear;; ch what this does
-      (setq evil-want-keybinding nil) ;; Required for evil-collection
-      (setq evil-want-fine-undo 'fine) ;; undo/redo each motion
-      (setq evil-want-Y-yank-to-eol t) ;; Y copies to end of line like vim
-      (setq evil-want-C-u-scroll t) ;; vim like scroll up
-    :config
-      (evil-mode 1)
-      (dl/evil-hook)
-      ;; Emacs "cancel" == vim "cancel"
-      (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state))
+  ;; (use-package evil
+  ;;   :init
+  ;;     (setq evil-want-integration t) ;; TODO: resear;; ch what this does
+  ;;     (setq evil-want-keybinding nil) ;; Required for evil-collection
+  ;;     (setq evil-want-fine-undo 'fine) ;; undo/redo each motion
+  ;;     (setq evil-want-Y-yank-to-eol t) ;; Y copies to end of line like vim
+  ;;     (setq evil-want-C-u-scroll t) ;; vim like scroll up
+  ;;   :config
+  ;;     (evil-mode 1)
+  ;;     (dl/evil-hook)
+  ;;     ;; Emacs "cancel" == vim "cancel"
+  ;;     (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state))
 
-    ;; Gives me vim bindings elsewhere in emacs
-    (use-package evil-collection
-      :after evil
-      :init
-    (setq evil-want-keybinding nil)
-      ;; Define the variable before use
-      (defvar evil-collection-mode-list nil)
-      :config
-      (setq evil-collection-mode-list (remove 'magit evil-collection-mode-list))
-      (evil-collection-init))
+  ;;   ;; Gives me vim bindings elsewhere in emacs
+  ;;   (use-package evil-collection
+  ;;     :after evil
+  ;;     :init
+  ;;   (setq evil-want-keybinding nil)
+  ;;     ;; Define the variable before use
+  ;;     (defvar evil-collection-mode-list nil)
+  ;;     :config
+  ;;     (setq evil-collection-mode-list (remove 'magit evil-collection-mode-list))
+  ;;     (evil-collection-init))
 
-    ;; Keybindings in org mode
-    (use-package evil-org
-    :after evil
-    :hook
-        (org-mode . evil-org-mode)
-    :config
-        (require 'evil-org-agenda)
-        (evil-org-agenda-set-keys)
-        ;; 🔑 включаем все ключевые темы
-        (evil-org-set-key-theme '(navigation insert textobjects additional shift todo heading)))
+  ;;   ;; Keybindings in org mode
+  ;;   (use-package evil-org
+  ;;   :after evil
+  ;;   :hook
+  ;;       (org-mode . evil-org-mode)
+  ;;   :config
+  ;;       (require 'evil-org-agenda)
+  ;;       (evil-org-agenda-set-keys)
+  ;;       ;; 🔑 включаем все ключевые темы
+  ;;       (evil-org-set-key-theme '(navigation insert textobjects additional shift todo heading)))
 
-    ;; Branching undo system
-    (use-package undo-tree
-      :after evil
-      :diminish
-      :config
-      (evil-set-undo-system 'undo-tree)
-      (global-undo-tree-mode 1))
+  ;;   ;; Branching undo system
+  ;;   (use-package undo-tree
+  ;;     :after evil
+  ;;     :diminish
+  ;;     :config
+  ;;     (evil-set-undo-system 'undo-tree)
+  ;;     (global-undo-tree-mode 1))
 
-    (use-package evil-commentary
-      :after evil
-      :config
-      (evil-commentary-mode))
+  ;;   (use-package evil-commentary
+  ;;     :after evil
+  ;;     :config
+  ;;     (evil-commentary-mode))
 
     ;; Keep undo files from littering directories
     (setq undo-tree-history-directory-alist '(("." . "~/.local/state/emacs/undo")))
@@ -1025,16 +1025,16 @@ These are templates used to create new notes.
   (use-package dired-ranger)
   (use-package dired-collapse)
 
-  (evil-collection-define-key 'normal 'dired-mode-map
-    "h" 'dired-up-directory
-    "c" 'find-file
-    "H" 'dired-omit-mode
-    "l" 'dired-find-file
-    "y" 'dired-ranger-copy
-    "X" 'dired-ranger-move
-    "p" 'dired-ranger-paste
-    (kbd "RET") 'dired-find-file
-    (kbd "<return>") 'dired-find-file)
+  ;; (evil-collection-define-key 'normal 'dired-mode-map
+  ;;   "h" 'dired-up-directory
+  ;;   "c" 'find-file
+  ;;   "H" 'dired-omit-mode
+  ;;   "l" 'dired-find-file
+  ;;   "y" 'dired-ranger-copy
+  ;;   "X" 'dired-ranger-move
+  ;;   "p" 'dired-ranger-paste
+  ;;   (kbd "RET") 'dired-find-file
+  ;;   (kbd "<return>") 'dired-find-file)
 
   ;; Darwin needs ls from coreutils for dired to work
   (when (system-is-mac)
@@ -1354,34 +1354,34 @@ Rainbow mode is an Emacs minor mode to highlight the color shown by a RGB hex tr
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :commands (magit-status magit-get-current-branch)
-    :config
+    ;; :config
     ;; Enable vim-style navigation in Magit
-    (evil-set-initial-state 'magit-mode 'normal)
-    (evil-set-initial-state 'magit-status-mode 'normal)
-    (evil-set-initial-state 'magit-diff-mode 'normal)
-    (evil-set-initial-state 'magit-log-mode 'normal)
-    (evil-define-key 'normal magit-mode-map
-      "j" 'magit-section-forward
-      "k" 'magit-section-backward
-      "h" 'magit-section-hide
-      "l" 'magit-section-show
-      "n" 'magit-section-forward-sibling
-      "p" 'magit-section-backward-sibling
-      "J" 'magit-section-forward-sibling
-      "K" 'magit-section-backward-sibling
-      "gg" 'beginning-of-buffer
-      "G" 'end-of-buffer
-      "q" 'magit-mode-bury-buffer)
-    ;; Also set for specific magit modes
-    (evil-define-key 'normal magit-status-mode-map
-      "j" 'magit-section-forward
-      "k" 'magit-section-backward)
-    (evil-define-key 'normal magit-diff-mode-map
-      "j" 'magit-section-forward
-      "k" 'magit-section-backward)
-    (evil-define-key 'normal magit-log-mode-map
-      "j" 'magit-section-forward
-      "k" 'magit-section-backward))
+    ;; (evil-set-initial-state 'magit-mode 'normal)
+    ;; (evil-set-initial-state 'magit-status-mode 'normal)
+    ;; (evil-set-initial-state 'magit-diff-mode 'normal)
+    ;; (evil-set-initial-state 'magit-log-mode 'normal)
+    ;; (evil-define-key 'normal magit-mode-map
+    ;;   "j" 'magit-section-forward
+    ;;   "k" 'magit-section-backward
+    ;;   "h" 'magit-section-hide
+    ;;   "l" 'magit-section-show
+    ;;   "n" 'magit-section-forward-sibling
+    ;;   "p" 'magit-section-backward-sibling
+    ;;   "J" 'magit-section-forward-sibling
+    ;;   "K" 'magit-section-backward-sibling
+    ;;   "gg" 'beginning-of-buffer
+    ;;   "G" 'end-of-buffer
+    ;;   "q" 'magit-mode-bury-buffer)
+    ;; ;; Also set for specific magit modes
+    ;; (evil-define-key 'normal magit-status-mode-map
+    ;;   "j" 'magit-section-forward
+    ;;   "k" 'magit-section-backward)
+    ;; (evil-define-key 'normal magit-diff-mode-map
+    ;;   "j" 'magit-section-forward
+    ;;   "k" 'magit-section-backward)
+    ;; (evil-define-key 'normal magit-log-mode-map
+    ;;   "j" 'magit-section-forward
+    ;;   "k" 'magit-section-backward))
   (define-key magit-hunk-section-map (kbd "RET") 'magit-diff-visit-file-other-window)
   (global-set-key (kbd "C-x G") 'magit-log-buffer-file)
 #+END_SRC

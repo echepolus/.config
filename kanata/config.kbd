@@ -21,6 +21,9 @@
   hold_timeout 200
   long_hold_timeout 300
 
+  ;; CHORD LAYER:
+  chord-time 30
+
   tap-time 200
   hold-time 200
 
@@ -53,16 +56,17 @@
   gre (multi (layer-switch gre) @el)
 
   ;; ---- to Sublayers --------------------------------------
-  l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
   nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
   sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
   hy  (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
-  fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
   num (layer-toggle numrow)
   std (layer-switch eng)
-  pad (layer-switch numpad)
   fun (layer-while-held funpad)
+
+;;  pad (layer-switch numpad)
+;;   l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
+;;   fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
 )
 
 
@@ -85,53 +89,21 @@
 (deflayer qwe 
   _ _ _ _ _ _ _ _ _ _ _ _
   _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _  @l_    _
+  _    _    _    _    _    _    _    _    _    _    _
   _    _    _    _    _         _    _    _    _    _
   _    _    _    _    _    _    _    _    _    _    _
-  _         _              _              _          
+  _         _              @nav           _          
 )
 
-
-;; -----  SWITCH  --------------------------------------------------------
-(deflayer swi 
-  _ _ _ _ _ _ _ _ _ _ _ _
-  _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _   @rus @eng  XX  @qwe
-  _   @gre @rus @eng  _         _    _   @gre  _    _
-  _    _    _    _    _    _    _    _    _    _    _
-  _         _              _              _          
-)
-
-
-;; -----  Fn's  ---------------------------------------------------------
-(deflayer fnlayer
-  f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
-  _    _    _    _    _     _     _    _    _    _    _
-  _    _    _    _    _     _     _    _    _    _    _
-  _    _    _    _    _           _    _    _    _    _
-  _    _    _    _    _     _     _    _    _    _    _
-  _         _               _               _          
-)
 
 ;; -----  NAVIGATION  --------------------------------------------------
 (deflayer navigation
   _ _ _ _ _ _ _ _ _ _ _ _ 
   M-1  M-2  M-3  M-4  M-5     lrld M-6  M-7  M-8  M-9  M-0
-  @pad @cls @tbl @tbr @crctab  fn  home pgdn pgup end  @airmax
-  @all @sav S-tab tab @airtab      lft  down up   rght @fun
+  @qlz @cls @tbl @tbr @crctab  fn  home pgdn pgup end  @airmax
+  @all @sav S-tab tab @a⇥win      lft  down up   rght @fun
   @ndo @cut @cpy @pst M-[ M-]      @mwl @mwd @mwu @mwr @airgee
   _         del                 _            esc
-)
-
-
-;; -----  NUMPAD  ------------------------------------------------------
-(deflayer numpad
-  _ _ _ _ _ _ _ _ _ _ _ _ 
-  _    _    _    _    _     _   _    _    _    _    _
-  XX   home up   end  pgup  _   @/   @7   @8   @9   XX
-  XX   lft  down rght pgdn      @-   @4   @5   @6   @0
-  XX   XX   XX   XX   XX    _   @,   @1   @2   @3   @.
-  _         @std           @nbs           @std
 )
 
 
@@ -167,33 +139,36 @@
   _         _              @nbs           @sym
 )
 
+;; -----  NUMPAD  ------------------------------------------------------
+;; (deflayer numpad
+;;   _ _ _ _ _ _ _ _ _ _ _ _ 
+;;   _    _    _    _    _     _   _    _    _    _    _
+;;   XX   home up   end  pgup  _   @/   @7   @8   @9   XX
+;;   XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+;;   XX   XX   XX   XX   XX    _   @,   @1   @2   @3   @.
+;;   _         @std           @nbs           @std
+;; )
 
 
-
-;; -------------------------------------------------------------------------------------
-;; combo definition
-
-(defchordsv2
-  ;; left side
-  (e r) @eng $hold-time all-released    (        symbols funpad navigation qwe)
-  (w e) @rus $hold-time all-released    (        symbols funpad navigation qwe)
-  (z x) @_   $hold-time all-released    (        symbols     navigation qwe)
-  (x c) -    $hold-time all-released    (        symbols     navigation qwe)
-  (r f) @``  $hold-time all-released    (        symbols funpad navigation qwe)
-  (e d) @''  $hold-time all-released    (        symbols funpad navigation qwe)
-  (w r) @<>  $hold-time all-released    (eng rus     funpad navigation qwe)
-  (s f) @brc $hold-time all-released    (eng rus     funpad navigation qwe)
-  ;; right side
-  (u j) @“”  $hold-time all-released    (        symbols funpad navigation qwe)
-  (i k) @brc $hold-time all-released    (        symbols funpad navigation qwe)
-  (u o) @[]  $hold-time all-released    (eng rus     funpad navigation qwe)
-  (j l) @{}  $hold-time all-released    (eng rus     funpad navigation qwe)
-)
+;; -----  SWITCH  --------------------------------------------------------
+;; (deflayer swi 
+;;   _ _ _ _ _ _ _ _ _ _ _ _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _    _    _    _    _    _    _   @rus @eng  XX  @qwe
+;;   _   @gre @rus @eng  _         _    _   @gre  _    _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _         _              _              _          
+;; )
 
 
-
-
-
-
+;; -----  Fn's  ---------------------------------------------------------
+;; (deflayer fnlayer
+;;   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _    _    _    _    _           _    _    _    _    _
+;;   _    _    _    _    _     _     _    _    _    _    _
+;;   _         _               _               _          
+;; )
 
 ;; vim: set ft=lisp

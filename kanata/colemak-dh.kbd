@@ -4,10 +4,10 @@
 ;; brdn brup @mc @sls @dtn @dnd prev  pp  next mute vold volu
    🔅   🔆   @mc @sls @dtn @dnd ◀◀    ▶⏸   ▶▶   🔇   🔉   🔊 
    _    _    _    _    _    _    _    _    _    _    _
-   q    w    f    p    b   @hy   j    l    u    @yy  ;
+   q    w    f    p    b   @hy   j    l    u    y    ;
    a    @rr  @ss  @tt  g         m    @nn  @ee  @ii  o 
    z    x    c    d    v    <    k    h    ,    .    /
-   @fnl      @sft          @nav            @sym
+   _         @sft          @nav            @sym
 )
 
 (defalias
@@ -18,6 +18,6 @@
   nn (tap-hold $tap_timeout $long_hold_timeout n lalt)
   ee (tap-hold $tap_timeout $long_hold_timeout e rctl)
   ii (tap-hold $tap_timeout $long_hold_timeout i rmet)
-  yy (tap-hold-press $tap_timeout $hold_timeout y (layer-while-held swi))
+;;  yy (tap-hold-press $tap_timeout $hold_timeout y (layer-while-held swi))
 
 )

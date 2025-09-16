@@ -87,6 +87,33 @@ image_bound      = [ 5000, 5000 ]
 suppress_preload = false
 
 [plugin]
+# Git
+git = { enable = true }
+# Sudo
+sudo = { enable = true }
+# Starship
+starship = { enable = true }
+# Smart paste / enter
+smart-paste = { enable = true }
+smart-enter = { enable = true }
+# Rsync
+rsync = { enable = true }
+# Restore / Recycle bin
+restore = { enable = true }
+recycle-bin = { enable = true }
+# Projects
+projects = { enable = true }
+# Piper
+piper = { enable = true }
+# Ouch
+ouch = { enable = true }
+# Full border
+full-border = { enable = true }
+# Mactag
+mactag = { enable = true }
+# Chmod
+chmod = { enable = true }
+
 fetchers = [
 	# Mimetype
 	{ id = "mime", name = "*", run = "mime", prio = "high" },

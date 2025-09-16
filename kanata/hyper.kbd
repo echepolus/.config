@@ -10,8 +10,6 @@
 ;; === HYPER LAYER CONFIGURATION ===
 
 ;; --- Hyper Layer (CapsLock + keys) ---
-;; hjkl = mnei in Colemak
-;; aj~hjlk~ - join windows
 
 (deflayer hyper
   _ _ _ _ _ _ _ _ _ _ _ _ 
@@ -27,7 +25,7 @@
   _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     @book _     _     _     _     _     _
-  @anki @tor  @sfri @gram @ghst       _     _     @emcs _     _
+  _     @tor  @sfri @gram @ghst       _     _     @emcs _     _
   @zen  _     @cgpt _     _     _     _     _     _     _     _
   _           _                 _                 _            
 )

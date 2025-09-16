@@ -39,7 +39,7 @@ confirm-close-surface   = false
 # Shortcuts
 keybind                 = alt+left=unbind
 keybind                 = alt+right=unbind
-keybind                 = global:cmd+shift+j=toggle_quick_terminal
+keybind                 = global:ctrl+shift+5=toggle_quick_terminal
 
 # ADDED BY ALEXEY
 window-inherit-working-directory = true

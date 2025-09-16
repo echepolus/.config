@@ -155,6 +155,7 @@
   cut M-x
   cpy M-c
   pst M-v
+  qlz (multi (release-key lsft) (release-key rsft) M-q)
 
   0 0
   1 1
@@ -203,7 +204,8 @@
   !  S-1
   ;  ;
   :  S-;
-  ?  S-/
+;;  ?  S-/
+  ? (switch ((base-layer rus)) S-7 break () S-/ break )
 )
 
 ;; NumRow layer
