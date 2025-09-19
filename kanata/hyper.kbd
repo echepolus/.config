@@ -73,7 +73,7 @@
   aserv C-A-p
   aer+ C-A-M-eql
   aer- C-A-M-min
-  acco C-A-M-h
+  acco C-A-M-,
   atls C-A-M-/
   aerq M-q
   aerw M-w

@@ -18,6 +18,4 @@
   nn (tap-hold $tap_timeout $long_hold_timeout n lalt)
   ee (tap-hold $tap_timeout $long_hold_timeout e rctl)
   ii (tap-hold $tap_timeout $long_hold_timeout i rmet)
-;;  yy (tap-hold-press $tap_timeout $hold_timeout y (layer-while-held swi))
-
 )

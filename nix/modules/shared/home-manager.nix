@@ -418,11 +418,11 @@ in
 
   sketchybar = {
     enable = true;
-    # configType = "lua";
-    configType = "bash";
+    configType = "lua";
+    # configType = "bash";
     includeSystemPath = true;
-    # sbarLuaPackage = pkgs.sbarlua;
-    # luaPackage = pkgs.lua5_4;
+    sbarLuaPackage = pkgs.sbarlua;
+    luaPackage = pkgs.lua5_4;
     # config = {
     #   source = "/Users/${user}/.config/sketchybar/";
     #   recursive = true;
