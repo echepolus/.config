@@ -423,10 +423,10 @@ in
     includeSystemPath = true;
     sbarLuaPackage = pkgs.sbarlua;
     luaPackage = pkgs.lua5_4;
-    # config = {
-    #   source = "/Users/${user}/.config/sketchybar/";
-    #   recursive = true;
-    # };
+    config = {
+      source = ./config/sketchybar;
+      recursive = true;
+    };
     extraPackages = [
       pkgs.sketchybar-app-font
       pkgs.switchaudio-osx
@@ -437,6 +437,7 @@ in
       enable = true;
       errorLogFile = "/Users/${user}/.config/sketchybar/logs/sketchybar.err.log";
       outLogFile = "/Users/${user}/.config/sketchybar/logs/sketchybar.out.log";
+
     };
   };
 }

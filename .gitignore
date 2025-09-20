@@ -3,7 +3,7 @@
 !.gitignore
 !/kanata/
 !/scripts/
-!/sketchybar/
+# !/sketchybar/
 !/nvim/
 !/ghostty/
 !/leader-key/
