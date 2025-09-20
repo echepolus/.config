@@ -84,6 +84,8 @@ return {
     ["Dropbox"] = ":dropbox:",
     ["Element"] = ":element:",
     ["Emacs"] = ":emacs:",
+    ["emacs"] = ":emacs:",
+    ["emacs-30.2"] = ":emacs:",
     ["Evernote Legacy"] = ":evernote_legacy:",
     ["FaceTime"] = ":face_time:",
     ["FaceTime 通话"] = ":face_time:",

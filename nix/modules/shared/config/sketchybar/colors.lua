@@ -23,7 +23,7 @@ return {
         border = 0xff7f8490
     },
 
-    bg1 = 0xFF1d1b2d,
+    bg1 = 0x80303A6C,
     bg2 = 0xe0313436,
 
     accent = 0xFFb482c2,

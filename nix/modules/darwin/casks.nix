@@ -40,7 +40,7 @@
 
   # Keyboard
   "leader-key"
-  "input-source-pro"
+  # "input-source-pro"
   "espanso"
   "kawa"
 

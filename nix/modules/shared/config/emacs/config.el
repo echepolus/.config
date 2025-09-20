@@ -244,6 +244,7 @@
 (setq read-buffer-completion-ignore-case t)
 (setq-default case-fold-search t)   ; For general regexp
 (setq read-file-name-completion-ignore-case t)
+(file-name-shadow-mode 1)
 
 (use-package mb-depth
   :ensure nil
@@ -271,7 +272,8 @@
   :config
   (setq vertico-cycle t)
   (setq vertico-resize nil)
-  (vertico-mode 1))
+  (vertico-mode 1)
+  (add-hook 'rfn-eshadow-update-overlay-hook #'vertico-directory-tidy))
 
 ;; Enable rich annotations using the Marginalia package
 (use-package marginalia
@@ -820,6 +822,7 @@ Note the weekly scope of the command's precision.")
             (interactive)
             (nerd-icons-dired-mode 1)
             (hl-line-mode 1))))
+    (add-hook 'dired-mode-hook 'dired-hide-details-mode)t
 
 (use-package dired-ranger)
 (use-package dired-collapse)
