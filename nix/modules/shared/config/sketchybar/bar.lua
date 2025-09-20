@@ -10,4 +10,5 @@ sbar.bar({
     sticky = 'on',
     topmost = 'window',
     y_offset = 5,
+    notch_width = 200,
 })

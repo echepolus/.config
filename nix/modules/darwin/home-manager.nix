@@ -29,7 +29,7 @@ in
     brews = [
       # "kanata"
       "speedtest-cli"
-      # "carthage"
+      "gitlab-runner"
     ];
     masApps = {
       #"1password" = 1333542190;
