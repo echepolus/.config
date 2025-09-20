@@ -1,0 +1,16 @@
+#!/bin/bash
+
+options=(
+  style=round
+  width=5.0
+  hidpi=off
+  blacklist="iPhone Mirroring,espanso,emacs-30.2,emacs"
+  # "active_color=glow(0x4de1e3e4)"
+  # "active_color=gradient(top_left=0xff49a09d,bottom_right=0x885f2c82)" 
+  # "inactive_color=gradient(top_left=0xaa45c4c0,bottom_right=0xaaba3aa5)" \
+  # "active_color=glow(0xCCf9dad5)"
+  "active_color=0xCCf9dad5"
+  # inactive_color=0xffaabbcc
+)
+
+/Users/alexeykotomin/.nix-profile/bin/borders "${options[@]}"
