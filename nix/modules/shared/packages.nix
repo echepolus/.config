@@ -56,8 +56,7 @@ with pkgs; [
   gh # GitHub CLI
   glow # Markdown renderer for terminal
   gnupg # GNU Privacy Guard
-  # ghostty-bin
-  ghostty
+  ghostty-bin
 
   # H
   htop # Interactive process viewer
