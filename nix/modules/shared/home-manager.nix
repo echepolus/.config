@@ -150,7 +150,17 @@ in
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
     '';
   };
-
+  bash = {
+    enable = true;
+    enableCompletion = true;
+    initExtra = ''
+      if [ -x /opt/homebrew/bin/brew ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+      elif [ -x /usr/local/bin/brew ]; then
+        eval "$(/usr/local/bin/brew shellenv)"
+      fi
+    '';
+  };
   git = {
     enable = true;
     ignores = [ "*.swp" ];

@@ -30,6 +30,7 @@ in
       # "kanata"
       "speedtest-cli"
       "gitlab-runner"
+      "rbenv"
     ];
     masApps = {
       #"1password" = 1333542190;

@@ -2,7 +2,7 @@
 
 options=(
   style=round
-  width=5.0
+  width=3.0
   hidpi=off
   blacklist="iPhone Mirroring,espanso,emacs-30.2,emacs"
   # "active_color=glow(0x4de1e3e4)"
