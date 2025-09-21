@@ -1,1 +1,1 @@
-/nix/store/yq9bgvm0v6c545r0g7y0fkhrqaxkrxwm-home-manager-files/.config/emacs/config.org
+/nix/store/1mnp60r8rpvlfgamqfyfm7wd5pg3w2pq-home-manager-files/.config/emacs/config.org

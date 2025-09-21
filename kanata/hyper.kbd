@@ -24,7 +24,7 @@
 (deflayer app 
   _ _ _ _ _ _ _ _ _ _ _ _ 
   _     _     _     _     _     _     _     _     _     _     _
-  _     _     _     _     @book _     _     _     _     _     _
+  _     _     @find _     @book _     _     _     _     _     _
   _     @tor  @sfri @gram @ghst       _     _     @emcs _     _
   @zen  _     @cgpt _     _     _     _     _     _     _     _
   _           _                 _                 _            

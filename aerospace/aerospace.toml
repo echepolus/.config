@@ -7,7 +7,7 @@
 
 after-login-command = []
 after-startup-command = [
-  'exec-and-forget /Users/alexeykotomin/.config/borders/bordersrc',
+  # 'exec-and-forget /Users/alexeykotomin/.config/borders/bordersrc',
   # 'exec-and-forget /Users/alexeykotomin/.nix-profile/bin/sketchybar'
 ]
 start-at-login = true
@@ -251,7 +251,7 @@ if.app-id = 'com.culturedcode.ThingsMac'
 run = 'move-node-to-workspace P'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Safari.WebApp.5A9522B1-FAF4-4660-925C-458CC7358F1A'
+if.app-id = 'com.apple.Safari.WebApp.8A54B3A9-1951-4394-ABF7-B56A9F2AE12C'
 run = 'move-node-to-workspace P'
 
 

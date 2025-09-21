@@ -150,6 +150,7 @@ in
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
     '';
   };
+
   bash = {
     enable = true;
     enableCompletion = true;
@@ -159,8 +160,12 @@ in
       elif [ -x /usr/local/bin/brew ]; then
         eval "$(/usr/local/bin/brew shellenv)"
       fi
+      if which rbenv > /dev/null; then 
+        eval "$(rbenv init -)"
+      fi
     '';
   };
+
   git = {
     enable = true;
     ignores = [ "*.swp" ];
@@ -427,7 +432,7 @@ in
   };
 
   sketchybar = {
-    enable = true;
+    enable = false;
     configType = "lua";
     # configType = "bash";
     includeSystemPath = true;
