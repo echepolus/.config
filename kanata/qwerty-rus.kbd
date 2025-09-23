@@ -1,55 +1,73 @@
-(deflayer rus 
+;;(deflayer rus 
 ;; brdn brup @mc @sls @dtn @dnd prev pp  next mute vold volu
-   🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
+;;   🔅   🔆   @mc @sls @dtn @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊 
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   @й   @ц   @у   @к   @е  @hy   @н   @г   @ш   @щ  @з                                
+;;   @ф   @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @ж                               
+;;   @я   @ч   @с   @м   @и   @?   @т   @ь   @б   @ю   @.,                               
+;;   _         @sft          @nav            @sym
+;;)
+ (deflayer rus
+  🔅   🔆   @mc @sls @dtn @dnd ◀◀    ▶⏸   ▶▶   🔇   🔉   🔊 
    _    _    _    _    _    _    _    _    _    _    _
-   @й   @ц   @у   @к   @е  @hy   @н   @г   @ш   @щ  @з                                
-   @ф   @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @ж                               
-   @я   @ч   @с   @м   @и   @?   @т   @ь   @б   @ю   @.,                               
-   _         @sft          @nav            @sym
+  q    w    e    r    t    @hy   y    u    i    o    p
+  a    @hы  @hв  @hа  g          h    @hо  @hл  @hд  ;
+  z    x    c    v    b    @```  n    m    ,    .    /
+  fn        @sft          @nav              @sym
 )
-
 (defalias
-  ц w
-  ь m
-  я z
-  з p
-  в d
-  к r
-  д l
-  ч x
-  ш i
-  щ o
-  у e
-  и b
-  е t
-  о j
-  а f
-  л k
-  н y
-  т n
-  с c
-  р h
-  й q
-  ф a
-  э '
-  х [
-  ъ ]
-  ы s
-  ю .
-  б ,
-  м v
-  п g
-  г u
-  ж ;
-  ё grv
-;;  lщ (tap-hold $tap-time $hold-pinky @щ (layer-toggle swi))
-
-  ;; modtaps (GCAS)
-  hа (tap-hold $tap-time $hold-ring @а (multi lalt (layer-while-held eng)))
-  hв (tap-hold $tap-time $hold-pinky @в (multi lctl (layer-while-held eng)))
-  hы (tap-hold $tap-time $hold-middle @ы (multi lmet (layer-while-held eng)))
-  hд (tap-hold $tap-time $hold-middle @д (multi lmet (layer-while-held eng)))
-  hл (tap-hold $tap-time $hold-pinky @л (multi lctl (layer-while-held eng)))
-  hо (tap-hold $tap-time $hold-ring @о (multi lalt (layer-while-held eng)))
+  ;; Home-row mods
+  hа  (tap-hold $tap_timeout $long_hold_timeout f lalt)
+  hв  (tap-hold $tap_timeout $long_hold_timeout d lctl)
+  hы  (tap-hold $tap_timeout $long_hold_timeout s lmet)
+  hд  (tap-hold $tap_timeout $long_hold_timeout l lmet)
+  hл  (tap-hold $tap_timeout $long_hold_timeout k rctl)
+  hо  (tap-hold $tap_timeout $long_hold_timeout j ralt)
+  ``` (switch ((base-layer eng)) S-7 break () S-/ break )
 )
 
+;;(defalias
+;;  ц ц
+;;  ь ь
+;;  я я
+;;  з з
+;;  в в
+;;  к к
+;;  д д
+;;  ч ч
+;;  ш ш
+;;  щ щ
+;;  у у
+;;  и и
+;;  е е
+;;  о о
+;;  а а
+;;  л л
+;;  н н
+;;  т т
+;;  с с
+;;  р р
+;;  й й
+;;  ф ф
+;;  э э
+;;  х х
+;;  ъ ъ
+;;  ы ы
+;;  ю ю
+;;  б б
+;;  м м
+;;  п п
+;;  г г
+;;  ж ж
+;;  ё ё
+;;;;  lщ (tap-hold $tap-time $hold-pinky @щ (layer-toggle swi))
+;;
+;;  ;; modtaps (GCAS)
+;;  hа (tap-hold $tap-time $hold-ring @а (multi lalt (layer-while-held eng)))
+;;  hв (tap-hold $tap-time $hold-pinky @в (multi lctl (layer-while-held eng)))
+;;  hы (tap-hold $tap-time $hold-middle @ы (multi lmet (layer-while-held eng)))
+;;  hд (tap-hold $tap-time $hold-middle @д (multi lmet (layer-while-held eng)))
+;;  hл (tap-hold $tap-time $hold-pinky @л (multi lctl (layer-while-held eng)))
+;;  hо (tap-hold $tap-time $hold-ring @о (multi lalt (layer-while-held eng)))
+;;)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
