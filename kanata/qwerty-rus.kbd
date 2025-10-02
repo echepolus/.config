@@ -12,7 +12,7 @@
    _    _    _    _    _    _    _    _    _    _    _
   q    w    e    r    t    @hy   y    u    i    o    p
   a    @hы  @hв  @hа  g          h    @hо  @hл  @hд  ;
-  z    x    c    v    b    @```  n    m    ,    .    /
+  z    x    c    v    b    S-7   n    m    ,    .    /
   fn        @sft          @nav              @sym
 )
 (defalias
@@ -23,7 +23,7 @@
   hд  (tap-hold $tap_timeout $long_hold_timeout l lmet)
   hл  (tap-hold $tap_timeout $long_hold_timeout k rctl)
   hо  (tap-hold $tap_timeout $long_hold_timeout j ralt)
-  ``` (switch ((base-layer eng)) S-7 break () S-/ break )
+  ``` (switch () S-6 break () S-7 break )
 )
 
 ;;(defalias
