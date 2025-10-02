@@ -31,6 +31,8 @@ in
       "speedtest-cli"
       "gitlab-runner"
       "rbenv"
+      "bear"
+      "llvm"
     ];
     masApps = {
       #"1password" = 1333542190;

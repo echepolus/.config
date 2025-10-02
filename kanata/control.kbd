@@ -8,7 +8,7 @@
     ;; Languages
     en C-S-6 
     ru C-S-9 
-    el C-S-7
+    el C-S-8
 
     ghostty C-S-5 
 
@@ -26,6 +26,7 @@
     prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - 1tap=region, 2tap=window, 3tap=screen
     redo M-S-z ;; повтор действия
     del C-d ;; удаление символа под курсором, в терминале
+    ldel M-del ;; 
 
     ;; macOS function key glyphs
     mc C-up ;; Mission Control
@@ -77,7 +78,7 @@
   ;; right side
   (j k) @eng  $chord-time all-released ( )
   (k l) @rus  $chord-time all-released ( )
-  (l ;) @gre  $chord-time all-released ( )
+  (j i) @gre  $chord-time all-released ( )
 
   (j l) @aerl $chord-time all-released ( )
 
