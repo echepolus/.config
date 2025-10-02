@@ -13,7 +13,7 @@
   q    w    e    r    t    @hy   y    u    i    o    p
   a    @hы  @hв  @hа  g          h    @hо  @hл  @hд  ;
   z    x    c    v    b    S-7   n    m    ,    .    /
-  fn        @sft          @nav              @sym
+  @fnl      @sft          @nav              @sym
 )
 (defalias
   ;; Home-row mods
@@ -23,7 +23,6 @@
   hд  (tap-hold $tap_timeout $long_hold_timeout l lmet)
   hл  (tap-hold $tap_timeout $long_hold_timeout k rctl)
   hо  (tap-hold $tap_timeout $long_hold_timeout j ralt)
-  ``` (switch () S-6 break () S-7 break )
 )
 
 ;;(defalias

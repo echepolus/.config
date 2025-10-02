@@ -68,7 +68,7 @@
 
 ;;  pad (layer-switch numpad)
 ;;   l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
-;;   fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
+     fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
 )
 
 
@@ -168,13 +168,13 @@
 
 
 ;; -----  Fn's  ---------------------------------------------------------
-;; (deflayer fnlayer
-;;   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
-;;   _    _    _    _    _     _     _    _    _    _    _
-;;   _    _    _    _    _     _     _    _    _    _    _
-;;   _    _    _    _    _           _    _    _    _    _
-;;   _    _    _    _    _     _     _    _    _    _    _
-;;   _         _               _               _          
-;; )
+   (deflayer fnlayer
+     f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+     _    _    _    _    _     _     _    _    _    _    _
+     _    _    _    _    _     _     _    _    _    _    _
+     _    _    _    _    _           _    _    _    _    _
+     _    _    _    _    _     _     _    _    _    _    _
+     _         _               _               _          
+   )
 
 ;; vim: set ft=lisp

@@ -7,7 +7,7 @@
    q    w    f    p    b   @hy   j    l    u    y    ;
    a    @rr  @ss  @tt  g         m    @nn  @ee  @ii  o 
    z    x    c    d    v    `    k    h    ,    .    /
-   _         @sft          @nav            @sym
+   @fnl      @sft          @nav            @sym
 )
 
 (defalias
