@@ -6,9 +6,10 @@
   (defalias
 
     ;; Languages
-    en C-S-6 
-    ru C-S-9 
-    el C-S-8
+;;  en C-S-6 
+;;  ru C-S-9 
+;;  el C-S-8
+
 
     ghostty C-S-5 
 
@@ -51,7 +52,7 @@
     airgee C-A-M-g
 
     ;; launching applications
-    emax (macro @en 50 @launch 400 s w a p 400 ret 400 e m a c s  400 ret)
+;;  emax (macro @en 50 @launch 400 s w a p 400 ret 400 e m a c s  400 ret)
 
 
 ;;    browser_en (macro @launch 400 S-s a f a r i 400 ret)

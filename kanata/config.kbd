@@ -52,12 +52,18 @@
 (defalias
   ;; ---- to Layouts ----------------------------------------
 ;;  qwe (multi (layer-switch qwe) @en)
-  eng (multi (layer-switch eng) @en)
-  rus (multi (layer-switch rus) @ru)
-  gre (multi (layer-switch gre) @el)
+;;eng (multi (layer-switch eng) @en)
+;;rus (multi (layer-switch rus) @ru)
+;;gre (multi (layer-switch gre) @el)
 
-  ;; ---- to Sublayers --------------------------------------
-  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+
+;;eng (layer-switch eng)
+;;rus (layer-switch rus)  
+;;gre (layer-switch gre)  
+
+
+;; ---- to Sublayers --------------------------------------
+nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
   sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
   sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
   hy  (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
