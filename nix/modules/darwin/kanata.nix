@@ -17,7 +17,7 @@ in
 
     configFile = mkOption {
       type = types.str;
-      default = "/Users/${config.system.primaryUser}/.config/kanata/config.kbd";
+      default = "/Users/${config.system.primaryUser}/.config/kanata/main.kbd";
       description = "Path to the kanata configuration file.";
     };
 
@@ -33,7 +33,7 @@ in
     launchd.daemons.kanata = {
       serviceConfig = {
         ProgramArguments = [ 
-          "/Users/${config.system.primaryUser}/.config/scripts/start-kanata-safely"
+          "/Users/${config.system.primaryUser}/.config/scripts/kanata-scripts/start-kanata-safely"
         ];
         
         Label = "org.nixos.kanata";

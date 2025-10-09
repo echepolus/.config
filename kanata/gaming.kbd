@@ -1,0 +1,19 @@
+(deflayer gam
+  tab  q    w    e    r          y    _    up   @num_ @ltab
+  lsft a    s    d    f          h    left down  rght lsft
+  lctl z    x    c    v          n   @num_  _    _    lctl
+                 _    spc        ret @prnt
+)
+
+(deflayer gfn
+  grv  2    esc  3    t          _    _    _    _    _
+ @fun  j    i    m    g          _    _    _    _    _
+  caps 1    h    4    b          _    _    _    _    _
+                 XX   ret        ret  _    
+)
+
+(defalias
+  ltab (tap-hold $tap-time $hold-time tab (layer-toggle mos))
+  num_ (tap-hold $tap-time $hold-time _ (layer-toggle num))
+  fun (tap-hold $tap-time $hold-time XX (layer-toggle num))
+)

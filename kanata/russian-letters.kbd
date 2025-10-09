@@ -1,0 +1,41 @@
+(defalias
+  ц w
+  ь m
+  ьъ (fork m (unmod ]) (lsft rsft)) ;; diktor
+  я z
+  з p
+  в d
+  к r
+  д l
+  ч x
+  ш i
+  щ o
+  у e
+  и b
+  е t
+  о j
+  а f
+  л k
+  н y
+  т n
+  с c
+  р h
+  й q
+  ф a
+  э '
+  х [
+  ъ ]
+  ы s
+  ю .
+  б ,
+  м v
+  п g
+  г u
+  ж ;
+  ё grv
+  *ь (switch
+    ((key-history spc 1)) (macro S-2 20 S-2 20 left) break
+    ((key-history e 1)) (macro x i) break ;; у - чш
+    () @ьъ break
+  )
+)

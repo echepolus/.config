@@ -1,0 +1,25 @@
+(deflayer eng ;; Colemak
+  q   @lw   f    p    g          j    l    u   @ly  @l*'
+ @ha  @hr  @hs  @ht   d          h   @hn  @he  @hi  @ho
+  z   @lx   c   @lv   b          k   @lm  @*,? @.!  @/\
+                @num @nav       @sym @lan
+)
+
+(defalias
+  lw (tap-hold $tap-time $hold-ring w (layer-toggle num))
+  lv (tap-hold $tap-time $hold-index v (layer-toggle num))
+  lm (tap-hold $tap-time $hold-index m (layer-toggle num2))
+  ly (tap-hold $tap-time $hold-ring y (layer-toggle num))
+
+  lx (tap-hold $tap-time $hold-ring x (layer-toggle mos))
+  l*' (tap-hold $tap-time $hold-pinky @*' (layer-toggle mos))
+
+  ha (tap-hold $tap-time $hold-pinky a @cmd)
+  hr (tap-hold $tap-time $hold-ring r lalt)
+  hs (tap-hold $tap-time $hold-middle s @ctl)
+  ht (tap-hold $tap-time $hold-index t lsft)
+  hn (tap-hold $tap-time $hold-index n lsft)
+  he (tap-hold $tap-time $hold-middle e @ctl)
+  hi (tap-hold $tap-time $hold-ring i lalt)
+  ho (tap-hold $tap-time $hold-pinky o @cmd)
+)

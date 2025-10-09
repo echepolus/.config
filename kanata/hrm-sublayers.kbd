@@ -1,0 +1,23 @@
+(defalias
+  ;; num
+  f11 (tap-hold $tap-time $hold-pinky f11 @cmd)
+  f4 (tap-hold $tap-time $hold-ring f4 lalt)
+  f5 (tap-hold $tap-time $hold-middle f5 @ctl)
+  f6 (tap-hold $tap-time $hold-index f6 lsft)
+  h4 (tap-hold $tap-time $hold-index 4 lsft)
+  h5 (tap-hold $tap-time $hold-middle 5 @ctl)
+  h6 (tap-hold $tap-time $hold-ring 6 lalt)
+  hbspc (tap-hold $tap-time $hold-pinky @bdel @cmd)
+)
+
+(defalias
+  ;; sym
+  h\ (tap-hold $tap-time $hold-pinky @\ @cmd)
+  hlb (tap-hold $tap-time $hold-ring @lb lalt)
+  h- (tap-hold $tap-time $hold-middle @- @ctl)
+  hrb (tap-hold $tap-time $hold-index @rb lsft)
+  h{ (tap-hold $tap-time $hold-index @{ lsft)
+  h; (tap-hold $tap-time $hold-middle @; @ctl)
+  h} (tap-hold $tap-time $hold-ring @} lalt)
+  h! (tap-hold $tap-time $hold-pinky @! @cmd)
+)

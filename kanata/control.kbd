@@ -1,98 +1,117 @@
-;; src -> https://github.com/XelorR/Extend/blob/master/control.kbd
-;; -------------------------------------------------------------------------------------
-;; MacOS==========================================================================
-
-(platform (macos)
+(platform (win winiov2 wintercept linux)
   (defalias
+    ctl lctl
+    cmd lmet
+    opt lalt
+    oct (switch ((base-layer rus))
+      (tap-hold $tap-time $hold-middle
+        (multi
+          (one-shot 500 (layer-while-held eng))
+          (one-shot 500 @ctl)
+        )
+        @ctl
+      ) break
+      () (one-shot 500 @ctl) break
+    )
+    tlft C-S-tab
+    trgt C-tab
+    fdel del  ;; delete text to the right
+    bdel bspc ;; delete text to the left
+    del del   ;; delete objects
+    home home
+    end end
+    pgup pgup
+    pgdn pgdn
+    prnt prnt
+    mnu menu
 
-    ;; Languages
-;;  en C-S-6 
-;;  ru C-S-9 
-;;  el C-S-8
+    zu+ C-=
+    zu- C--
+    zu0 C-0
 
-
-    ghostty C-S-5 
-
-    ;; other alias
-    launch M-spc ;; launch applications
-    rlaunch A-spc ;; raycast launch applications
-    tlft M-S-[
-    trgt M-S-]
-    home (fork M-left M-up (lalt))
-    end (fork M-rght M-down (lalt))
-    mcon mctl ;; Mission Control, MacOS native
-    file A-M-spc ;; Launch file manager
-    kill A-M-esc ;; Kill any app
-    gprnt M-S-3 ;; Make a screenshot - full screen
-    prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - 1tap=region, 2tap=window, 3tap=screen
-    redo M-S-z ;; повтор действия
-    del C-d ;; удаление символа под курсором, в терминале
-    ldel M-del ;; 
-
-    ;; macOS function key glyphs
-    mc C-up ;; Mission Control
-    sls M-spc ;; Spotlight Search
-    dtn S-C-A-M-f5 ;; Dictation
-    dnd S-C-A-M-f6 ;; Do Not Disturb
-  
-    ;; Mouse wheel emulation
-    mwu (mwheel-up    50 120)
-    mwd (mwheel-down  50 120)
-    mwl (mwheel-left  50 120)
-    mwr (mwheel-right 50 120)
-
-    tbl M-A-left
-    tbr M-A-right
-    crctab S-M-tab
-
-    ;; Aerospace
-    a⇥win A-tab
-    a⇥spc C-A-M-tab
-    airmax C-A-M-e
-    airgee C-A-M-g
-
-    ;; launching applications
-;;  emax (macro @en 50 @launch 400 s w a p 400 ret 400 e m a c s  400 ret)
-
-
-;;    browser_en (macro @launch 400 S-s a f a r i 400 ret)
-;;    browser_ru (macro @en 50 @launch 400 S-s a f a r i 400 ret 50 @ru)
-;;    bro (switch ((base-layer rus)) @browser_ru break () @browser_en break ) ;; launch terminal
-;;    terminal_en (macro @launch 400 S-t e r m i n a l 400 ret)
-;;    terminal_ru (macro @en 50 @launch 400 S-t e r m i n a l 400 ret 50 @ru)
-;;    ter (switch ((base-layer rus)) @terminal_ru break () @terminal_en break ) ;; launch terminal
-;;    notepad_en (macro @launch 400 t e x t spc e d i t 400 ret)
-;;    notepad_ru (macro @en 50 @launch 400 t e x t spc e d i t 400 ret 50 @ru)
-;;    ntp (switch ((base-layer rus)) @notepad_ru break () @notepad_en break )
+    udo C-z
+    cut C-x
+    cpy C-c
+    pst C-v
   )
 )
 
-;; combo definition
+(platform (win winiov2 wintercept)
+  (defalias
+    rdo C-y
 
-(defchordsv2
-  ;; left side
-  (f s) @aerh $chord-time all-released ( )
-  (f spc) @a⇥spc $chord-time all-released ( )
-  (f j) @ghostty $chord-time all-released ( )
+    mcon M-tab
+    af4 A-f4
+  )
+)
+(platform (linux)
+  (defalias
+    rdo C-S-z
 
+    mcon M-w
+    af4 C-q
+  )
+)
 
-  ;; right side
-  (j k) @eng  $chord-time all-released ( )
-  (k l) @rus  $chord-time all-released ( )
-  (j i) @gre  $chord-time all-released ( )
+(platform (macos)
+  (defalias
+    ctl lmet
+    cmd lctl
+    opt (tap-hold $tap-time $hold-ring lalt lmet)
+    oct (switch ((base-layer rus))
+      (tap-hold $tap-time $hold-middle
+        (multi
+          (one-shot 500 (layer-while-held eng))
+          (one-shot 500 @ctl)
+        )
+        lalt
+      ) break
+      () (tap-hold $tap-time $hold-middle (one-shot 500 @ctl) lalt) break
+    )
+    tlft M-S-[
+    trgt M-S-]
+    fdel C-d  ;; delete text to the right
+    bdel bspc ;; delete text to the left
+    del bspc  ;; delete objects
+    home M-left
+    end M-right
+    pgup (fork pgup @tlft (lmet rmet))
+    pgdn (fork pgdn @trgt (lmet rmet))
+    prnt M-S-4
+    mnu mrtp
 
-  (j l) @aerl $chord-time all-released ( )
+    zu+ M-=
+    zu- M--
+    zu0 M-0
 
+    udo M-z
+    cut M-x
+    cpy M-c
+    pst M-v
+    rdo M-S-z
 
+    mcon C-up
+    af4 M-q
+  )
+)
 
-;;  (j l) @aerh $hold-time all-released (eng rus gre qwe symbols numpad numrow funpad swi hyper fnlayer)
-;;  (u j) @“”  $hold-time all-released    (        symbols funpad navigation qwe)
-;;  (i k) @brc $hold-time all-released    (        symbols funpad navigation qwe)
-;;  (u o) @[]  $hold-time all-released    (eng rus     funpad navigation qwe)
-;;  (j l) @{}  $hold-time all-released    (eng rus     funpad navigation qwe)
-;;  (z x) @_   $hold-time all-released    (        symbols     navigation qwe)
-;;  (x c) -    $hold-time all-released    (        symbols     navigation qwe)
-;;  (r f) @``  $hold-time all-released    (        symbols funpad navigation qwe)
-;;  (e d) @''  $hold-time all-released    (        symbols funpad navigation qwe)
-;;  (w r) @<>  $hold-time all-released    (eng rus     funpad navigation qwe)
+(defalias
+  cw (switch ((or (base-layer rus) (base-layer jcu))) (caps-word-custom 2000 (a b c d e f g h i j k l m n o p q r s t u v w x y z , . ' ; [ ]) (bspc del)) break () (caps-word 2000) break )
+  rele (multi (release-key lsft) (release-key lalt) (release-key lctl) (release-key lmet) (release-key rsft) (release-key ralt) (release-key rctl) (release-key rmet))
+  lrd (tap-dance 300 (lrld @rele))
+
+  ;; mouse
+  mu (movemouse-up 1 1)
+  md (movemouse-down 1 1)
+  ml (movemouse-left 1 1)
+  mr (movemouse-right 1 1)
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  ;; dynamic macro
+  dr0 (dynamic-macro-record 0)
+  dms dynamic-macro-record-stop
+  dp0 (dynamic-macro-play 0)
 )

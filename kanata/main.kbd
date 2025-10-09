@@ -1,0 +1,132 @@
+(defsrc
+  q    w    e    r    t          u    i    o    p    [
+  a    s    d    f    g          j    k    l    ;    '
+  z    x    c    v    b          m    ,    .    /    rsft
+                 caps spc        ralt F24 
+)
+
+(defcfg concurrent-tap-hold yes)
+(defvar
+  tap-time 190
+  hold-time 200
+
+  hold-index 150
+  hold-middle 150
+  hold-ring 180
+  hold-pinky 195
+)
+
+(include control.kbd)
+(include lang-switching.kbd)
+(include symbols.kbd)
+(include russian-letters.kbd)
+(include hrm-sublayers.kbd)
+
+(include default-layouts.kbd) ;; qwe & jcu
+(include colemak.kbd)         ;; eng
+;; (include gallium.kbd)         ;; eng
+(include diktor.kbd)          ;; rus
+(include gaming.kbd)          ;; gam
+
+(defalias
+  pla (layer-switch pla)
+  qwe (multi (layer-switch qwe) @en)
+  jcu (multi (layer-switch jcu) @ru)
+  en_ (multi (layer-switch eng) @en)
+  ru_ (multi (layer-switch rus) @ru)
+  eng (switch
+    ((base-layer num2)) @en_ break
+    ((base-layer eng)) XX break
+    ((base-layer qwe)) XX break
+    ((base-layer rus)) @en_ break
+    ((base-layer jcu)) @qwe break
+    () XX break
+  )
+  rus (switch
+    ((base-layer num2)) @ru_ break
+    ((base-layer eng)) @ru_ break
+    ((base-layer qwe)) @jcu break
+    ((base-layer rus)) XX break
+    ((base-layer jcu)) XX break
+    () XX break
+  )
+  lan (switch
+    ((base-layer eng)) @rus break
+    ((base-layer qwe)) @jcu break
+    ((base-layer rus)) @eng break
+    ((base-layer jcu)) @qwe break
+    () XX break
+  )
+  gam (layer-switch gam)
+  num (tap-hold $tap-time $hold-time esc (layer-toggle num))
+  nm2 (layer-switch num2)
+  sym (tap-hold $tap-time $hold-time ret (layer-toggle sym))
+  nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
+
+  co' (switch ((base-layer rus)) @rus_co' break () @dft_co' break)
+  co` (switch ((base-layer rus)) @rus_co` break () @dft_co` break)
+  co[ (switch ((base-layer rus)) @rus_co[ break () @dft_co[ break)
+  co] (switch ((base-layer rus)) @rus_co] break () @dft_co] break)
+)
+
+(defchordsv2
+  ;; left side
+  (e r) @eng $hold-time all-released    (        gam gfn sym nav mos         pla     )
+  (w e) @rus $hold-time all-released    (        gam gfn sym nav mos         pla     )
+  (x c) @nm2 $hold-time all-released    (        gam gfn sym nav mos         pla num2)
+  (c v) ret  $hold-time all-released    (        gam gfn sym nav mos         pla num2)
+  (w r) @<>  $hold-time all-released    (eng rus gam gfn     nav mos qwe jcu pla     )
+  (s f) @brc $hold-time all-released    (eng rus gam gfn     nav mos qwe jcu pla     )
+  ;; right side
+  (i p) @[]  $hold-time all-released    (eng rus gam gfn     nav mos qwe jcu pla num2)
+  (k ;) @{}  $hold-time all-released    (eng rus gam gfn     nav mos qwe jcu pla num2)
+  (, /) @-[] $hold-time all-released    (eng rus gam gfn     nav mos qwe jcu pla num2)
+  (o p) @co' $hold-time all-released    (eng     gam gfn sym nav mos qwe     pla num2)
+  (i o) @co` $hold-time all-released    (eng     gam gfn sym nav mos qwe     pla num2)
+  (, .) @co[ $hold-time all-released    (eng     gam gfn sym nav mos qwe     pla num2)
+  (. /) @co] $hold-time all-released    (eng     gam gfn sym nav mos qwe     pla num2)
+)
+
+(deflayer num
+  f12  f7   f8   f9   volu      @/    7    8    9   @fdel
+ @f11 @f4  @f5  @f6   vold       -   @h4  @h5  @h6  @hbspc
+  f10  f1   f2   f3   mute       0    1    2    3    ralt
+                @num @nav       @l0  @.
+)
+(defalias
+  l0 (tap-hold $tap-time $hold-time 0 (layer-toggle sym))
+)
+
+(deflayer num2
+  -    5    2    3   @:          _    _    _    _    @ldel
+  7   @.    1    0    4          _    lsft @ctl lalt @hbspc
+ @,    6    9    8    ret        _    _    _    _    _
+                @fun @nav        XX   XX
+)
+(defalias
+  ldel (tap-hold $tap-time $hold-time @fdel (layer-toggle mos))
+)
+
+(deflayer sym
+ @at№ @<   @=“  @>   @$₽        @^   @[   @_   @]   @`
+ @h\  @hlb @h-  @hrb @+         @%   @h{  @h;  @h}  @h!
+ @#   @*   @:   @/\  @“         @'   @|   @~   @&   @?
+                @num @nav        XX  @.
+)
+
+(deflayer nav
+ @del @tlft tab @trgt @af4       esc @home up   @end  @fdel
+ @cmd lalt @oct lsft  @prnt      ret  left down  rght @bdel
+ @udo @cut @cpy @pst  @rdo       tab @pgup @mnu @pgdn @mcon
+                @num  XX        @lcw @cw   
+)
+(defalias
+  lcw (tap-hold $tap-time $hold-time @cw (layer-toggle sym))
+)
+
+(deflayer mos
+ @lrd @dr0 @dms @dp0 @zu+       slck @mwl @mu  @mwr @fdel 
+ @cmd lalt @ctl lsft @zu-       ins  @ml  @md  @mr  @bdel
+ @pla @gam @qwe @en_ @zu0       caps @mwu mrtp @mwd @lrd
+                @num @nav       mltp mrtp
+)
