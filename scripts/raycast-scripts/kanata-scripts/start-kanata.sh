@@ -15,7 +15,7 @@
 set -euo pipefail
 
 KANATA_PORT=10000
-KANATA_CONFIG="/Users/alexeykotomin/.config/kanata/config.kbd"
+KANATA_CONFIG="/Users/alexeykotomin/.config/kanata/main.kbd"
 KANATA_BIN="/Users/alexeykotomin/.nix-profile/bin/kanata"
 LOG_FILE="/Users/alexeykotomin/.local/log/kanata-startup.log"
 
@@ -46,6 +46,12 @@ fi
 if pgrep -f "kanata.*config.kbd" >/dev/null 2>&1; then
     log "Found existing kanata processes, terminating them"
     echo "$cli_password" | sudo -S pkill -f "kanata.*config.kbd" 2>/dev/null || true
+    sleep 2
+fi
+
+if pgrep -f "kanata.*main.kbd" >/dev/null 2>&1; then
+    log "Found existing kanata processes, terminating them"
+    echo "$cli_password" | sudo -S pkill -f "kanata.*main.kbd" 2>/dev/null || true
     sleep 2
 fi
 

@@ -1,0 +1,69 @@
+(deflayer rus ;; йцукен
+@lfun   _    _    _    _    _        f6   f7   f8   f9   f10  f11  f12  _
+@mos    1    2    3    4    5        6    7    8    9    0    -    _    _
+
+ _     @й   @lц  @у   @к   @е        @н   @г   @ш   @lщ  @з   @х   @ъ @sym 
+@hyp   @hф  @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @hж  @э   \ 
+ _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @ю   @.,  rsft
+ _               _ @lfun @lcmd @nav  @rcmd @sym
+)
+
+(defalias
+  ;; Russian letters
+
+  ц w
+  ь m
+  ьъ (fork m (unmod ]) (lsft rsft)) ;; diktor
+  я z
+  з p
+  в d
+  к r
+  д l
+  ч x
+  ш i
+  щ o
+  у e
+  и b
+  е t
+  о j
+  а f
+  л k
+  н y
+  т n
+  с c
+  р h
+  й q
+  ф a
+  э '
+  х [
+  ъ ]
+  ы s
+  ю .
+  б ,
+  м v
+  п g
+  г u
+  ж ;
+  ё grv
+  lщ (tap-hold $tap-time $hold-pinky @щ (layer-toggle swi))
+  lц (tap-hold $tap-time $hold-pinky @ц (layer-toggle fun))
+
+  ;; extra letters which doesn't fit 10 columns
+  rus[ @х
+  rus] @ъ
+  rus` @ё
+  rus' @э
+
+  lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos))
+  ;; modtaps (GCAS)
+  ;; rus ;; йцукен
+  hф (tap-hold $tap-time $hold-pinky @ф (multi lctl (layer-while-held eng)))
+  hы (tap-hold $tap-time $hold-ring @ы (multi lalt (layer-while-held eng)))
+  hв (tap-hold $tap-time $hold-middle @в (multi lmet (layer-while-held eng)))
+  hа (tap-hold $tap-time $hold-index @а lsft)
+
+  hо (tap-hold $tap-time $hold-index @о lsft)
+  hл (tap-hold $tap-time $hold-middle @л (multi lmet (layer-while-held eng)))
+  hд (tap-hold $tap-time $hold-ring @д (multi lalt (layer-while-held eng)))
+  hж (tap-hold $tap-time $hold-pinky @ж (multi lctl (layer-while-held eng)))
+)

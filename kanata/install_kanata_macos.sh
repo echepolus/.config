@@ -9,7 +9,7 @@ RESET='\033[0m'
 ARROW="${MAGENTA}==>${RESET}"
 
 #### CONFIGURATION ####
-KANATA_CONFIG="${HOME}/.config/kanata/main.kbd"
+KANATA_CONFIG="${HOME}/.config/kanata/config.kbd"
 KANATA_PORT=10000
 PLIST_DIR="/Library/LaunchDaemons"
 ###################################

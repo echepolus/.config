@@ -1,0 +1,38 @@
+(deflayer eng 
+@lfun  _    _    _    _    _         f6   f7   f8   f9   f10   f11  f12  _
+@mos   1    2    3    4    5         6    7    8    9    0     -    _    _
+
+ _    @*q  @lw   f    p    b         j    l    u   @ly  @;or'  [    ] @sym
+@hyp  @ha  @hr  @hs  @ht   g         @*m  @hn  @he  @hi  @ho   @'or;  \
+ _    @lz  @*x  @*c   d    v    `    @*k   h   @s1  @s2  @s3   rsft
+ _            _  @lfun @lcmd   @nav  @rcmd @rfun
+)
+
+(defalias
+  lw (tap-hold $tap-time $hold-pinky w (layer-toggle fun))
+  ly (tap-hold $tap-time $hold-pinky y (layer-toggle swi))
+  lz (tap-hold $tap-time $hold-pinky z (layer-toggle mos))
+
+  ht (tap-hold $tap-time $hold-index t lalt)
+  hn (tap-hold $tap-time $hold-index n lalt)
+  hr (tap-hold $tap-time $hold-ring r lmet)
+  hi (tap-hold $tap-time $hold-ring i lmet)
+  ha (tap-hold $tap-time $hold-pinky a lctl)
+  hs (tap-hold $tap-time $hold-middle s lctl)
+  he (tap-hold $tap-time $hold-middle e lctl)
+  ho (tap-hold $tap-time $hold-pinky o lctl)
+)
+ 
+(environment (ALT_SYMBOLS "") (defalias ;or' ; 'or; ' s1 , s2 . s3 /))
+(environment (ALT_SYMBOLS XELOR) (defalias ;or' @*' 'or; ; s1 @*,? s2 @.! s3 -))
+
+(defalias
+  ;; extra letters which doesn't fit 10 columns
+  eng[ [
+  eng] ]
+  eng` grv
+  eng' @'or;
+)
+
+
+
