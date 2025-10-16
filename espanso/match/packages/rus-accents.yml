@@ -1,0 +1,50 @@
+matches:
+  - trigger: "а^"
+    replace: "а́"
+  - trigger: "А^"
+    replace: "А́"
+
+  - trigger: "е^"
+    replace: "е́"
+  - trigger: "Е^"
+    replace: "Е́"
+
+  - trigger: "ё^"
+    replace: "ё́"
+  - trigger: "Ё^"
+    replace: "Ё́"
+
+  - trigger: "и^"
+    replace: "и́"
+  - trigger: "И^"
+    replace: "И́"
+
+  - trigger: "о^"
+    replace: "о́"
+  - trigger: "О^"
+    replace: "О́"
+
+  - trigger: "у^"
+    replace: "у́"
+  - trigger: "У^"
+    replace: "У́"
+
+  - trigger: "ы^"
+    replace: "ы́"
+  - trigger: "Ы^"
+    replace: "Ы́"
+
+  - trigger: "э^"
+    replace: "э́"
+  - trigger: "Э^"
+    replace: "Э́"
+
+  - trigger: "ю^"
+    replace: "ю́"
+  - trigger: "Ю^"
+    replace: "Ю́"
+
+  - trigger: "я^"
+    replace: "я́"
+  - trigger: "Я^"
+    replace: "Я́"

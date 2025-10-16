@@ -2,7 +2,6 @@
   ;; -------------------------------------------------------------------------------------
   ;; Symbols definition
 
-  ;; sym
   ;; to use this symbols, you have to ensure:
   ;; - that you have US (qwerty) and RU (йцукен) layouts set in the system
   ;; - set separate activation shortcuts for @en and @ru - just look at the definitions
@@ -170,4 +169,28 @@
   7< (fork 7 @< (lsft rsft))
   8= (fork 8 (unmod =) (lsft rsft))
   9> (fork 9 @> (lsft rsft))
+
+;; home row mods, MacOS version
+  mopt (tap-hold $tap-time $hold-middle @lmet lalt)
+  ocm (tap-hold $tap-time $hold-pinky lalt lmet)
+  ;; modtaps (GCAS)
+  ;; sym
+  h$₽ (tap-hold $tap-time $hold-pinky @$₽ lctl)
+  hlb (tap-hold $tap-time $hold-ring @lb lalt)
+  h- (tap-hold $tap-time $hold-middle (fork - @— (lsft rsft)) lmet)
+  hrb (tap-hold $tap-time $hold-index @rb lsft)
+  h{ (tap-hold $tap-time $hold-index @{ lsft)
+  h; (tap-hold $tap-time $hold-middle @; lmet)
+  h} (tap-hold $tap-time $hold-ring @} lalt)
+  h“ (tap-hold $tap-time $hold-pinky @“”“ lctl)
+  hbspc (tap-hold $tap-time $hold-pinky bspc lctl)
+  ;; fun
+  f11 (tap-hold $tap-time $hold-pinky f11 lctl)
+  f4 (tap-hold $tap-time $hold-ring f4 lalt)
+  f5 (tap-hold $tap-time $hold-middle f5 lmet)
+  f6 (tap-hold $tap-time $hold-index f6 lsft)
+  h4 (tap-hold $tap-time $hold-index 4 lsft)
+  h5 (tap-hold $tap-time $hold-middle 5 lmet)
+  h6 (tap-hold $tap-time $hold-ring 6 lalt)
 )
+

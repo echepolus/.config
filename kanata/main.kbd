@@ -18,17 +18,17 @@
 (defvar
   tap-time 200
   hold-time 200
+  chord-time 40
 
   hold-index 200
   hold-middle 200
   hold-ring 180 
-  hold-pinky 200
+  hold-pinky 220
 )
 
+(include hyper.kbd)
 (include control.kbd)
 (include symbols.kbd)
-(include sublayers-modtaps.kbd)
-(include hyper.kbd)
 
 
 (defalias
@@ -37,6 +37,7 @@
 
   eng (multi (layer-switch eng) @en)
   rus (multi (layer-switch rus) @ru)
+  gre (multi (layer-switch gre) @gr)
   qwe (multi (layer-switch qwe) @en)
  
   ;; -------------------------------------------------------------------------------------
@@ -63,7 +64,8 @@
 ;; main typing layers
 
 (include eng_colemak-dh.kbd)
-(include rus_йцукенг.kbd)
+(include rus_qwerty.kbd)
+(include gre_qwerty.kbd)
 
 
 ;; -------------------------------------------------------------------------------------
@@ -74,7 +76,7 @@
  _    _   _   _   _   _       _   _   _   _   _    _   _   _
 
  _    _   _ @rus @eng _       _ @eng @rus XX  _    _   _   _
- _    _   _   _  @qwe _       _ @qwe  _   _   _    _   _
+ _    _   _ @gre @qwe _       _ @qwe @gre _   _    _   _
  _    _   _   _   _   _   _   _   _   _   _   _    _
  _    _   _   _   _   _   _ 
 )
@@ -110,8 +112,8 @@
  _        _    _    _    _    _       _    _    _    _    _      _   _   _
  f13     f1   f2   f3   f3   f5       f6   f7   f8   f9   f10    f11 f12 @lrd
 
- _   @qlz @cls  tab @trgt @lnch       ins @home up  @end @del    _   _   _
- _   @all @ocm @mopt lsft @prnt       @mcon left down rght bspc  _   _
+ _  @qlz @cls @tlft @trgt @lnch       ins @home   up  @end @del    _   _   _
+ _   @all @ocm @mopt @S-T @prnt       @mcon left down rght bspc  _   _
  _   M-z  M-x   M-c  M-v  @redo   _   mltp pgup @file pgdn @kill _
  _              _    @lfun lsft @nav  @rfun @sym                     
 )
@@ -168,33 +170,33 @@
 (defchordsv2
 
   ;; left side
-  (e r) @eng $hold-time all-released    (          sym fun nav mos    )
-  (w e) @rus $hold-time all-released    (          sym fun nav mos    )
-  (x c) @_   $hold-time all-released    (          sym     nav mos qwe)
-  (c v) -    $hold-time all-released    (          sym     nav mos qwe)
-  (r f) @``  $hold-time all-released    (          sym fun nav mos qwe)
-  (e d) @''  $hold-time all-released    (          sym fun nav mos qwe)
-  (w r) @<>  $hold-time all-released    (              fun nav mos qwe)
-  (s f) @brc $hold-time all-released    (              fun nav mos qwe)
-  (a s) @aerh $hold-time all-released ( )
+  (e r) @eng $chord-time all-released    (          sym fun nav mos    )
+;;(w e) @rus $chord-time all-released    (          sym fun nav mos    )
+  (x c) @_   $chord-time all-released    (          sym     nav mos qwe)
+  (c v) -    $chord-time all-released    (          sym     nav mos qwe)
+  (r f) @``  $chord-time all-released    (          sym fun nav mos qwe)
+  (e d) @''  $chord-time all-released    (          sym fun nav mos qwe)
+  (w r) @<>  $chord-time all-released    (              fun nav mos qwe)
+  (s f) @brc $chord-time all-released    (              fun nav mos qwe)
+  (w e) @aerh $chord-time all-released ( )
 
   ;; right side
-  (j k) @eng $hold-time all-released    (          sym fun nav mos    )
-  (k l) @rus $hold-time all-released    (          sym fun nav mos    )
-  (u j) @“”  $hold-time all-released    (          sym fun nav mos qwe)
-  (i k) @brc $hold-time all-released    (          sym fun nav mos qwe)
-  (u o) @[]  $hold-time all-released    (              fun nav mos qwe)
-  (j l) @{}  $hold-time all-released    (              fun nav mos qwe)
-  (m .) @[] $hold-time all-released     (              fun nav mos qwe)
-  (i o) @ex' $hold-time all-released    (          sym fun nav mos qwe)
-  (u i) @ex` $hold-time all-released    (          sym fun nav mos qwe)
-  (m ,) @ex[ $hold-time all-released    (          sym fun nav mos qwe)
-  (, .) @ex] $hold-time all-released    (          sym fun nav mos qwe)
-  (l ;) @aerl $hold-time all-released ( )
+  (j k) @eng $chord-time all-released    (          sym fun nav mos    )
+  (k l) @rus $chord-time all-released    (          sym fun nav mos    )
+  (u j) @“”  $chord-time all-released    (          sym fun nav mos qwe)
+  (i k) @brc $chord-time all-released    (          sym fun nav mos qwe)
+  (u o) @[]  $chord-time all-released    (              fun nav mos qwe)
+  (j l) @{}  $chord-time all-released    (              fun nav mos qwe)
+  (m .) @[] $chord-time all-released     (              fun nav mos qwe)
+;;(i o) @ex' $chord-time all-released    (          sym fun nav mos qwe)
+  (u i) @ex` $chord-time all-released    (          sym fun nav mos qwe)
+  (m ,) @ex[ $chord-time all-released    (          sym fun nav mos qwe)
+  (, .) @ex] $chord-time all-released    (          sym fun nav mos qwe)
+  (i o) @aerl $chord-time all-released ( )
 
-  (f spc) @a⇥spc $hold-time all-released ( )
-  (f j) @ghoqui $hold-time all-released ( )
-  (lmet rmet) esc $hold-time all-released ( )
+  (f spc) @a⇥spc $chord-time all-released ( )
+  (f j) @ghoqui $chord-time all-released ( )
+  (lmet rmet) esc $chord-time all-released ( )
 
 )
 

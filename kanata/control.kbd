@@ -1,55 +1,73 @@
 (defalias
-    ;; system combinations to switch languages
-    en C-S-8
-    ru C-S-9
-    ;; other alias
-    launch M-spc ;; launch applications
-    tlft M-S-[
-    trgt M-S-]
-    home (fork M-left M-up (lalt))
-    end (fork M-rght M-down (lalt))
-    mcon mctl ;; Mission Control, MacOS native
-    file A-M-spc ;; Launch file manager
-    close_window (multi (release-key lsft) (release-key rsft) M-q)
-    qlz (multi (release-key lsft) (release-key rsft) M-q)
-    cls M-w
-    kill A-M-esc ;; Kill any app
-    gprnt M-S-3 ;; Make a screenshot - full screen
-    prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - region, window, screen
-    redo M-S-z
-    del C-d
-    all M-a
+  ;; system combinations to switch languages
+  en C-S-8
+  ru C-S-9
+  gr C-S-7
+
+  ;; other alias
+  launch M-spc ;; launch applications
+  tlft M-S-[
+  trgt M-S-]
+  home (fork M-left M-up (lalt))
+  end (fork M-rght M-down (lalt))
+  mcon mctl ;; Mission Control, MacOS native
+  file A-M-spc ;; Launch file manager
+  close_window (multi (release-key lsft) (release-key rsft) M-q)
+  qlz (multi (release-key lsft) (release-key rsft) M-q)
+  cls M-w
+  kill A-M-esc ;; Kill any app
+  gprnt M-S-3 ;; Make a screenshot - full screen
+  prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - region, window, screen
+  redo M-S-z
+  del C-d
+  all M-a
+  S-T (tap-hold-press $tap-time $hold-time tab lsft)
 
 
-    ;; Aerospace
-    a⇥win A-tab
-    a⇥spc C-A-M-tab
-    airmax C-A-M-e
-    airgee C-A-M-g
 
-    ;; launching applications
-    browser_en (macro @launch 400 S-s a f a r i 400 ret)
-    browser_ru (macro @en 50 @launch 400 S-s a f a r i 400 ret 50 @ru)
-    bro (switch ((base-layer rus)) @browser_ru break () @browser_en break ) ;; launch terminal
-    terminal_en (macro @launch 400 S-t e r m i n a l 400 ret)
-    terminal_ru (macro @en 50 @launch 400 S-t e r m i n a l 400 ret 50 @ru)
-    ter (switch ((base-layer rus)) @terminal_ru break () @terminal_en break ) ;; launch terminal
-    notepad_en (macro @launch 400 t e x t spc e d i t 400 ret)
-    notepad_ru (macro @en 50 @launch 400 t e x t spc e d i t 400 ret 50 @ru)
-    ntp (switch ((base-layer rus)) @notepad_ru break () @notepad_en break )
-    excel_en (macro @launch 400 S-e x c e l 400 ret)
-    excel_ru (macro @en 50 @launch 400 S-e x c e l 400 ret 50 @ru)
-    exc (switch ((base-layer rus)) @excel_ru break () @excel_en break )
+  ;; Aerospace
+  a⇥win A-tab
+  a⇥spc C-A-M-tab
+  airmax C-A-M-e
+  airgee C-A-M-g
+;;aup (tap-dance 400 (up @aerj))
+;;adwn (tap-dance 400 (down @aerk))
+;;alft (tap-dance 400 (left @aerh))
+;;argt (tap-dance 400 (rght @aerl))
+
+  ;; macOS function key glyphs
+  mc C-up ;; Mission Control
+  sls M-spc ;; Spotlight Search
+  dtn S-C-A-M-f5 ;; Dictation
+  dnd S-C-A-M-f6 ;; Do Not Disturb
+
+  ;; launching applications
+  browser_en (macro @launch 400 S-s a f a r i 400 ret)
+  browser_ru (macro @en 50 @launch 400 S-s a f a r i 400 ret 50 @ru)
+  bro (switch ((base-layer rus)) @browser_ru break () @browser_en break ) ;; launch terminal
+  terminal_en (macro @launch 400 S-t e r m i n a l 400 ret)
+  terminal_ru (macro @en 50 @launch 400 S-t e r m i n a l 400 ret 50 @ru)
+  ter (switch ((base-layer rus)) @terminal_ru break () @terminal_en break ) ;; launch terminal
+  notepad_en (macro @launch 400 t e x t spc e d i t 400 ret)
+  notepad_ru (macro @en 50 @launch 400 t e x t spc e d i t 400 ret 50 @ru)
+  ntp (switch ((base-layer rus)) @notepad_ru break () @notepad_en break )
+  excel_en (macro @launch 400 S-e x c e l 400 ret)
+  excel_ru (macro @en 50 @launch 400 S-e x c e l 400 ret 50 @ru)
+  exc (switch ((base-layer rus)) @excel_ru break () @excel_en break )
+
   vscode_en (macro @launch 400 S-v i s u a l 50 spc S-s t u d i o 50 spc S-c o d e 400 ret)
   vscode_ru (macro @en 50 @launch 400 S-v i s u a l 50 spc S-s t u d i o 50 spc S-c o d e 400 ret 50 @ru)
   vsc (switch ((base-layer rus)) @vscode_ru break () @vscode_en break )
+
   zed_en (macro @launch 400 S-z e d 400 ret)
   zed_ru (macro @en 50 @launch 400 S-z e d 400 ret 50 @ru)
   zed (switch ((base-layer rus)) @zed_ru break () @zed_en break )
+
   ghostty_en (macro @launch 400 S-g h o s t t y 400 ret)
   ghostty_ru (macro @en 50 @launch 400 S-g h o s t t y 400 ret 50 @ru)
   gho (switch ((base-layer rus)) @ghostty_ru break () @ghostty_en break )
   ghoqui C-S-5
+
   emacs_en (macro @launch 400 S-e m a c s 400 ret)
   emacs_ru (macro @en 50 @launch 400 S-e m a c s 400 ret 50 @ru)
   ema (switch ((base-layer rus)) @emacs_ru break () @emacs_en break )
@@ -88,7 +106,7 @@
     ) break
     () (one-shot 500 lmet) break
   )
-
+ 
   ;; -------------------------------------------------------------------------------------
   ;; fun
   dr0 (dynamic-macro-record 0)

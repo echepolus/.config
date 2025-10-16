@@ -1,5 +1,5 @@
 (deflayer rus ;; йцукен
-@lfun   _    _    _    _    _        f6   f7   f8   f9   f10  f11  f12  _
+@lfun   🔅   🔆   @mc @sls @dtn      @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊   _
 @mos    1    2    3    4    5        6    7    8    9    0    -    _    _
 
  _     @й   @lц  @у   @к   @е        @н   @г   @ш   @lщ  @з   @х   @ъ @sym 
@@ -55,15 +55,16 @@
   rus' @э
 
   lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos))
+
   ;; modtaps (GCAS)
   ;; rus ;; йцукен
   hф (tap-hold $tap-time $hold-pinky @ф (multi lctl (layer-while-held eng)))
-  hы (tap-hold $tap-time $hold-ring @ы (multi lalt (layer-while-held eng)))
-  hв (tap-hold $tap-time $hold-middle @в (multi lmet (layer-while-held eng)))
-  hа (tap-hold $tap-time $hold-index @а lsft)
+  hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
+  hв (tap-hold $tap-time $hold-middle @в (multi lctl (layer-while-held eng)))
+  hа (tap-hold $tap-time $hold-index @а lalt)
 
-  hо (tap-hold $tap-time $hold-index @о lsft)
-  hл (tap-hold $tap-time $hold-middle @л (multi lmet (layer-while-held eng)))
-  hд (tap-hold $tap-time $hold-ring @д (multi lalt (layer-while-held eng)))
+  hо (tap-hold $tap-time $hold-index @о lalt)
+  hл (tap-hold $tap-time $hold-middle @л (multi lctl (layer-while-held eng)))
+  hд (tap-hold $tap-time $hold-ring @д (multi lmet (layer-while-held eng)))
   hж (tap-hold $tap-time $hold-pinky @ж (multi lctl (layer-while-held eng)))
 )
