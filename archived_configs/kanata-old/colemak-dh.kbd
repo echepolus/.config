@@ -1,0 +1,21 @@
+
+(deflayer eng 
+
+;; brdn brup @mc @sls @dtn @dnd prev  pp  next mute vold volu
+   🔅   🔆   @mc @sls @dtn @dnd ◀◀    ▶⏸   ▶▶   🔇   🔉   🔊 
+   _    _    _    _    _    _    _    _    _    _    _
+   q    w    f    p    b   @hy   j    l    u    y    ;
+   a    @rr  @ss  @tt  g         m    @nn  @ee  @ii  o 
+   z    x    c    d    v    `    k    h    ,    .    /
+   @fnl      @sft          @nav            @sym
+)
+
+(defalias
+  ;; Home-row mods
+  rr (tap-hold $tap_timeout $long_hold_timeout r lmet)
+  ss (tap-hold $tap_timeout $long_hold_timeout s lctl)
+  tt (tap-hold $tap_timeout $long_hold_timeout t lalt)
+  nn (tap-hold $tap_timeout $long_hold_timeout n lalt)
+  ee (tap-hold $tap_timeout $long_hold_timeout e rctl)
+  ii (tap-hold $tap_timeout $long_hold_timeout i rmet)
+)

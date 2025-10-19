@@ -13,10 +13,11 @@
     :config
     (gcmh-mode 1))
 
+(require 'package)
 (unless (assoc-default "melpa" package-archives)
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
+   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t))
 (unless (assoc-default "nongnu" package-archives)
-  (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t))
+   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t))
 
 (defun system-is-mac ()
   "Return true if system is darwin-based (Mac OS X)"
@@ -385,8 +386,6 @@
    ;; :preview-key "M-."
    :preview-key '(:debounce 0.4 any))
 
-  ;; Optionally configure the narrowing key.
-  ;; Both < and C-+ work reasonably well.
   (setq consult-narrow-key "<") ;; "C-+"
 
   ;; Optionally make narrowing help available in the minibuffer.
@@ -465,7 +464,13 @@
   :config
   (reverse-im-mode t)) ; turn the mode on
 
-;; (require 'modus-themes) 
+(when (require 'meow nil t)             
+(require 'meow-tree-sitter nil t)   
+(when (fboundp 'meow-setup)
+  (meow-setup)
+  (meow-global-mode 1)))
+
+;; (     require 'modus-themes) 
 
 ;; ;; In all of the following, WEIGHT is a symbol such as `semibold',
 ;; ;; `light', `bold', or anything mentioned in `modus-themes-weights'.
@@ -623,15 +628,15 @@
   (setq display-line-numbers-type 'relative)
 
   ;; Подсветка отступов (требует установки highlight-indent-guides)
-  (use-package highlight-indent-guides
-    :ensure nil 
-    :hook (prog-mode . highlight-indent-guides-mode)  ;; Автоматическое включение для языков программирования
-    :custom
-    (highlight-indent-guides-method 'character)
-    (highlight-indent-guides-character ?·)
-    (highlight-indent-guides-responsive 'top)
-    (highlight-indent-guides-delay 0)
-    (highlight-indent-guides-auto-enabled t))  ;; Автовключение
+  ;; (use-package highlight-indent-guides
+  ;;   :ensure nil 
+  ;;   :hook (prog-mode . highlight-indent-guides-mode)  ;; Автоматическое включение для языков программирования
+  ;;   :custom
+  ;;   (highlight-indent-guides-method 'character)
+  ;;   (highlight-indent-guides-character ?·)
+  ;;   (highlight-indent-guides-responsive 'top)
+  ;;   (highlight-indent-guides-delay 0)
+  ;;   (highlight-indent-guides-auto-enabled t))  ;; Автовключение
 
 
 

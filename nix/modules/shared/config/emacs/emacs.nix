@@ -14,6 +14,8 @@ let
     undo-tree
     quelpa
     quelpa-use-package
+    meow
+    meow-tree-sitter
     
     # UI and themes
     ef-themes

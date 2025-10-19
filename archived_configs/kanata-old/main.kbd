@@ -1,0 +1,187 @@
+;; ======================================================================
+;; =====  SOURCE  =======================================================
+;; ======================================================================
+(defsrc
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  1    2    3    4    5   bspc   6    7    8    9    0
+  q    w    e    r    t   caps   y    u    i    o    p
+  a    s    d    f    g          h    j    k    l    ;
+  `    z    x    c    v    b     n    m    ,    .    /
+  fn        lmet          spc              rmet
+)
+
+
+;; ======================================================================
+;; =====  SETTINGS  =====================================================
+;; ======================================================================
+(defvar
+  ;; REPETITIONS: the key must be pressed twice in 200ms
+  tap_timeout 200
+
+  ;; SHIFT LAYER: the key must be held 200ms/300ms
+  hold_timeout 200
+  long_hold_timeout 300
+
+  ;; CHORD LAYER:
+  chord-time 30
+
+  tap-time 200
+  hold-time 200
+
+  hold-index 200
+  hold-middle 200
+  hold-ring 200
+  hold-pinky 200
+)
+
+
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd true
+  concurrent-tap-hold yes
+)
+;; ======================================================================
+;; =====  DEFINE BUTTONS  ===============================================
+;; ======================================================================
+
+;; -----  FILES  --------------------------------------------------------
+(include control.kbd)  
+(include symbols.kbd)
+
+;; -----  SWITCHERS  ----------------------------------------------------
+(defalias
+en (layer-switch eng)
+ru (layer-switch rus)  
+gr (layer-switch gre)  
+
+  ;; ---- to Layouts ----------------------------------------
+;;  qwe (multi (layer-switch qwe) @en)
+eng (multi (layer-switch eng) @en)
+rus (multi (layer-switch rus) @ru)
+gre (multi (layer-switch gre) @gr)
+
+
+
+
+;; ---- to Sublayers --------------------------------------
+nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
+  sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
+  hy  (tap-hold-press $tap_timeout $hold_timeout esc (layer-while-held hyper))
+  num (tap-hold-press $tap_timeout $hold_timeout esc (layer-toggle numrow))
+;;  num (layer-toggle numrow)
+  std (layer-switch eng)
+  fun (layer-while-held funpad)
+
+;;  pad (layer-switch numpad)
+;;   l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
+     fnl (tap-hold 200 200 fn (layer-toggle fnlayer))
+)
+
+
+;; ======================================================================
+;; =====  LAYERS  =======================================================
+;; ======================================================================
+;; -----  ENG 🇬🇧  ------
+(include colemak-dh.kbd)
+
+;; -----  RUS 🇷🇺  ------
+(include qwerty-rus.kbd)
+
+;; -----  GRE 🇬🇷  ------
+(include qwerty-gre.kbd)
+
+;; -----  HYPER  -------
+(include hyper.kbd)
+
+;; -----  CLEAN  --------------------------------------------------------
+;; (deflayer qwe 
+;;   _ _ _ _ _ _ _ _ _ _ _ _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _    _    _    _    _         _    _    _    _    _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _         _              @nav           _          
+;; )
+
+
+;; -----  NAVIGATION  --------------------------------------------------
+(deflayer navigation
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  M-1  M-2   M-3   M-4   M-5     lrld M-6  M-7  M-8  M-9  M-0
+  @qlz @cls  @tbl  @gprnt @tbr     fn  home pgdn pgup end  @airmax
+  @all @ncmd S-tab @nsft  @a⇥win       lft  down up   rght @fun
+  @ndo @cut  @cpy  @pst   M-[ M-]      @mwl @mwd @mwu @mwr @airgee
+  _          del                 _            esc
+)
+
+(defalias
+  nsft (tap-hold-press $tap_timeout $hold_timeout tab lsft)
+  ncmd (tap-hold-press $tap_timeout $hold_timeout @sav rmet)
+)
+
+;; -----  FUNPAD  ------------------------------------------------------
+(deflayer funpad
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  f1   f2   f3   f4   XX    _   XX   XX   XX   XX   XX
+  f5   f6   f7   f8   XX        XX   lctl lalt lmet _
+  f9   f10  f11  f12  XX   XX   XX   XX   XX   XX   XX
+  _         _               _             _
+)
+
+
+;; -----  SYMBOLS  -----------------------------------------------------
+(deflayer symbols
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  AG-1 AG-2 AG-3 AG-4 AG-5 XX   AG-6 AG-7 AG-8 AG-9 AG-0
+  @^   @<   @>   @$   @%    _   @@   @&   @*   @'   @`
+  @{   @pl  @pr  @}   @=        @\   @+   @-   @/   @''
+  @~   @[   @]   @_   @#   XX   @|   @!   @;   @:   @?
+  _         @num          spc             _
+)
+
+
+;; -----  NUMROW  ------------------------------------------------------
+(deflayer numrow
+  _ _ _ _ _ _ _ _ _ _ _ _ 
+  _    _    _    _    _     _   _    _    _    _    _
+  @s1  @s2  @s3  @s4  @s5   _   @s6  @s7  @s8  @s9  @s0
+  @1   @2   @3   @4   @5        @6   @7   @8   @9   @0
+  @dk1 @dk2 @dk3 @dk4 @dk5  _   XX   @-   @,   @.   @/
+  _         _              @nbs           @sym
+)
+
+;; -----  NUMPAD  ------------------------------------------------------
+;; (deflayer numpad
+;;   _ _ _ _ _ _ _ _ _ _ _ _ 
+;;   _    _    _    _    _     _   _    _    _    _    _
+;;   XX   home up   end  pgup  _   @/   @7   @8   @9   XX
+;;   XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+;;   XX   XX   XX   XX   XX    _   @,   @1   @2   @3   @.
+;;   _         @std           @nbs           @std
+;; )
+
+
+;; -----  SWITCH  --------------------------------------------------------
+;; (deflayer swi 
+;;   _ _ _ _ _ _ _ _ _ _ _ _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _    _    _    _    _    _    _   @rus @eng  XX  @qwe
+;;   _   @gre @rus @eng  _         _    _   @gre  _    _
+;;   _    _    _    _    _    _    _    _    _    _    _
+;;   _         _              _              _          
+;; )
+
+
+;; -----  Fn's  ---------------------------------------------------------
+   (deflayer fnlayer
+     f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12
+     _    _    _    _    _     _     _    _    _    _    _
+     _    _    _    _    _     _     _    _    _    _    _
+     _    _    _    _    _           _    _    _    _    _
+     _    _    _    _    _     _     _    _    _    _    _
+     _         _               _               _          
+   )
+
+;; vim: set ft=lisp

@@ -6,10 +6,21 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _ @aer1 @aer2 @aer3 @aer4 @aer5     _     _     _     _     @aer0  _ _ _
 
- _ @aerq @aerw @aerf @aerp @aerb     @ajh  @ajj  @ajk  @ajl  @aserv _ _ _
- _ @aera @aerr @hys  @aert @aerg     @aerh @aerj @aerk @aerl @hyo   _ _
+ _ @aerq @aerw @aerf @aerp @aerb     @ajh  @aer- @aeru @aer+ @aserv _ _ _
+ _ @aera @aerr @hys  @aert @aerg     @aerm @aern @aere @aeri @hyo   _ _
  _ @aerz @aerx @aerc _     @aerv  _  _     @acco @aer- @aer+ @atls  _
- _             _     _     lsft   _  _     _
+ _             _     _     lsft   @hyspc  _     _
+)
+
+;; --- Num Workspaces Layer (Hyper + space) ---
+(deflayer aernum
+ _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
+ _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
+
+ _ _     _     _     _     _         _     _     _     _     _      _ _ _
+ _ _     _     _     _     _         @aer0 @aer1 @aer2 @aer3 _      _ _
+ _ _     _     _     _     _      _  _     _     _     _     _      _  
+ _             _     _     _      _  _     _
 )
 
 ;; --- Applications Layer (Hyper + o) ---
@@ -18,7 +29,7 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
  _ _     _     @find _     @book     _     _     _     _     _      _ _ _
- _ _     @tor  @sfri @gram @ghst     _     _     @emcs _     _      _ _
+ _ _     @tor  @sfri @gram @ghst     _     @note @emcs _     _      _ _
  _ @zen  _     @cgpt _     _      _  _     _     _     _     _      _
  _             _     _     _      _  _     _                  
 )
@@ -28,9 +39,9 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
- _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
- _ _     _     _     _     _         _     @lsj  _     _     _      _ _
+ _ _     _     _     _     _         _     @lsj  _     @yout _      _ _
  _ _     @rddt _     _     _      _  _     _     @edcs _     _      _
+ _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _             _     _     _      _  _     _
 )
 
@@ -53,11 +64,12 @@
   aerx C-A-M-e
   aerc C-A-M-c
   aerv C-A-M-v
+  aerm C-A-M-m
   ;; --- Aerospace motion ---
-  aerh C-A-M-lft
-  aerj C-A-M-down
-  aerk C-A-M-up
-  aerl C-A-M-rght
+  aern (tap-dance 200 (C-A-M-lft C-A-lft))
+  aere (tap-dance 200 (C-A-M-down C-A-down))
+  aeru (tap-dance 200 (C-A-M-up C-A-up))
+  aeri (tap-dance 200 (C-A-M-rght C-A-rght))
   ;; --- Aerospace join ---
   ajh C-A-lft
   ajj C-A-down
@@ -73,8 +85,9 @@
   aerw M-w
 
   ;; --- General ---
-  hyo (tap-hold-press 200 200 XX (layer-while-held app))
-  hys (tap-hold-press 200 200 C-A-M-s (layer-while-held safari))
+  hyo (tap-hold 200 200 XX (layer-toggle app))
+  hys (tap-hold 200 200 C-A-M-s (layer-toggle safari))
+  hyspc (tap-hold 200 200 XX (layer-toggle aernum))
  
   ;; --- Application shortcuts ---
   anki   (cmd "open" "-a" "Anki")
@@ -87,8 +100,10 @@
   gram   (cmd "open" "-a" "AyuGram")
   zen    (cmd "open" "-a" "Zen")
   tor    (cmd "open" "-a" "Tor Browser")
+  note   (cmd "open" "-a" "Notes")
   ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
   lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")
   edcs   (cmd "sh" "-c" "open 'https://emacsdocs.org'")
+  yout   (cmd "sh" "-c" "open 'https://youtube.com'")
 )

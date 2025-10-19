@@ -49,8 +49,8 @@
   mos (tap-hold $tap-time $hold-time tab (layer-toggle mos))
   lau (layer-while-held lau)
   fun (layer-while-held fun)
-  lfun (tap-hold $tap-time $hold-time esc (layer-toggle fun))
-  rfun (tap-hold $tap-time $hold-time @cw (layer-toggle fun))
+  lfun (tap-hold $tap-time $hold-time bspc (layer-toggle fun))
+  rfun (tap-hold $tap-time $hold-time esc (layer-toggle fun))
   l_ (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
   nav (tap-hold $tap-time $hold-time spc (layer-toggle nav))
   hyp (tap-hold $tap-time $hold-time esc (layer-toggle hyper))
@@ -89,19 +89,19 @@
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
  _ @!?  @<«  @=≈  @>»  @`       @lrd @[  @_  @]  @'  _   _   _
- _ @h$₽ @hlb @h-  @hrb @+±      @%°  @h{ @h; @h} @h“ _   _
+ _ @h$₽ @hlb @h-  @hrb @+±      @%°  @h{ @h; @h} @h“ @racc  _
  _ @#№  @*   @:   @/\  @at  _   @^   @\  @~  @&  @|¦ _
- @lfun  _    _    _    _    _   _ 
+ @lfun       _    _  @lfun  _   XX  _ 
 )
 
 (deflayer fun ;; function, media and keypad layer
  @lau _   _   _   _   _         _   _   _   _   _    _   _   _
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
- _  f12  f7  f8  f9 volu        @/  7   8   9 @del   _   _   ret
- _ @f11 @f4 @f5 @f6 vold        - @h4 @h5 @h6 @hbspc _   _
- _  f10  f1  f2  f3 mute    _   0   1   2   3 @croll _
- _   _         @lau @lau  @nav  @lau @lau
+ _  f12  f7  f8  f9 volu        0   1   2   3 @del   _   _   ret
+ _ @f11 @f4 @f5 @f6 vold      ret @h4 @h5 @h6 @hbspc _   _
+ _  f10  f1  f2  f3 mute    _   @/  7   8   9 @croll _
+ _   _        @lau @lcmd  @nav  @rcmd @lau
 )
 
 ;; ------------------------------------------------------------------------------------------
@@ -109,13 +109,13 @@
 
 
 (deflayer nav ;; navigation layer
- _        _    _    _    _    _       _    _    _    _    _      _   _   _
- f13     f1   f2   f3   f3   f5       f6   f7   f8   f9   f10    f11 f12 @lrd
+ _        _    _    _    _    _        _    _    _    _    _      _   _   _
+ f13     f1   f2   f3   f3   f5        f6   f7   f8   f9   f10    f11 f12 @lrd
 
- _  @qlz @cls @tlft @trgt @lnch       ins @home   up  @end @del    _   _   _
- _   @all @ocm @mopt @S-T @prnt       @mcon left down rght bspc  _   _
- _   M-z  M-x   M-c  M-v  @redo   _   mltp pgup @file pgdn @kill _
- _              _    @lfun lsft @nav  @rfun @sym                     
+ _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del    _   _   _
+ _   @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
+ _   M-z @redo M-x @cpyc @vstav   _    mltp pgup @file pgdn @kill _
+ _              _   @lfun @lcmd  @nav  @lfun @sym                     
 )
 
 (deflayer mos ;; mouse layer
@@ -178,7 +178,7 @@
   (e d) @''  $chord-time all-released    (          sym fun nav mos qwe)
   (w r) @<>  $chord-time all-released    (              fun nav mos qwe)
   (s f) @brc $chord-time all-released    (              fun nav mos qwe)
-  (w e) @aerh $chord-time all-released ( )
+  (w e) @aern $chord-time all-released ( )
 
   ;; right side
   (j k) @eng $chord-time all-released    (          sym fun nav mos    )
@@ -192,7 +192,7 @@
   (u i) @ex` $chord-time all-released    (          sym fun nav mos qwe)
   (m ,) @ex[ $chord-time all-released    (          sym fun nav mos qwe)
   (, .) @ex] $chord-time all-released    (          sym fun nav mos qwe)
-  (i o) @aerl $chord-time all-released ( )
+  (i o) @aeri $chord-time all-released ( )
 
   (f spc) @a⇥spc $chord-time all-released ( )
   (f j) @ghoqui $chord-time all-released ( )

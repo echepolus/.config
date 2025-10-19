@@ -20,10 +20,10 @@
   prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - region, window, screen
   redo M-S-z
   del C-d
-  all M-a
+  all (tap-hold $tap-time $hold-time M-a (layer-toggle fun)) 
   S-T (tap-hold-press $tap-time $hold-time tab lsft)
-
-
+  vstav (tap-dance 200 ( M-v (macro M-S-v 50 M-2) (macro M-S-v 50 M-3) (macro M-S-v 50 M-4) (macro M-S-v 50 M-5)))
+  cpyc (tap-dance 400 ( M-c (macro A-S-left M-c) (macro M-S-v 50 M-3) (macro M-S-v 50 M-4) (macro M-S-v 50 M-5)))
 
   ;; Aerospace
   a⇥win A-tab
@@ -40,6 +40,7 @@
   sls M-spc ;; Spotlight Search
   dtn S-C-A-M-f5 ;; Dictation
   dnd S-C-A-M-f6 ;; Do Not Disturb
+  
 
   ;; launching applications
   browser_en (macro @launch 400 S-s a f a r i 400 ret)
@@ -75,7 +76,7 @@
   luanti_ru (macro @en 50 @launch 400 S-l u a n t i 400 ret 50 @ru)
   lua (switch ((base-layer rus)) @luanti_ru break () @luanti_en break )
   ;; tap dance to launch applications
-  lnch (tap-dance 500 ( @gho @vsc @zed ))
+  lnch (tap-dance 500 ( @gho @ema @zed ))
   mnu (fork menu @file (lsft rsft))
 
   ;; -------------------------------------------------------------------------------------

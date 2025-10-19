@@ -26,7 +26,7 @@ matches:
       - name: mydate
         type: date
         params:
-          format: "%m/%d/%Y"
+          formaа: "%m/%d/%Y"
 
   # Print the output of a shell command
   - trigger: ":shell"
@@ -44,15 +44,15 @@ matches:
   
 
 
-  - triggers: ["!o3a"]
+  - triggers: ["o3a"]
     label: "o3 address"
     replace: "o3shopdgo2t74jpwnaowiq6ms2z47udy774aznx5xakto4fexkvgykid.onion"
   
-  - triggers: ["!o3l"]
+  - triggers: ["o3l"]
     label: "o3 login"
     replace: "k6tt75"
   
-  - triggers: ["!o3p"]
+  - triggers: ["o3p"]
     label: "o3 password"
     replace: "YHMi145PCq6a-2Rz5iK5Gg04FCWJjnY8UABKMFJyZX8"
   
@@ -60,4 +60,55 @@ matches:
   - triggers: ["!uz"]
     label: "UZ telephone"
     replace: "+998908299932"
-  
+
+  - trigger: "аёё"
+    label: "a-accented"
+    replace: "а́"
+  - trigger: "А7"
+    replace: "А́"
+
+  - trigger: "е7"
+    replace: "е́"
+  - trigger: "Е^"
+    replace: "Е́"
+
+  - trigger: "ё^"
+    replace: "ё́"
+  - trigger: "Ё^"
+    replace: "Ё́"
+
+  - trigger: "и^"
+    replace: "и́"
+  - trigger: "И^"
+    replace: "И́"
+
+  - trigger: "о^"
+    replace: "о́"
+  - trigger: "О^"
+    replace: "О́"
+
+  - trigger: "у^"
+    replace: "у́"
+  - trigger: "У^"
+    replace: "У́"
+
+  - trigger: "ы^"
+    replace: "ы́"
+  - trigger: "Ы^"
+    replace: "Ы́"
+
+  - trigger: "э^"
+    replace: "э́"
+  - trigger: "Э^"
+    replace: "Э́"
+
+  - trigger: "ю^"
+    replace: "ю́"
+  - trigger: "Ю^"
+    replace: "Ю́"
+
+  - trigger: "я^"
+    replace: "я́"
+  - trigger: "Я^"
+    replace: "Я́"
+ 

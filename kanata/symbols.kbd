@@ -36,6 +36,7 @@
   / (switch ((base-layer rus)) S-\ break () / break )
   \ (unmod \)
   № (switch ((base-layer rus)) S-3 break () (macro @ru 50 S-3 50 @en) break)
+  racc (macro @en 50 S-A-e 50 @ru)
 
   ;; -------------------------------------------------------------------------------------
   ;; Unicode symbols
