@@ -98,9 +98,9 @@
  @lau _   _   _   _   _         _   _   _   _   _    _   _   _
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
- _  f12  f7  f8  f9 volu        0   1   2   3 @del   _   _   ret
+ _  f12  f7  f8  f9 volu        @., 1   2   3 @del   _   _   ret
  _ @f11 @f4 @f5 @f6 vold      ret @h4 @h5 @h6 @hbspc _   _
- _  f10  f1  f2  f3 mute    _   @/  7   8   9 @croll _
+ _  f10  f1  f2  f3 mute    _   0   7   8   9 @croll _
  _   _        @lau @lcmd  @nav  @rcmd @lau
 )
 
