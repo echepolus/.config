@@ -36,11 +36,13 @@ with pkgs; [
 
   # C
   coreutils # Basic file/text/shell utilities
+  colima # Container runtime
 
   # D
   direnv # Environment variable management per directory
   difftastic # Structural diff tool
   du-dust # Disk usage analyzer
+  docker
 
   # E
 #  espanso # Cross-platform Text Expander written in Rust
@@ -128,6 +130,9 @@ with pkgs; [
   unrar # RAR archive extractor
   unzip # ZIP archive extractor
   uv # Python package installer
+
+  # V
+  # vial # Ergo keyboard setup tool
 
   # W
   wget # File downloader

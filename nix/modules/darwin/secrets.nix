@@ -17,21 +17,36 @@ let user = "alexeykotomin"; in
   #       so Github reads it correctly.
 
   
-  #age.secrets."github-ssh-key" = {
-  #  symlink = true;
-  #  path = "/Users/${user}/.ssh/id_github";
-  #  file =  "${secrets}/github-ssh-key.age";
-  #  mode = "600";
-  #  owner = "${user}";
-  #  group = "staff";
-  #};
+  age.secrets."id_github" = {
+   symlink = true;
+   path = "/Users/${user}/.ssh/id_github";
+   file =  "${secrets}/id_github.age";
+   mode = "600";
+   owner = "${user}";
+   group = "staff";
+  };
 
-  # age.secrets."github-signing-key" = {
-  #   symlink = false;
-  #   path = "/Users/${user}/.ssh/pgp_github.key";
-  #   file =  "${secrets}/github-signing-key.age";
-  #   mode = "600";
-  #   owner = "${user}";
-  # };
+  age.secrets."sign_github" = {
+    symlink = false;
+    path = "/Users/${user}/.gnupg/private-keys-v1.d/sign_github.key";
+    file =  "${secrets}/sign_github.age";
+    mode = "600";
+    owner = "${user}";
+  };
 
+  age.secrets."darwin-syncthing-cert" = {
+    path = "/Users/${user}/.config/syncthing/cert.pem";
+    file = "${secrets}/darwin-syncthing-cert.age";
+    mode = "600";
+    owner = "${user}";
+    group = "staff";
+  };
+
+  age.secrets."darwin-syncthing-key" = {
+    path = "/Users/${user}/.config/syncthing/key.pem";
+    file = "${secrets}/darwin-syncthing-key.age";
+    mode = "600";
+    owner = "${user}";
+    group = "staff";
+  };
 }

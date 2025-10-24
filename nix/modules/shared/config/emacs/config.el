@@ -832,6 +832,12 @@ Note the weekly scope of the command's precision.")
 (use-package dired-ranger)
 (use-package dired-collapse)
 
+(require 'key-chord)
+(key-chord-mode 1)
+
+(key-chord-define-global "dd" (lambda() (interactive)
+(find-file "/Users/alexeykotomin/Downloads/")))
+
 ;; (evil-collection-define-key 'normal 'dired-mode-map
 ;;   "h" 'dired-up-directory
 ;;   "c" 'find-file

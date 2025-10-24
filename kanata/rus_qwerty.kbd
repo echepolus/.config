@@ -4,7 +4,7 @@
 
  _     @й   @lц  @у   @к   @е        @н   @г   @ш   @lщ  @з   @х   @ъ @mos 
 @hyp   @hф  @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @hж  @э   \ 
- _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @ю   @.,  rsft
+ _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @ю   @.,? rsft
  _               _ @lfun @lcmd @nav  @rcmd @rfun
 )
 
@@ -55,6 +55,7 @@
   rus' @э
 
   lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos))
+  .,? (tap-dance 190 ( @., S-7))
 
   ;; modtaps (GCAS)
   ;; rus ;; йцукен

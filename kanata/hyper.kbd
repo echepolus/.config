@@ -28,7 +28,7 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
- _ _     _     @find _     @book     _     _     _     _     _      _ _ _
+ _ _     _     @find @phot @book     _     _     _     _     _      _ _ _
  _ _     @tor  @sfri @gram @ghst     _     @note @emcs _     _      _ _
  _ @zen  _     @cgpt _     _      _  _     _     _     _     _      _
  _             _     _     _      _  _     _                  
@@ -101,6 +101,7 @@
   zen    (cmd "open" "-a" "Zen")
   tor    (cmd "open" "-a" "Tor Browser")
   note   (cmd "open" "-a" "Notes")
+  phot   (cmd "open" "-a" "Photos")
   ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
   lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")

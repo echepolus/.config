@@ -68,6 +68,7 @@ let
     dired-ranger
     dired-collapse
     perspective
+    key-chord
     
     # Project management
     projectile
@@ -124,7 +125,7 @@ let
     php-mode
     
     # Infrastructure
-    # dockerfile-mode
+    dockerfile-mode
     # terraform-mode
     
     # Other tools
@@ -132,7 +133,7 @@ let
     rotate
     exec-path-from-shell
     # transient  # Required for claude-code.el (0.7.5+)
-    # eat  # Terminal emulator for claude-code.el
+    eat  # Terminal emulator for claude-code.el
     pdf-tools   
 
     # AI

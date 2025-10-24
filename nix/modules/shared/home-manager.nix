@@ -175,8 +175,8 @@ in
 
     extraConfig = {
       init.defaultBranch = "main";
-      gpg.format = "ssh";
-      user.signingkey = "/Users/alexeykotomin/.ssh/id_github.pub";
+      gpg.format = "openpgp";
+      user.signingkey = "E1B118D1257F1B258F5F06921C864AA57BADB4C3";
       commit.gpgsign = true;
 
       core = {

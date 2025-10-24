@@ -86,10 +86,10 @@
         (tool-bar-mode -1)
         (winner-mode 1)
         (when (system-is-mac)
-          (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-          (add-to-list 'default-frame-alist '(ns-appearance . dark))
-          (add-to-list 'default-frame-alist '(undecorated . t))
-          (setq ns-use-proxy-icon nil))
+          (add-to-list 'default-frame-alist '(ns-transparent-titlebar . nil))
+          ;; (add-to-list 'default-frame-alist '(ns-appearance . dark))
+          ;; (add-to-list 'default-frame-alist '(undecorated . t))
+          (setq ns-use-proxy-icon t))
         (setq frame-title-format nil)
         (message "Window and UI setup completed successfully."))
     (error (message "Error occurred in Window and UI setup."))))
@@ -99,9 +99,9 @@
 (defun dl/setup-transparency-and-styling ()
     (when (system-is-mac)
 	;; Values: 0-100 (0 = fully transparent, 100 = opaque)
-	(set-frame-parameter nil 'alpha-background 85) ; For Emacs 29+
+	(set-frame-parameter nil 'alpha-background 50) ; For Emacs 29+
 	(set-frame-parameter nil 'alpha '(85 . 80))     ; For older Emacs versions
-	(add-to-list 'default-frame-alist '(alpha-background . 85))
+	(add-to-list 'default-frame-alist '(alpha-background . 50))
 	(add-to-list 'default-frame-alist '(alpha . (85 . 80)))
 	;; Enable rounded corners carefully to not interfere with window management
 	(when (and (boundp 'ns-appearance)
@@ -137,7 +137,7 @@
 		(message "Frame transparency disabled")))))
 
 ;; Optional: Keybinding for transparency toggle
-(global-set-key (kbd "C-c t") 'dl/toggle-transparency)
+(global-set-key (kbd "C-c C-t") 'dl/toggle-transparency)
 
 ;; -------------------------
 ;; Copy to Clipboard in TTY 

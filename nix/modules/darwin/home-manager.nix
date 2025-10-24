@@ -33,6 +33,7 @@ in
       "rbenv"
       "bear"
       "llvm"
+      "syncthing"
     ];
     masApps = {
       #"1password" = 1333542190;

@@ -619,7 +619,7 @@ Consult
 
 ** Display options
 *** Themes
-**** Modus-themes
+****Modus-themes
 #+NAME: modus-themes-autothemer
 #+BEGIN_SRC emacs-lisp 
 
@@ -1011,46 +1011,52 @@ These are templates used to create new notes.
 ** Managing files
 *** File browser
 #+BEGIN_SRC emacs-lisp
-  (use-package nerd-icons-dired)
+    (use-package nerd-icons-dired)
 
-  (use-package dired
-    :ensure nil
-    :defer 1
-    :commands (dired dired-jump)
-    :config
-      (setq dired-listing-switches "-agho --group-directories-first")
-      (setq dired-hide-details-hide-symlink-targets nil)
-      (put 'dired-find-alternate-file 'disabled nil)
-      (setq delete-by-moving-to-trash t)
-      (add-hook 'dired-load-hook
-            (lambda ()
-              (interactive)
-              (dired-collapse)))
-      (add-hook 'dired-mode-hook
-            (lambda ()
-              (interactive)
-              (nerd-icons-dired-mode 1)
-              (hl-line-mode 1))))
-      (add-hook 'dired-mode-hook 'dired-hide-details-mode)t
+    (use-package dired
+      :ensure nil
+      :defer 1
+      :commands (dired dired-jump)
+      :config
+        (setq dired-listing-switches "-agho --group-directories-first")
+        (setq dired-hide-details-hide-symlink-targets nil)
+        (put 'dired-find-alternate-file 'disabled nil)
+        (setq delete-by-moving-to-trash t)
+        (add-hook 'dired-load-hook
+              (lambda ()
+                (interactive)
+                (dired-collapse)))
+        (add-hook 'dired-mode-hook
+              (lambda ()
+                (interactive)
+                (nerd-icons-dired-mode 1)
+                (hl-line-mode 1))))
+        (add-hook 'dired-mode-hook 'dired-hide-details-mode)t
 
-  (use-package dired-ranger)
-  (use-package dired-collapse)
+    (use-package dired-ranger)
+    (use-package dired-collapse)
 
-  ;; (evil-collection-define-key 'normal 'dired-mode-map
-  ;;   "h" 'dired-up-directory
-  ;;   "c" 'find-file
-  ;;   "H" 'dired-omit-mode
-  ;;   "l" 'dired-find-file
-  ;;   "y" 'dired-ranger-copy
-  ;;   "X" 'dired-ranger-move
-  ;;   "p" 'dired-ranger-paste
-  ;;   (kbd "RET") 'dired-find-file
-  ;;   (kbd "<return>") 'dired-find-file)
+    (require 'key-chord)
+    (key-chord-mode 1)
 
-  ;; Darwin needs ls from coreutils for dired to work
-  (when (system-is-mac)
-    (setq insert-directory-program
-      (expand-file-name ".nix-profile/bin/ls" (getenv "HOME"))))
+    (key-chord-define-global "dd" (lambda() (interactive)
+    (find-file "/Users/alexeykotomin/Downloads/")))
+
+    ;; (evil-collection-define-key 'normal 'dired-mode-map
+    ;;   "h" 'dired-up-directory
+    ;;   "c" 'find-file
+    ;;   "H" 'dired-omit-mode
+    ;;   "l" 'dired-find-file
+    ;;   "y" 'dired-ranger-copy
+    ;;   "X" 'dired-ranger-move
+    ;;   "p" 'dired-ranger-paste
+    ;;   (kbd "RET") 'dired-find-file
+    ;;   (kbd "<return>") 'dired-find-file)
+
+    ;; Darwin needs ls from coreutils for dired to work
+    (when (system-is-mac)
+      (setq insert-directory-program
+        (expand-file-name ".nix-profile/bin/ls" (getenv "HOME"))))
 #+END_SRC
 
 *** Images

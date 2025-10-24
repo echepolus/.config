@@ -12,7 +12,6 @@
 
   # Utility Tools
   "pearcleaner"
-  "syncthing-app"
 
   # Entertainment Tools
   "vlc"
