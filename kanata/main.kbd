@@ -113,7 +113,7 @@
  f13     f1   f2   f3   f3   f5        f6   f7   f8   f9   f10    f11 f12 @lrd
 
  _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del    _   _   _
- _   @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
+@lrd @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
  _   M-z @redo M-x @cpyc @vstav   _    mltp pgup @file pgdn @kill _
  _              _   @lfun @lcmd  @nav  @lfun @sym                     
 )
@@ -195,12 +195,11 @@
   (i o) @aeri $chord-time all-released ( )
 
   (f spc) @a⇥spc $chord-time all-released ( )
+  (d spc) @a⇥win $chord-time all-released ( )
   (f j) @ghoqui $chord-time all-released ( )
   (lmet rmet) esc $chord-time all-released ( )
 
 )
-
-(include opt-combo.kbd)
 
 (defalias
   ;; extra letters which doesn't fit 10 columns and 3 rows

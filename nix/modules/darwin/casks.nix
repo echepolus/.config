@@ -28,6 +28,9 @@
   # C
   "clash-verge-rev"
   "chatgpt"
+  
+  # G
+  "ghostty"
 
   # H
   "homerow"
@@ -41,7 +44,7 @@
   "leader-key"
   # "input-source-pro"
   "espanso"
-  "kawa"
+  "kawa-app"
 
   # L
 

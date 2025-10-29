@@ -3,7 +3,7 @@
 @mos    1    2    3    4    5        6    7    8    9    0    -    _    _
 
 _      _    @ς   @ε   @ρ   @τ        @υ   @θ   @ι   @ο   @π   @х   @ъ  @sym
-@hyp   @α   @hσ  @hδ  @hφ  @γ        @η   @hξ  @hκ  @hλ  _    @э   \
+@hyp   @hα   @hσ  @hδ  @hφ  @γ        @η   @hξ  @hκ  @hλ  _    @э   \
 _      @ζ   @χ   @ψ   @ω   @β   <    @ν   @μ   @,   @.   _    rsft
 _               _ @lfun @lcmd  @nav  @rcmd @sym
 )
@@ -43,5 +43,6 @@ _               _ @lfun @lcmd  @nav  @rcmd @sym
   hλ (tap-hold $tap-time $hold-middle @λ (multi lmet (layer-while-held eng)))
   hκ (tap-hold $tap-time $hold-pinky @κ (multi lctl (layer-while-held eng)))
   hξ (tap-hold $tap-time $hold-ring @ξ (multi lalt (layer-while-held eng)))
+  hα (tap-hold $tap-time $hold-ring @α (layer-toggle hyper))
 
 )

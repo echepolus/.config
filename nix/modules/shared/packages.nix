@@ -58,7 +58,6 @@ with pkgs; [
   gh # GitHub CLI
   glow # Markdown renderer for terminal
   gnupg # GNU Privacy Guard
-  ghostty-bin
 
   # H
   htop # Interactive process viewer
@@ -94,7 +93,7 @@ with pkgs; [
   ncurses # Terminal control library with terminfo database
   neofetch # System information tool
   neovim
-  ngrok # Secure tunneling service
+  # ngrok # Secure tunneling service
   nodejs
   nodePackages.live-server # Development server with live reload
   nodePackages.nodemon # Node.js file watcher

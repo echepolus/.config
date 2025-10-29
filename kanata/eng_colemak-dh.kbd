@@ -17,10 +17,10 @@
   hn (tap-hold $tap-time $hold-index n lalt)
   hr (tap-hold $tap-time $hold-ring r lmet)
   hi (tap-hold $tap-time $hold-ring i lmet)
-  ha (tap-hold $tap-time $hold-pinky a lctl)
+  ha (tap-hold $tap-time $hold-pinky a (layer-toggle hyper))
   hs (tap-hold $tap-time $hold-middle s lctl)
   he (tap-hold $tap-time $hold-middle e lctl)
-  ho (tap-hold $tap-time $hold-pinky o lctl)
+  ho (tap-hold $tap-time $hold-pinky o (layer-toggle app))
 )
  
 (environment (ALT_SYMBOLS "") (defalias ;or' ; 'or; ' s1 , s2 . s3 /))

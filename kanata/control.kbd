@@ -21,7 +21,7 @@
   redo M-S-z
   del C-d
   all (tap-hold $tap-time $hold-time M-a (layer-toggle fun)) 
-  S-T (tap-hold-press $tap-time $hold-time tab lsft)
+  S-T (tap-hold-press $tap-time $hold-time tab lalt)
   vstav (tap-dance 200 ( M-v (macro M-S-v 50 M-2) (macro M-S-v 50 M-3) (macro M-S-v 50 M-4) (macro M-S-v 50 M-5)))
   cpyc (tap-dance 400 ( M-c (macro A-S-left M-c right)))
 
