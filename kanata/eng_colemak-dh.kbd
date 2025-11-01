@@ -1,10 +1,11 @@
 (deflayer eng 
 @lfun   🔅   🔆   @mc @sls @dtn      @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊   _
+
 @mos   1    2    3    4    5         6    7    8    9    0     -    _    _
 
  _    @*q  @lw   f    p    b         j    l    u   @ly  @;or'  [    ] @mos
 @hyp  @ha  @hr  @hs  @ht   g         @*m  @hn  @he  @hi  @ho   @'or;  \
- _    @lz  @*x  @*c   d    v    `    @*k   h   @s1  @s2  @s3   rsft
+ _    @lz  @*x  @*c   d    v    `    k    h    @s1  @s2  @s3   rsft
  _            _  @lfun @lcmd   @nav  @rcmd @rfun
 )
 
