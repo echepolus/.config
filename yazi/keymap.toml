@@ -131,6 +131,7 @@ keymap = [
 	{ on = [ "g", "e" ],       run = "cd ~/.config/nix/shared/config/emacs", desc = "Go ~/.config/nix/shared/config/emacs" },
 	{ on = [ "g", "i" ],       run = "cd /Users/alexeykotomin/Library/Mobile Documents/com~apple~CloudDocs", desc = "Go iCloud" },
 	{ on = [ "g", "k" ],       run = "cd ~/.config/kanata", desc = "Go ~/.config/kanata" },
+	{ on = [ "g", "s" ],       run = "cd ~/s21_projects", desc = "Go ~/s21_projects/" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
 

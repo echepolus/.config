@@ -1,21 +1,25 @@
-{ config, lib, pkgs, modulesPath, user, inputs, ... }:
+{ agenix, config, lib, pkgs, modulesPath, user, ... }:
 
 let
-  myEmacs = import ../../modules/shared/emacs.nix { inherit pkgs; };
+  # user = "alexeykotomin";
+  myEmacs = import ../../modules/shared/config/emacs/emacs.nix { inherit pkgs; };
 in
 
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ./hardware-configuration.nix
     ../../modules/shared
+    # ../../modules/nixos/secrets.nix
+    # ../../modules/shared/cachix
+    ./hardware-configuration.nix
+    # agenix.nixosModules.default
   ];
 
   # Set your time zone.
   time.timeZone = "Europe/Moscow";
 
   # Select internationalisation properties.
-  i18n.defaultLocale      = "ru_RU.UTF-8";
+  i18n.defaultLocale      = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
     LC_ADDRESS        = "ru_RU.UTF-8";
     LC_IDENTIFICATION = "ru_RU.UTF-8";
@@ -28,36 +32,74 @@ in
     LC_TIME           = "ru_RU.UTF-8";
   };
 
-  # Programs configuration - Steam disabled for this host
   programs = {
     zsh.enable = true;
     firefox.enable = true;
-    hyprland.enable = { # or wayland.windowManager.hyprland
-      enable = true;
-      xwayland.enable = true;
+    # niri = {
+    #   enable = true;
+    # };
+    gnupg = {
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+      };
     };
+
+    # ssh.startAgent = true;
+    # ssh.agents = [
+    #   {
+    #     identities = [ "~/.ssh/id_ed25519" ];
+    #   }
+    # ];
+
+    waybar.enable = true;
+  };
+
+  # Для нормальной работы Wayland + приложений
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Console configuration for virtual terminals
   console.useXkbConfig = true;
+  virtualisation.vmware.guest.enable = true;
 
   # Services configuration
   services = {
+    # xserver = {
+    #   windowManager.bspwm.enable = true;
+    # };
+
+    xserver.enable = true;
+
+    desktopManager.gnome.enable = true;
+    # displayManager.sddm.enable = true;
+    # desktopManager.plasma6.enable = true;
+
+    xserver.xkb = {
+      layout = "us";
+      options = "ctrl:nocaps";
+    };
 
     emacs = {
       enable = true;
       package = myEmacs;
     };
 
-    displayManager = {
-      sddm.enable = true;
-      autoLogin = {
-        enable = true;
-        user = "alexeykotomin";
-      };
-    };
+    # displayManager = {
+    #   enable = true;
+    #   sddm = {
+    #     enable = true;
+    #     wayland.enable = true;
+    #   };
+    # };
 
-    desktopManager.plasma6.enable = true;
+    rsyncd = {
+      enable = true;
+    };
+    # desktopManager.plasma6.enable = true;
 
     # Enable CUPS to print documents.
     printing.enable = true;
@@ -73,6 +115,7 @@ in
       };
       pulse.enable = true;
     };
+  tailscale.enable = true;
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -83,6 +126,7 @@ in
     isNormalUser = true;
     description  = "Alexey Kotomin";
     extraGroups  = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -93,19 +137,21 @@ in
     vim
     git
     myEmacs
-    wl-clipboard     # Wayland clipboard utilities
-    wayland-utils    # Wayland utilities
-    lm_sensors       # Hardware monitoring sensors
+    # wl-clipboard     # Wayland clipboard utilities
+    # wayland-utils    # Wayland utilities
+    # lm_sensors       # Hardware monitoring sensors
     btop             # Modern resource monitor
     open-vm-tools
-    kitty
+    # alacritty
+    ghostty
+    agenix.packages."${pkgs.system}".default
   ];
 
   # Bootloader
   boot = {
     loader.systemd-boot = {
       enable             = true;
-      configurationLimit = 5;
+      configurationLimit = 3;
     };
     loader.efi.canTouchEfiVariables = true;
   };
@@ -133,7 +179,7 @@ in
     ];
   };
 
-  # Fonts
+  # Font s
   fonts.packages = import ../../modules/shared/fonts.nix { inherit pkgs; };
 
   # Configure Nix settings for flakes

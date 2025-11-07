@@ -3,44 +3,51 @@
 with pkgs;
 let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
 shared-packages ++ [
-
   # App and package management
-  appimage-run
-  gnumake
-  cmake
   home-manager
 
-  # Media and design tools
+  # F 
   fontconfig
   font-manager
+  fuzzel
 
   # Testing and development tools
   direnv
-  rofi
-  rofi-calc
-  libtool # for Emacs vterm
-
-  # Text and terminal utilities
-  feh # Manage wallpapers
-  screenkey
-  tree
-  unixtools.ifconfig
-  unixtools.netstat
-  xclip # For the org-download package in Emacs
   xorg.xwininfo # Provides a cursor to click and learn about windows
-  xorg.xrandr
 
   # File and system utilities
-  inotify-tools # inotifywait, inotifywatch - For file system events
-  i3lock-fancy-rapid
   libnotify
-  pcmanfm # File browser
-  xdg-utils
-
-  # Other utilities
-  yad # yad-calendar is used with polybar
-  xdotool
+  # pcmanfm # File browser
 
   # PDF viewer
   zathura
+
+  # C
+  chatgpt-cli
+
+  # G
+  # gcc # GNU Compiler Collection
+
+  # L
+  # lcov
+  libgccjit
+  binutils
+  check
+  cmake
+  pkg-config
+  gnumake
+
+  # M
+  mako
+  # N
+  nyxt  # The Hacker's Browser not yet ported
+
+  # P
+
+  # S
+  swaybg
+  syncthing
+
+  # T
+  tailscale
 ]

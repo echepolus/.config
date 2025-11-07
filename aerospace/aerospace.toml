@@ -37,10 +37,10 @@ preset = 'qwerty'
 [gaps]
 inner.horizontal = 3 
 inner.vertical = 3 
-outer.left = 3 
-outer.bottom = 3 
-outer.top = 0
-outer.right = 3 
+outer.left = [{ monitor.main = 3 }, { monitor."LG" = 0 }, 0] 
+outer.bottom = [{ monitor.main = 3 }, { monitor."LG" = 0 }, 0] 
+outer.top = [{ monitor.main = 0 }, { monitor."LG" = -15 }, 0]
+outer.right = [{ monitor.main = 3 }, { monitor."LG" = 0 }, 0]
 
 # ======================
 # 2. Основной режим (main)
