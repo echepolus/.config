@@ -29,7 +29,7 @@ on-focused-monitor-changed = ["move-mouse monitor-lazy-center"]
 automatically-unhide-macos-hidden-apps = true
 
 [workspace-to-monitor-force-assignment]
-m = 'secondary'
+M = 'secondary'
 
 [key-mapping]
 preset = 'qwerty'
@@ -211,7 +211,15 @@ run = 'move-node-to-workspace V'
 # --- 0️⃣ 0ther ---
 [[on-window-detected]]
 if.app-id = 'com.vmware.fusion'
-run = 'move-node-to-workspace m'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'parallels'
+run = 'move-node-to-workspace M'
+
+# [[on-window-detected]]
+# if.app-id = 'com.parallels.desktop.console'
+# run = ['layout tiling', 'move-node-to-workspace M']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'

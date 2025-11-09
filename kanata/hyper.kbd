@@ -12,6 +12,15 @@
  _             _     _     lsft   @hyspc  @hyo  @hyspc
 )
 
+(deflayer hyper-o 
+ _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
+ _ @aer1 @aer2 @aer3 @aer4 @aer5     _     _     _     _     @aer0  _ _ _
+
+ _ @aerq @aerw @aerf @aerp @aerb     @ajh  @aer- @aeru @aer+ @aserv _ _ _
+ _ @aera _     @hys  @aert @aerg     @aerm @aern @aere @aeri @hyo   _ _
+ _ @aerz @aerx @aerc _     @aerv  _  _     @acco @aer- @aer+ @atls  _
+ _             _     _     lsft   @hyspc  @hyo  @hyspc
+)
 ;; --- Num Workspaces Layer (Hyper + space) ---
 (deflayer aernum
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
@@ -29,8 +38,8 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
  _ _     _     @find @phot @book     _     _     _     _     _      _ _ _
- _ _     @tor  @sfri @gram @ghst     _     @note @emcs _     _      _ _
- _ @zen  _     @cgpt _     _      _  _     _     _     _     _      _
+ _ _     @anki @op-s @codd @gram     @op-m @note @emcs _     _      _ _
+ _ @zen  @zen  @op-c _     _      _  _     _     _     _     _      _
  _             _     _     _      _  _     _                  
 )
 
@@ -39,9 +48,9 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
- _ _     _     _     _     _         _     @lsj  _     @yout _      _ _
- _ _     @rddt _     _     _      _  _     _     @edcs _     _      _
- _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
+ _ _     _     _     _     @bibl     _     @lsj  _     @yout _      _ _
+ _ _     @rddt _     _     _      _  _     @nixs @edcs _     _      _
+ _ _     _     _     _     _         @kana _     _     _     _      _ _ _ 
  _             _     _     _      _  _     _
 )
 
@@ -93,6 +102,7 @@
   anki   (cmd "open" "-a" "Anki")
   book   (cmd "open" "-a" "Books")
   cgpt   (cmd "open" "-a" "ChatGPT")
+  clash  (cmd "open" "-a" "Clash Verge")
   emcs   (cmd "open" "raycast://script-commands/emacsclient")
   find   (cmd "open" "-a" "Finder")
   ghst   (cmd "open" "-a" "Ghostty")
@@ -102,9 +112,18 @@
   tor    (cmd "open" "-a" "Tor Browser")
   note   (cmd "open" "-a" "Notes")
   phot   (cmd "open" "-a" "Photos")
+  mail   (cmd "open" "-a" "Mail")
+  music  (cmd "open" "-a" "Music")
+  codd (tap-dance 500 ( @ghst @emcs ))
+  op-c (tap-dance 500 ( @cgpt @clash ))
+  op-m (tap-dance 500 ( @mail @music ))
+  op-s (tap-hold 200 200 @sfri (layer-toggle safari))
   ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
+  nixs   (cmd "sh" "-c" "open 'https://search.nixos.org'")
   lsj    (cmd "sh" "-c" "open 'https://lsj.gr'")
   edcs   (cmd "sh" "-c" "open 'https://emacsdocs.org'")
   yout   (cmd "sh" "-c" "open 'https://youtube.com'")
+  bibl   (cmd "sh" "-c" "open 'https://azbyka.ru/biblia/'")
+  kana   (cmd "sh" "-c" "open 'https://github.com/XelorR/Extend'")
 )

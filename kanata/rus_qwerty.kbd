@@ -4,7 +4,7 @@
 
  _     @й   @lц  @у   @к   @е        @н   @г   @ш   @lщ  @з   @х   @ъ @mos 
 @hyp   @hф  @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @hж  @э   \ 
- _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @ю   @.,? rsft
+ _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @*ю   @.,? rsft
  _               _ @lfun @lcmd @nav  @rcmd @rfun
 )
 
@@ -39,6 +39,7 @@
   ъ ]
   ы s
   ю .
+  *ю (tap-dance 190 ( @ю S-1 ))
   б ,
   м v
   п g
@@ -46,26 +47,39 @@
   ж ;
   ё grv
   lщ (tap-hold $tap-time $hold-pinky @щ (layer-toggle swi))
-  lц (tap-hold $tap-time $hold-pinky @ц (layer-toggle fun))
+  lц (tap-hold $tap-time $hold-pinky @ц (multi (layer-toggle fun) (layer-while-held eng)))
 
   ;; extra letters which doesn't fit 10 columns
   rus[ @х
   rus] @ъ
   rus` @ё
   rus' @э
+)
 
-  lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos))
-  .,? (tap-dance 190 ( @., S-7))
+(defalias
+   .,? (tap-dance 190 ( @., S-7))
+   ;; modtaps (GCAS)
+   ;; rus ;; йцукен
+   hф (tap-hold $tap-time $hold-pinky @ф (multi (layer-toggle app) (layer-while-held eng)))
+   hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
+   hв (tap-hold $tap-time $hold-middle @в (multi lctl (layer-while-held eng)))
+   hа (tap-hold $tap-time $hold-index @а (multi lalt (layer-while-held eng)))
 
-  ;; modtaps (GCAS)
-  ;; rus ;; йцукен
-  hф (tap-hold $tap-time $hold-pinky @ф (layer-toggle hyper))
-  hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
-  hв (tap-hold $tap-time $hold-middle @в (multi lctl (layer-while-held eng)))
-  hа (tap-hold $tap-time $hold-index @а lalt)
+   hо (tap-hold $tap-time $hold-index @о (multi lalt (layer-while-held eng)))
+   hл (tap-hold $tap-time $hold-middle @л (multi lctl (layer-while-held eng)))
+   hд (tap-hold $tap-time $hold-ring @д (multi lmet (layer-while-held eng)))
+   hж (tap-hold $tap-time $hold-pinky @ж (multi (layer-toggle hyper) (layer-while-held eng)))
+)
 
-  hо (tap-hold $tap-time $hold-index @о lalt)
-  hл (tap-hold $tap-time $hold-middle @л (multi lctl (layer-while-held eng)))
-  hд (tap-hold $tap-time $hold-ring @д (multi lmet (layer-while-held eng)))
-  hж (tap-hold $tap-time $hold-pinky o (layer-toggle app))
+(platform (macos)
+  (defalias
+   lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos_mac))
+  )
+)
+
+
+(platform (win winiov2 wintercept linux)
+  (defalias
+   lя (tap-hold $tap-time $hold-pinky @я (layer-toggle mos))
+  )
 )

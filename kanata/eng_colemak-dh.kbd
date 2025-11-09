@@ -12,16 +12,15 @@
 (defalias
   lw (tap-hold $tap-time $hold-pinky w (layer-toggle fun))
   ly (tap-hold $tap-time $hold-pinky y (layer-toggle swi))
-  lz (tap-hold $tap-time $hold-pinky z (layer-toggle mos))
 
   ht (tap-hold $tap-time $hold-index t lalt)
   hn (tap-hold $tap-time $hold-index n lalt)
   hr (tap-hold $tap-time $hold-ring r lmet)
   hi (tap-hold $tap-time $hold-ring i lmet)
-  ha (tap-hold $tap-time $hold-pinky a (layer-toggle hyper))
+  ha (tap-hold $tap-time $hold-pinky a (layer-toggle app))
   hs (tap-hold $tap-time $hold-middle s lctl)
   he (tap-hold $tap-time $hold-middle e lctl)
-  ho (tap-hold $tap-time $hold-pinky o (layer-toggle app))
+  ho (tap-hold $tap-time $hold-pinky o (layer-toggle hyper))
 )
  
 (environment (ALT_SYMBOLS "") (defalias ;or' ; 'or; ' s1 , s2 . s3 /))
@@ -35,5 +34,14 @@
   eng' @'or;
 )
 
+(platform (macos)
+  (defalias
+    lz (tap-hold $tap-time $hold-pinky z (layer-toggle mos_mac))
+  )
+)
 
-
+(platform (win winiov2 wintercept linux)
+  (defalias
+    lz (tap-hold $tap-time $hold-pinky z (layer-toggle mos))
+  )
+)

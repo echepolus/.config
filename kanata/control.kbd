@@ -77,6 +77,7 @@
   lua (switch ((base-layer rus)) @luanti_ru break () @luanti_en break )
   ;; tap dance to launch applications
   lnch (tap-dance 500 ( @gho @ema @zed ))
+
   mnu (fork menu @file (lsft rsft))
 
   ;; -------------------------------------------------------------------------------------

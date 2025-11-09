@@ -2,8 +2,8 @@
 @lfun   f1 f2 f3 f4 f5 f6 f7 f8 f9 f10 f11 f12 _
 @mos    1    2    3    4    5        6    7    8    9    0    -    _    _
 
-_      _    @ς   @ε   @ρ   @τ        @υ   @θ   @ι   @ο   @π   @х   @ъ  @sym
-@hyp   @hα   @hσ  @hδ  @hφ  @γ        @η   @hξ  @hκ  @hλ  _    @э   \
+_      _    @ς   @ε   @ρ   @τ        @υ   @θ   @ι   @hο- @π   @х   @ъ  @sym
+@hyp   @hα   @hσ  @hδ  @hφ  @γ       @η   @hξ  @hκ  @hλ  @h´  @э   \
 _      @ζ   @χ   @ψ   @ω   @β   <    @ν   @μ   @,   @.   _    rsft
 _               _ @lfun @lcmd  @nav  @rcmd @sym
 )
@@ -43,6 +43,8 @@ _               _ @lfun @lcmd  @nav  @rcmd @sym
   hλ (tap-hold $tap-time $hold-middle @λ (multi lmet (layer-while-held eng)))
   hκ (tap-hold $tap-time $hold-pinky @κ (multi lctl (layer-while-held eng)))
   hξ (tap-hold $tap-time $hold-ring @ξ (multi lalt (layer-while-held eng)))
-  hα (tap-hold $tap-time $hold-ring @α (layer-toggle hyper))
+  hα (tap-hold $tap-time $hold-ring @α (multi (layer-toggle app) (layer-while-held eng)))
+  hο- (tap-hold $tap-time $hold-pinky _ (multi (layer-toggle swi) (layer-while-held eng)))
+  h´ (tap-hold $tap-time $hold-pinky _ (multi (layer-toggle hyper) (layer-while-held eng)))
 
 )
