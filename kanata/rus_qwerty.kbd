@@ -60,7 +60,7 @@
    .,? (tap-dance 190 ( @., S-7))
    ;; modtaps (GCAS)
    ;; rus ;; йцукен
-   hф (tap-hold $tap-time $hold-pinky @ф (multi (layer-toggle app) (layer-while-held eng)))
+   hф (tap-hold $tap-time $hold-pinky @ф (layer-toggle app))
    hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
    hв (tap-hold $tap-time $hold-middle @в (multi lctl (layer-while-held eng)))
    hа (tap-hold $tap-time $hold-index @а (multi lalt (layer-while-held eng)))
@@ -68,7 +68,7 @@
    hо (tap-hold $tap-time $hold-index @о (multi lalt (layer-while-held eng)))
    hл (tap-hold $tap-time $hold-middle @л (multi lctl (layer-while-held eng)))
    hд (tap-hold $tap-time $hold-ring @д (multi lmet (layer-while-held eng)))
-   hж (tap-hold $tap-time $hold-pinky @ж (multi (layer-toggle hyper) (layer-while-held eng)))
+   hж (tap-hold $tap-time $hold-pinky @ж (layer-toggle hyper))
 )
 
 (platform (macos)
