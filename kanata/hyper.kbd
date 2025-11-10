@@ -114,10 +114,12 @@
   phot   (cmd "open" "-a" "Photos")
   mail   (cmd "open" "-a" "Mail")
   music  (cmd "open" "-a" "Music")
+  settings  (cmd "open" "-a" "Settings")
+
   codd (tap-dance 500 ( @ghst @emcs ))
   op-c (tap-dance 500 ( @cgpt @clash ))
   op-m (tap-dance 500 ( @mail @music ))
-  op-s (tap-hold 200 200 @sfri (layer-toggle safari))
+  op-s (tap-hold 200 200 (tap-dance 500 ( @sfri @settings )) (layer-toggle safari))
   ;; --- Browser shortcuts --- 
   rddt   (cmd "sh" "-c" "open 'https://reddit.com'")
   nixs   (cmd "sh" "-c" "open 'https://search.nixos.org'")
