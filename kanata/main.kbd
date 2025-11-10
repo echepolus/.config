@@ -114,7 +114,7 @@
 
  _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del    _   _   _
 @lrd @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
- _   M-z @redo M-x @cpyc @vstav   _    mltp pgup @file pgdn @kill _
+ _   M-z M-x @cpyc @vstav C-tab  _    mltp pgup @file pgdn @kill _
  _              _   @lfun @lcmd  @nav  @lfun @sym                     
 )
 

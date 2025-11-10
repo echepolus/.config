@@ -220,7 +220,7 @@ This enables recentf-mode so we can quickly reopen files you visited recently. I
           ;; по умолчанию
           (regular
            :default-family ,my/mono
-           :default-weight light 
+           :default-weight regular 
            :default-height 140
            :fixed-pitch-family ,my/mono
            :variable-pitch-family ,my/var)
@@ -253,7 +253,7 @@ This enables recentf-mode so we can quickly reopen files you visited recently. I
           ;; fallback по умолчанию (используется как база для наследования)
           (t
            :default-family ,my/mono
-           :default-weight light 
+           :default-weight regular
            :default-slant normal
            :default-width normal
            :default-height 140
@@ -673,7 +673,7 @@ This enables recentf-mode so we can quickly reopen files you visited recently. I
 #+BEGIN_SRC emacs-lisp 
 
   (require 'ef-themes)
-  (setq ef-themes-to-toggle '(ef-tritanopia-dark ef-winter))
+  (setq ef-themes-to-toggle '(ef-owl ef-maris-dark))
   (setq ef-themes-headings ; read the manual's entry or the doc string
         '((0 variable-pitch regular 1.9)
           (1 variable-pitch regular 1.8)
@@ -690,7 +690,7 @@ This enables recentf-mode so we can quickly reopen files you visited recently. I
 
   (mapc #'disable-theme custom-enabled-themes)
 
-  (load-theme 'ef-winter :no-confirm)
+  (load-theme 'ef-owl :no-confirm)
 
   (define-key global-map (kbd "<f5>") #'ef-themes-toggle)
 
@@ -1004,11 +1004,42 @@ These settings keep emacs from littering the filesystem with buffer backups. The
 #+NAME: pdfs
 #+BEGIN_SRC emacs-lisp
 
-  (setq auto-save-file-name-transforms
-        `((".*" "~/.local/state/emacs/" t)))
-  (setq lock-file-name-transforms
-        `((".*" "~/.local/state/emacs/lock-files/" t)))
-  
+  ;; Remember that the website version of this manual shows the latest
+  ;; developments, which may not be available in the package you are
+  ;; using.  Instead of copying from the web site, refer to the version
+  ;; of the documentation that comes with your package.  Evaluate:
+  ;;
+  ;;     (info "(denote) Sample configuration")
+  (use-package denote
+    :ensure nil
+    :hook (dired-mode . denote-dired-mode)
+    :bind
+    (("C-c n n" . denote)
+     ("C-c n r" . denote-rename-file)
+     ("C-c n l" . denote-link)
+     ("C-c n b" . denote-backlinks)
+     ("C-c n d" . denote-dired)
+     ("C-c n g" . denote-grep))
+    :config
+    (setq denote-directory (expand-file-name "~/Documents/notes/"))
+
+    ;; Automatically rename Denote buffers when opening them so that
+    ;; instead of their long file name they have, for example, a literal
+    ;; "[D]" followed by the file's title.  Read the doc string of
+    ;; `denote-rename-buffer-format' for how to modify this.
+    (denote-rename-buffer-mode 1))
+
+  (use-package citar
+  :custom
+  (citar-bibliography '("~/bib/references.bib")))
+
+  (use-package pdf-tools
+  :ensure nil
+  :config
+  (pdf-loader-install))
+  (add-hook 'pdf-view-mode-hook
+          (lambda ()
+            (display-line-numbers-mode -1)))
 #+END_SRC
 
 ** Managing projects
@@ -1069,7 +1100,6 @@ These settings keep emacs from littering the filesystem with buffer backups. The
 ** Coding
 *** Compile buffers
 Everything related to ~M-x compile~.
-
 #+NAME: compilation-buffer
 #+BEGIN_SRC emacs-lisp
 ;; Auto scroll the buffer as we compile
