@@ -30,10 +30,6 @@
   a⇥spc C-A-M-tab
   airmax C-A-M-e
   airgee C-A-M-g
-;;aup (tap-dance 400 (up @aerj))
-;;adwn (tap-dance 400 (down @aerk))
-;;alft (tap-dance 400 (left @aerh))
-;;argt (tap-dance 400 (rght @aerl))
 
   ;; macOS function key glyphs
   mc C-up ;; Mission Control
@@ -49,20 +45,6 @@
   terminal_en (macro @launch 400 S-t e r m i n a l 400 ret)
   terminal_ru (macro @en 50 @launch 400 S-t e r m i n a l 400 ret 50 @ru)
   ter (switch ((base-layer rus)) @terminal_ru break () @terminal_en break ) ;; launch terminal
-  notepad_en (macro @launch 400 t e x t spc e d i t 400 ret)
-  notepad_ru (macro @en 50 @launch 400 t e x t spc e d i t 400 ret 50 @ru)
-  ntp (switch ((base-layer rus)) @notepad_ru break () @notepad_en break )
-  excel_en (macro @launch 400 S-e x c e l 400 ret)
-  excel_ru (macro @en 50 @launch 400 S-e x c e l 400 ret 50 @ru)
-  exc (switch ((base-layer rus)) @excel_ru break () @excel_en break )
-
-  vscode_en (macro @launch 400 S-v i s u a l 50 spc S-s t u d i o 50 spc S-c o d e 400 ret)
-  vscode_ru (macro @en 50 @launch 400 S-v i s u a l 50 spc S-s t u d i o 50 spc S-c o d e 400 ret 50 @ru)
-  vsc (switch ((base-layer rus)) @vscode_ru break () @vscode_en break )
-
-  zed_en (macro @launch 400 S-z e d 400 ret)
-  zed_ru (macro @en 50 @launch 400 S-z e d 400 ret 50 @ru)
-  zed (switch ((base-layer rus)) @zed_ru break () @zed_en break )
 
   ghostty_en (macro @launch 400 S-g h o s t t y 400 ret)
   ghostty_ru (macro @en 50 @launch 400 S-g h o s t t y 400 ret 50 @ru)
@@ -72,11 +54,8 @@
   emacs_en (macro @launch 400 S-e m a c s 400 ret)
   emacs_ru (macro @en 50 @launch 400 S-e m a c s 400 ret 50 @ru)
   ema (switch ((base-layer rus)) @emacs_ru break () @emacs_en break )
-  luanti_en (macro @launch 400 S-l u a n t i 400 ret)
-  luanti_ru (macro @en 50 @launch 400 S-l u a n t i 400 ret 50 @ru)
-  lua (switch ((base-layer rus)) @luanti_ru break () @luanti_en break )
   ;; tap dance to launch applications
-  lnch (tap-dance 500 ( @gho @ema @zed ))
+  lnch (tap-dance 500 ( @gho @ema ))
 
   mnu (fork menu @file (lsft rsft))
 
