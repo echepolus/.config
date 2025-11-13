@@ -47,7 +47,7 @@
   ж ;
   ё grv
   lщ (tap-hold $tap-time $hold-pinky @щ (layer-toggle swi))
-  lц (tap-hold $tap-time $hold-pinky @ц (multi (layer-toggle fun) (layer-while-held eng)))
+  lц (tap-hold $tap-time $hold-pinky @ц (layer-toggle fun))
 
   ;; extra letters which doesn't fit 10 columns
   rus[ @х
