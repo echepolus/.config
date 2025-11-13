@@ -3,6 +3,7 @@ let
   myPython = pkgs.python3.withPackages (ps: with ps; [
     slpp
     pip
+    # pan
     rich
     virtualenv
     black
@@ -10,11 +11,20 @@ let
     sexpdata
     six
     inflect
+    unidecode
+    pyaml
+    # pyaml-env
+    pypandoc
   ]);
 
   myPHP = pkgs.php82.withExtensions ({ enabled, all }: enabled ++ (with all; [
     xdebug
   ]));
+
+  myTex = pkgs.texlive.withPackages (ps: with ps; [
+      latex
+      dvipng
+  ]);
 
   myFonts = import ./fonts.nix { inherit pkgs; };
 in
@@ -32,7 +42,6 @@ with pkgs; [
   # B
   bash-completion # Bash completion scripts
   bat # Cat clone with syntax highlighting
-  btop # System monitor and process viewer
 
   # C
   coreutils # Basic file/text/shell utilities
@@ -40,21 +49,21 @@ with pkgs; [
   # D
   direnv # Environment variable management per directory
   difftastic # Structural diff tool
-  du-dust # Disk usage analyzer
+  djvulibre
 
   # E
-#  espanso # Cross-platform Text Expander written in Rust
 
   # F
   fd # Fast find alternative
-  ffmpeg # Multimedia framework
-  ffmpegthumbnailer
+  # ffmpeg # Multimedia framework
+  # ffmpegthumbnailer
   fzf # Fuzzy finder
  
   # G
   gh # GitHub CLI
   glow # Markdown renderer for terminal
-
+  ghostscript # PDF to images converter
+    
   # H
   htop # Interactive process viewer
   hunspell # Spell checker
@@ -64,15 +73,11 @@ with pkgs; [
 
   # I
   iftop # Network bandwidth monitor
-  imagemagick # Image manipulation toolkit
 
   # J
-  jpegoptim # JPEG optimizer
-  jq # JSON processor
 
   # K
   killall # Kill processes by name
-  # kmonad
 
   # L
   lnav # Log file navigator
@@ -82,12 +87,12 @@ with pkgs; [
   # M
   myPHP # Custom PHP with extensions
   myPython # Custom Python with packages
+  myTex # LaTeX with packages
+  math-preview
 
   # N
   ncurses # Terminal control library with terminfo database
   neofetch # System information tool
-  # neovim
-  # ngrok # Secure tunneling service
   nodejs
   nodePackages.live-server # Development server with live reload
   nodePackages.nodemon # Node.js file watcher
@@ -95,15 +100,15 @@ with pkgs; [
 
   # O
   openssh # SSH client and server
+  obsidian-export
 
   # P
   pass # Stores, retrieves, generates, synchronizes passwords
   pandoc # Document converter
-  # php82Packages.composer # PHP dependency manager
-  # php82Packages.deployer # PHP deployment tool
-  # php82Packages.php-cs-fixer # PHP code style fixer
-  # phpunit # PHP testing framework
-  # pngquant # PNG compression tool
+  poppler # PDF to plain text tool
+
+  # Q
+  qmk
 
   # R
   ripgrep # Fast text search tool
@@ -113,7 +118,6 @@ with pkgs; [
   symlinks
 
   # T
-  tmux # Terminal multiplexer
   tree # Directory tree viewer
 
   # U
@@ -141,12 +145,4 @@ with pkgs; [
   zlib
   zsh-fzf-tab
 
-  # C package
-  # cmake
-  # codespell
-  # conan
-  # cppcheck
-  # doxygen
-  # lcov
-  # vcpkg
 ] ++ myFonts
