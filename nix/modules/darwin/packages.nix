@@ -14,7 +14,6 @@ shared-packages ++ [
   # vial # Ergo keyboard setup tool
   # starship
   gnupg # GNU Privacy Guard
-
   gcc
   # binutils
   # check

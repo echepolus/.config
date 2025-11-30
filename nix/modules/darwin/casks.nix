@@ -5,6 +5,9 @@
   "wireshark-app"
   "tailscale-app"
   "font-hack-nerd-font"
+  # "tigervnc-viewer"
+  # "realvnc-connect"
+  # "jump-desktop"
 
   # Communication Tools
   "zoom"

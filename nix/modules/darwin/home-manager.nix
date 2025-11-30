@@ -34,6 +34,7 @@ in
       "bear"
       # "llvm"
       "syncthing"
+      "tiger-vnc"
     ];
     masApps = {
       #"1password" = 1333542190;
