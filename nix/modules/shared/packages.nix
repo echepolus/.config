@@ -3,7 +3,6 @@ let
   myPython = pkgs.python3.withPackages (ps: with ps; [
     slpp
     pip
-    # pan
     rich
     virtualenv
     black
@@ -13,18 +12,12 @@ let
     inflect
     unidecode
     pyaml
-    # pyaml-env
     pypandoc
   ]);
 
   myPHP = pkgs.php82.withExtensions ({ enabled, all }: enabled ++ (with all; [
     xdebug
   ]));
-
-  myTex = pkgs.texlive.withPackages (ps: with ps; [
-      latex
-      dvipng
-  ]);
 
   myFonts = import ./fonts.nix { inherit pkgs; };
 in
@@ -55,8 +48,6 @@ with pkgs; [
 
   # F
   fd # Fast find alternative
-  # ffmpeg # Multimedia framework
-  # ffmpegthumbnailer
   fzf # Fuzzy finder
  
   # G
@@ -87,12 +78,10 @@ with pkgs; [
   # M
   myPHP # Custom PHP with extensions
   myPython # Custom Python with packages
-  myTex # LaTeX with packages
   math-preview
 
   # N
   ncurses # Terminal control library with terminfo database
-  neofetch # System information tool
   nodejs
   nodePackages.live-server # Development server with live reload
   nodePackages.nodemon # Node.js file watcher
@@ -100,7 +89,6 @@ with pkgs; [
 
   # O
   openssh # SSH client and server
-  obsidian-export
 
   # P
   pass # Stores, retrieves, generates, synchronizes passwords
@@ -108,7 +96,6 @@ with pkgs; [
   poppler # PDF to plain text tool
 
   # Q
-  qmk
 
   # R
   ripgrep # Fast text search tool
@@ -133,7 +120,6 @@ with pkgs; [
   # X
 
   # Y
-  # yazi
 
   # Z
   zip # ZIP archive creator

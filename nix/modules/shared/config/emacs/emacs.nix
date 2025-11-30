@@ -16,14 +16,15 @@ let
         quelpa
         quelpa-use-package
         meow
-        meow-tree-sitter
+        # meow-tree-sitter
         denote-markdown
+        vterm
         
         # UI and themes
         ef-themes
         doom-modeline
         all-the-icons
-        all-the-icons-ivy
+        # all-the-icons-ivy
         all-the-icons-dired
         dashboard
         rainbow-delimiters
@@ -51,25 +52,8 @@ let
         embark-consult
         math-preview
         
-        # Ivy/Counsel framework
-        ivy
-        counsel
-        ivy-rich
-        ivy-prescient
-        prescient
-        counsel-projectile
-        swiper
-        
-        # File management
-        treemacs
-        treemacs-evil
-        treemacs-projectile
-        treemacs-icons-dired
-        treemacs-magit
-        treemacs-nerd-icons
         dired-ranger
         dired-collapse
-        perspective
         key-chord
         
         # Project management
@@ -84,9 +68,6 @@ let
         org-transclusion
         org-download
         org-roam
-        emacsql
-        sqlite3
-        visual-fill-column
         
         # Writing
         writeroom-mode
@@ -102,17 +83,10 @@ let
         # Programming - Language servers
         lsp-mode
         lsp-ui
-        lsp-treemacs
+        # lsp-treemacs
         
-        # Progr   eamming - Languages
+        # Programming - Languages
         nix-mode
-        yaml-mode
-        lua-mode
-        tree-sitter
-        tree-sitter-langs
-        tide
-        prettier-js
-        emmet-mode
         
         # Python
         lsp-pyright
