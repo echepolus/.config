@@ -9,11 +9,12 @@ adjust-cell-height      = +10%
 freetype-load-flags     = no-hinting
 
 # Theme (purplepeter, Vaughn, Mariana)
-theme                   = Banana Blueberry 
-background-opacity      = 0.70
-background-blur-radius  = 40
+# theme                   = Banana Blueberry 
+theme                   = ayu 
+# background-opacity      = 0.70
+# background-blur-radius  = 40
 # custom-shader = /Users/${config.home.username}/.config/ghostty/shaders/sparks-from-fire.glsl
-window-theme            = auto 
+# window-theme            = auto 
 
 # Cursor
 cursor-opacity          = 0.8
