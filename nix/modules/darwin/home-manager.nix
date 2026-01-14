@@ -32,9 +32,8 @@ in
       "gitlab-runner"
       "rbenv"
       "bear"
-      # "llvm"
-      "syncthing"
-      "tiger-vnc"
+      "tdlib"
+      "zlib"
     ];
     masApps = {
       #"1password" = 1333542190;

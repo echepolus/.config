@@ -3,22 +3,17 @@
 with pkgs;
 let shared-packages = import ../shared/packages.nix { inherit pkgs; }; in
 shared-packages ++ [
-  # dockutil # Manage icons in the dock
-  # fswatch # File change monitor
-  # jankyborders
   aerospace
   colima # Container runtime
   docker
   kanata-with-cmd
-  # clang-tools
-  # vial # Ergo keyboard setup tool
-  # starship
   gnupg # GNU Privacy Guard
   gcc
-  # binutils
-  # check
-  # cmake
-  # pkg-config
-  # gnumake
   libclang
+  xray
+  zip
+  gperf
+  cmakeMinimal
+  pkg-configUpstream
+  # tdlib
 ]

@@ -2,16 +2,15 @@
 
 [
   # Development Tools
+  "v2rayu"
   "wireshark-app"
   "tailscale-app"
-  "font-hack-nerd-font"
-  # "tigervnc-viewer"
-  # "realvnc-connect"
-  # "jump-desktop"
+  # "font-hack-nerd-font"
 
   # Communication Tools
   "zoom"
-  "ayugram"
+  # "ayugram"
+  "forkgram-telegram"
 
   # Utility Tools
   "pearcleaner"
@@ -29,8 +28,8 @@
   # B
 
   # C
-  "clash-verge-rev"
   "chatgpt"
+  "calibre"
   
   # G
   "ghostty"
@@ -43,7 +42,7 @@
   # J
 
   # Keyboard
-  "leader-key"
+  # "leader-key"
   "kawa-app"
 
   # L
@@ -57,9 +56,14 @@
   # S
   "utm"
 
+  # T
+
+  # V
+  "tigervnc-viewer"
+
   # Z
   "zen"
 
   # X
-  "x2goclient"
+  # "xquartz"
 ]

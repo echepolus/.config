@@ -69,14 +69,13 @@
             (lambda (_frame)
               (exec-path-from-shell-initialize))))
 
-(defvar ak/config-dir (expand-file-name "~/.config/emacs/"))
 ;; -------------------------
 ;; Window and UI Setup
 ;; -------------------------
 (defun system-is-mac () (string-equal system-type "darwin"))
 (defun system-is-linux () (string-equal system-type "gnu/linux"))
 
-(defun dl/window-setup ()
+(defun eux/window-setup ()
   (condition-case nil
       (progn
         (column-number-mode)
@@ -92,10 +91,10 @@
         (setq frame-title-format nil)
         (message "Window and UI setup completed successfully."))
     (error (message "Error occurred in Window and UI setup."))))
-(dl/window-setup)
+(eux/window-setup)
 
 ;; Function to set transparency and styling
-(defun dl/setup-transparency-and-styling ()
+(defun eux/setup-transparency-and-styling ()
     (when (system-is-mac)
 	;; Values: 0-100 (0 = fully transparent, 100 = opaque)
 	(set-frame-parameter nil 'alpha-background 100) ; For Emacs 29+
@@ -125,7 +124,7 @@
 ;; -------------------------
 ;; Org Mode Setup
 ;; -------------------------
-(defun dl/org-mode-setup ()
+(defun eux/org-mode-setup ()
   (condition-case nil
       (progn
         (org-indent-mode)
@@ -139,23 +138,24 @@
 (use-package org
   :ensure nil
   :defer t
-  :hook (org-mode . dl/org-mode-setup)
+  :hook (org-mode . eux/org-mode-setup)
   :config
   (setq org-edit-src-content-indentation 2
+	org-ellipsis " ▾"
         org-hide-emphasis-markers t
-        org-hide-block-startup t)
+        org-hide-block-startup nil)
   :bind (("C-c a" . org-agenda)))
 
 ;; -------------------------
 ;; Default Config Download
 ;; -------------------------
-(defun dl/download-default-config ()
+(defun eux/download-default-config ()
   (condition-case nil
       (progn
         (unless (file-exists-p default-config-file)
           (with-current-buffer
               (url-retrieve-synchronously default-config-url)
-            (goto-char (point-min))
+            (goto-char (point-min) )
             (re-search-forward "\r?\n\r?\n")
             (write-region (point) (point-max) default-config-file))
           (message "Default configuration downloaded successfully.")))
@@ -167,7 +167,7 @@
 (condition-case err
     (progn
       (unless (file-exists-p org-config-file)
-        (dl/download-default-config))
+        (eux/download-default-config))
       (if (file-exists-p org-config-file)
           (org-babel-load-file org-config-file)
         (org-babel-load-file default-config-file))
@@ -175,69 +175,10 @@
   (error 
    (message "Error occurred while loading the configuration: %s" (error-message-string err))
    ;; fallback for evil-mode and leader-keys
-   ;; (when (fboundp 'evil-mode)
-   ;;   (evil-mode 1))
+   ; (when (fboundp 'evil-mode)
+   ;    (evil-mode 1))
    (when (fboundp 'general-create-definer)
-     (general-create-definer dl/leader-keys
+     (general-create-definer eux/leader-keys
        :keymaps '(normal visual emacs)
        :prefix ","))))
-
-;; ------------------------------------
-;; Храним все служебные файлы в ~/.config/emacs/
-;; ------------------------------------
-
-;; bookmarks
-(setq bookmark-default-file (expand-file-name "bookmarks" ak/config-dir))
-(setq bookmark-save-flag 1) ;; Автосохранение закладок
-
-;; projectile (если используешь)
-(when (boundp 'projectile-cache-file)
-  (setq projectile-cache-file (expand-file-name "projectile.cache" ak/config-dir)))
-(when (boundp 'projectile-known-projects-file)
-  (setq projectile-known-projects-file (expand-file-name "projectile-bookmarks.eld" ak/config-dir)))
-
-;; -------------------------
-;; Load local overrides and custom settings
-;; -------------------------
-
-(defvar ak/local-config (expand-file-name "local.el" ak/config-dir))
-(defvar ak/custom-config (expand-file-name "custom.el" ak/config-dir))
-
-;; Подгружаем local.el, если есть
-(when (file-exists-p ak/local-config)
-  (load ak/local-config)
-  (message "Loaded local.el overrides."))
-
-;; Подгружаем custom.el, если есть
-(when (file-exists-p ak/custom-config)
-  (load ak/custom-config)
-  (message "Loaded custom.el for customize interface."))
-
-;; -------------------------
-;; Умная авто-подгрузка local.el и custom.el с префиксом ak
-;; -------------------------
-(defun ak/smart-reload-config (file)
-  (when (file-exists-p file)
-    (condition-case err
-        (let ((has-leader-definer (fboundp 'ak/leader-keys)))
-          (load file nil 'nomessage)
-          (when has-leader-definer
-            (ak/leader-keys))
-          (message "Smart reloaded %s successfully." file))
-      (error
-       (message "Error reloading %s: %s"
-                file (error-message-string err))))))
-
-(defun ak/auto-reload-config-on-save ()
-  "Reload local.el or custom.el from ~/.config/emacs/ when saved."
-  (let ((fname (buffer-file-name)))
-    (when fname
-      (cond
-       ((string-equal (file-truename fname) ak/local-config)
-        (ak/smart-reload-config fname))
-       ((string-equal (file-truename fname) ak/custom-config)
-        (ak/smart-reload-config fname))))))
-
-;; Хук для автоматической перезагрузки при сохранении
-(add-hook 'after-save-hook #'ak/auto-reload-config-on-save)
 

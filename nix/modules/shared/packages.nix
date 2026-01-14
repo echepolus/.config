@@ -49,6 +49,8 @@ with pkgs; [
   # F
   fd # Fast find alternative
   fzf # Fuzzy finder
+  ffmpeg
+  
  
   # G
   gh # GitHub CLI
@@ -103,6 +105,7 @@ with pkgs; [
   # S
   sqlite # SQL database engine
   symlinks
+  sdcv
 
   # T
   tree # Directory tree viewer
@@ -120,6 +123,7 @@ with pkgs; [
   # X
 
   # Y
+  yt-dlp
 
   # Z
   zip # ZIP archive creator

@@ -1,27 +1,27 @@
+
 { pkgs }:
 let
-  emacsPackage = if pkgs.stdenv.isDarwin
-    then pkgs.emacs
-    else pkgs.emacs-unstable-pgtk;
-
+  emacsPackage = pkgs.emacs;
+ 
   emacsWithPackages = (pkgs.emacsPackagesFor emacsPackage).emacsWithPackages (epkgs: with epkgs; [
-        obsidian
         gcmh
         general
-        evil
-        evil-collection
-        evil-org
-        evil-commentary
         undo-tree
         quelpa
         quelpa-use-package
-        meow
-        # meow-tree-sitter
         denote-markdown
+        denote-sequence
         vterm
+
+        # B
+        beframe
+        
+        # C
+        calibredb
+        citar
         
         # UI and themes
-        ef-themes
+        doric-themes
         doom-modeline
         all-the-icons
         # all-the-icons-ivy
@@ -45,15 +45,16 @@ let
 
         # Minibuffers framework
         vertico
+        vertico-posframe
         marginalia
         consult
         orderless
         embark
         embark-consult
         math-preview
-        
         dired-ranger
         dired-collapse
+        dired-preview
         key-chord
         
         # Project management
@@ -63,11 +64,13 @@ let
         
         # Org mode
         org-super-agenda
-        org-modern
         org-superstar
         org-transclusion
         org-download
         org-roam
+        emacsql
+        sqlite3
+        visual-fill-column
         
         # Writing
         writeroom-mode
@@ -75,7 +78,9 @@ let
         flyspell-correct-ivy
         reverse-im
         denote
-        citar
+        consult-denote
+        denote-org
+        denote-journal
         
         # Version control
         # magit
@@ -83,7 +88,6 @@ let
         # Programming - Language servers
         lsp-mode
         lsp-ui
-        # lsp-treemacs
         
         # Programming - Languages
         nix-mode
@@ -101,6 +105,25 @@ let
         exec-path-from-shell
         pdf-tools   
         tablist # required by pdf-tools
+        saveplace-pdf-view
+
+        # G
+
+
+        # N
+        nov
+
+        # O
+        org-modern
+        
+        # S
+        # quick-sdcv
+
+        # T
+        # telega
+
+        # W
+        wgrep
   ]);
 in 
 emacsWithPackages

@@ -46,8 +46,8 @@
   terminal_ru (macro @en 50 @launch 400 S-t e r m i n a l 400 ret 50 @ru)
   ter (switch ((base-layer rus)) @terminal_ru break () @terminal_en break ) ;; launch terminal
 
-  ghostty_en (macro @launch 400 S-g h o s t t y 400 ret)
-  ghostty_ru (macro @en 50 @launch 400 S-g h o s t t y 400 ret 50 @ru)
+  ghostty_en (macro @launch 400 S-e m a c s 400 ret)
+  ghostty_ru (macro @en 50 @launch 400 S-e m a c s 400 ret 50 @ru)
   gho (switch ((base-layer rus)) @ghostty_ru break () @ghostty_en break )
   ghoqui C-S-5
 

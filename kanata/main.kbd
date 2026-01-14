@@ -6,7 +6,7 @@
  caps  a   s   d   f   g       h   j   k   l   ;      '   \  
  lsft  `   z   x   c   v   b   n   m   ,   .   /      rsft
 
- fn     lctl  lalt  lmet  spc  rmet  ralt             
+ rctl   lctl  lalt  lmet  spc  rmet  ralt             
 )
 
 
@@ -99,8 +99,8 @@
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
  _  f12  f7  f8  f9 volu        @., 1   2   3 @del   _   _   ret
- _ @f11 @f4 @f5 @f6 vold      ret @h4 @h5 @h6 @hbspc _   _
- _  f10  f1  f2  f3 mute    _   0   7   8   9 @croll _
+ _ @f11 @f4 @f5 @f6 vold      ret @h4 @h5 @h6 @.,    _   _
+ _  f10  f1  f2  f3 mute    _   0   7   8   9 @hbspc _
  _   _        @lau @lcmd  @nav  @rcmd @lau
 )
 
@@ -177,7 +177,7 @@
 )
 
 (defchordsv2
-
+;; в скобках указаны клавиши как они помечены в QWERTY
   ;; left side
   (e r) @eng $chord-time all-released    (          sym fun nav mos    )
 ;;(w e) @rus $chord-time all-released    (          sym fun nav mos    )
@@ -186,16 +186,17 @@
   (r f) @``  $chord-time all-released    (          sym fun nav mos qwe)
   (e d) @''  $chord-time all-released    (          sym fun nav mos qwe)
   (w r) @<>  $chord-time all-released    (              fun nav mos qwe)
-  (s f) @brc $chord-time all-released    (              fun nav mos qwe)
+  (s f) @[]  $chord-time all-released    (              fun nav mos qwe)
   (w e) @aern $chord-time all-released ( )
 
   ;; right side
   (j k) @eng $chord-time all-released    (          sym fun nav mos    )
   (k l) @rus $chord-time all-released    (          sym fun nav mos    )
   (j i) @“”  $chord-time all-released    (          sym fun nav mos qwe)
+  (h u) @''  $chord-time all-released    (          sym fun nav mos qwe)
   (i k) @brc $chord-time all-released    (          sym fun nav mos qwe)
-  (u o) @[]  $chord-time all-released    (              fun nav mos qwe)
-  (j l) @{}  $chord-time all-released    (              fun nav mos qwe)
+  (u o) @{}  $chord-time all-released    (              fun nav mos qwe)
+  (j l) @brc $chord-time all-released    (              fun nav mos qwe)
   (m .) @[] $chord-time all-released     (              fun nav mos qwe)
   (i o) @ex' $chord-time all-released    (          sym fun nav mos qwe)
   (u i) @ex` $chord-time all-released    (          sym fun nav mos qwe)
