@@ -2,15 +2,14 @@
 
 [
   # Development Tools
+  "warp"
   "v2rayu"
   "wireshark-app"
   "tailscale-app"
-  # "font-hack-nerd-font"
 
   # Communication Tools
   "zoom"
-  # "ayugram"
-  "forkgram-telegram"
+  "ayugram"
 
   # Utility Tools
   "pearcleaner"
@@ -18,10 +17,6 @@
   # Entertainment Tools
   "vlc"
   
-  # Productivity Tools
-  
-  # Window Managemen
-
   # A
   "anki"
  
@@ -42,7 +37,6 @@
   # J
 
   # Keyboard
-  # "leader-key"
   "kawa-app"
 
   # L
@@ -56,14 +50,8 @@
   # S
   "utm"
 
-  # T
-
-  # V
-  "tigervnc-viewer"
-
   # Z
   "zen"
 
   # X
-  # "xquartz"
 ]

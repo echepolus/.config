@@ -108,7 +108,7 @@
   focu   (cmd "open" "-a" "Focumon")
   ghst   (cmd "open" "raycast://script-commands/emacsclient")
   sfri   (cmd "open" "-a" "Safari")
-  gram   (cmd "open" "-a" "Forkgram")
+  gram   (cmd "open" "-a" "AyuGram")
   zen    (cmd "open" "-a" "Zen")
   tor    (cmd "open" "-a" "Tor Browser")
   note   (cmd "open" "-a" "Notes")

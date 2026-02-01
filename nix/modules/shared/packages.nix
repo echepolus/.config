@@ -43,14 +43,13 @@ with pkgs; [
   direnv # Environment variable management per directory
   difftastic # Structural diff tool
   djvulibre
-
+  
   # E
 
   # F
   fd # Fast find alternative
   fzf # Fuzzy finder
   ffmpeg
-  
  
   # G
   gh # GitHub CLI
@@ -66,7 +65,7 @@ with pkgs; [
 
   # I
   iftop # Network bandwidth monitor
-
+  
   # J
 
   # K
@@ -75,7 +74,6 @@ with pkgs; [
   # L
   lnav # Log file navigator
   libpng
-  lazygit
 
   # M
   myPHP # Custom PHP with extensions
@@ -83,11 +81,12 @@ with pkgs; [
   math-preview
 
   # N
-  ncurses # Terminal control library with terminfo database
+  ncurses
   nodejs
   nodePackages.live-server # Development server with live reload
   nodePackages.nodemon # Node.js file watcher
   (hiPrio nodePackages.prettier) # Code formatter
+  ncdu
 
   # O
   openssh # SSH client and server
@@ -108,7 +107,7 @@ with pkgs; [
   sdcv
 
   # T
-  tree # Directory tree viewer
+  tree # Directory tree viewe
 
   # U
   unrar # RAR archive extractor
@@ -123,8 +122,8 @@ with pkgs; [
   # X
 
   # Y
-  yt-dlp
-
+  
+  
   # Z
   zip # ZIP archive creator
   zsh-powerlevel10k # Zsh theme

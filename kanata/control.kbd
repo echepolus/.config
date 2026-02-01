@@ -17,7 +17,7 @@
   cls M-w
   kill A-M-esc ;; Kill any app
   gprnt M-S-3 ;; Make a screenshot - full screen
-  prnt (tap-dance 400 ( M-S-4 (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - region, window, screen
+  prnt (tap-dance 400 ( (cmd "open" "raycast://extensions/huzef44/screenocr/recognize-text") (macro M-S-4 spc) M-S-3 )) ;; Make a screenshot - region, window, screen
   redo M-S-z
   del C-d
   all (tap-hold $tap-time $hold-time M-a (layer-toggle fun)) 

@@ -1,11 +1,11 @@
 ;; -------------------------
 ;; Evil early setup (must be before evil or evil-collection is loaded!)
 ;; -------------------------
-;; (setq evil-want-integration t)      ;; default = t
-;; (setq evil-want-keybinding nil)     ;; disable default bindings so evil-collection can set them
-;; (setq evil-want-fine-undo 'fine)    ;; granular undo
-;; (setq evil-want-Y-yank-to-eol t)    ;; Y yanks to end of line
-;; (setq evil-want-C-u-scroll t)       ;; C-u scrolls like in Vim
+(setq evil-want-integration t)      ;; default = t
+(setq evil-want-keybinding nil)     ;; disable default bindings so evil-collection can set them
+(setq evil-want-fine-undo 'fine)    ;; granular undo
+(setq evil-want-Y-yank-to-eol t)    ;; Y yanks to end of line
+(setq evil-want-C-u-scroll t)       ;; C-u scrolls like in Vim
 
 ;; -------------------------
 ;; Variable Declarations
@@ -75,7 +75,7 @@
 (defun system-is-mac () (string-equal system-type "darwin"))
 (defun system-is-linux () (string-equal system-type "gnu/linux"))
 
-(defun eux/window-setup ()
+(defun dl/window-setup ()
   (condition-case nil
       (progn
         (column-number-mode)
@@ -91,10 +91,10 @@
         (setq frame-title-format nil)
         (message "Window and UI setup completed successfully."))
     (error (message "Error occurred in Window and UI setup."))))
-(eux/window-setup)
+(dl/window-setup)
 
 ;; Function to set transparency and styling
-(defun eux/setup-transparency-and-styling ()
+(defun dl/setup-transparency-and-styling ()
     (when (system-is-mac)
 	;; Values: 0-100 (0 = fully transparent, 100 = opaque)
 	(set-frame-parameter nil 'alpha-background 100) ; For Emacs 29+
@@ -124,13 +124,14 @@
 ;; -------------------------
 ;; Org Mode Setup
 ;; -------------------------
-(defun eux/org-mode-setup ()
+(defun dl/org-mode-setup ()
   (condition-case nil
       (progn
         (org-indent-mode)
         (variable-pitch-mode 1)
         (auto-fill-mode 0)
         (visual-line-mode 1)
+        (org-superstar-mode 1)
         ;; (setq evil-auto-indent nil)
         (message "Org mode setup completed successfully."))
     (error (message "Error occurred in Org mode setup."))))
@@ -138,7 +139,7 @@
 (use-package org
   :ensure nil
   :defer t
-  :hook (org-mode . eux/org-mode-setup)
+  :hook (org-mode . dl/org-mode-setup)
   :config
   (setq org-edit-src-content-indentation 2
 	org-ellipsis " ▾"
@@ -149,7 +150,7 @@
 ;; -------------------------
 ;; Default Config Download
 ;; -------------------------
-(defun eux/download-default-config ()
+(defun dl/download-default-config ()
   (condition-case nil
       (progn
         (unless (file-exists-p default-config-file)
@@ -167,7 +168,7 @@
 (condition-case err
     (progn
       (unless (file-exists-p org-config-file)
-        (eux/download-default-config))
+        (dl/download-default-config))
       (if (file-exists-p org-config-file)
           (org-babel-load-file org-config-file)
         (org-babel-load-file default-config-file))
@@ -175,10 +176,22 @@
   (error 
    (message "Error occurred while loading the configuration: %s" (error-message-string err))
    ;; fallback for evil-mode and leader-keys
-   ; (when (fboundp 'evil-mode)
-   ;    (evil-mode 1))
+   (when (fboundp 'evil-mode)
+      (evil-mode 1))
    (when (fboundp 'general-create-definer)
-     (general-create-definer eux/leader-keys
+     (general-create-definer dl/leader-keys
        :keymaps '(normal visual emacs)
        :prefix ","))))
+
+;; -------------------------
+;; Automatically load Org Config when we save it
+;; -------------------------
+
+(defun efs/org-babel-tangle-config ()
+  (when (string-equal (buffer-file-name)
+                      (expand-file-name "~/.config/nix/modules/shared/config/emacs/config.org"))
+    (let ((org-confirm-babel-evaluate nil))
+      (org-babel-tangle))))
+
+(add-hook 'org-mode-hook (lambda () (add-hook 'after-save-hook #'efs/org-babel-tangle-config)))
 

@@ -22,18 +22,16 @@ in
     shell = pkgs.zsh;
   };
 
-
   homebrew = {
     enable = true;
     casks = pkgs.callPackage ./casks.nix {};
     brews = [
-      # "kanata"
-      "speedtest-cli"
       "gitlab-runner"
       "rbenv"
       "bear"
-      "tdlib"
-      "zlib"
+      "tesseract"
+      "tesseract-lang"
+      "imagemagick"
     ];
     masApps = {
       #"1password" = 1333542190;

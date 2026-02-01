@@ -3,10 +3,10 @@
  f24   1   2   3   4   5       6   7   8   9   0      -   =   bspc
 
  tab   q   w   e   r   t       y   u   i   o   p      [   ]   ret
- caps  a   s   d   f   g       h   j   k   l   ;      '   \  
+ caps  a   s   d   f   g       h   j   k   l   ;      '   \
  lsft  `   z   x   c   v   b   n   m   ,   .   /      rsft
 
- rctl   lctl  lalt  lmet  spc  rmet  ralt             
+ rctl   lctl  lalt  lmet  spc  rmet  ralt
 )
 
 
@@ -22,7 +22,7 @@
 
   hold-index 200
   hold-middle 200
-  hold-ring 180 
+  hold-ring 180
   hold-pinky 220
 )
 
@@ -39,7 +39,7 @@
   rus (multi (layer-switch rus) @ru)
   gre (multi (layer-switch gre) @gr)
   qwe (multi (layer-switch qwe) @en)
- 
+
   ;; -------------------------------------------------------------------------------------
   ;; switchers to sublayers
 
@@ -78,20 +78,20 @@
  _    _   _ @rus @eng _       _ @eng @rus XX  _    _   _   _
  _    _   _ @gre @qwe _       _ @qwe @gre _   _    _   _
  _    _   _   _   _   _   _   _   _   _   _   _    _
- _    _   _   _   _   _   _ 
+ _    _   _   _   _   _   _
 )
 
 ;; -------------------------------------------------------------------------------------
 ;; layers with extra buttons: numeric, symbol, function
 
 (deflayer sym ;; symbol layer
-@lfun   f1  f2  f3  f4  f5      f6  f7  f8  f9  f10    f11 f12 _ 
+@lfun   f1  f2  f3  f4  f5      f6  f7  f8  f9  f10    f11 f12 _
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
  _ @!?  @<«  @=≈  @>»  @`       @lrd @[  @_  @]  @'  _   _   _
  _ @h$₽ @hlb @h-  @hrb @+±      @%°  @h{ @h; @h} @h“ @racc  _
  _ @#№  @*   @:   @/\  @at  _   @^   @\  @~  @&  @|¦ _
- @lfun       _    _  @lfun  _   XX  _ 
+ @lfun       _    _  @lfun  _   XX  _
 )
 
 (deflayer fun ;; function, media and keypad layer
@@ -114,8 +114,8 @@
 
  _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del    _   _   _
 @lrd @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
- _   M-z M-x @cpyc C-tab @vstav   _    mltp pgup @file pgdn @kill _
- _              _   @lfun @lcmd  @nav  @lfun @sym                     
+ _  M-z M-x @cpyc C-S-tab @vstav C-tab mltp pgup @file pgdn @kill _
+ _              _   @lfun @lcmd  @nav  @lfun @sym
 )
 
 (deflayer mos ;; mouse layer
@@ -123,9 +123,9 @@
  _   _   _   _   _   _                _   _   _   _   _    _   _   _
 
  _   del @tlft  tab @trgt @lnch       _   @mwl @mu  @mwr @mwu    _  _  _
- _   lmet lalt @lctl lsft @prnt       _   @ml  @md  @mr  @mwd    _  _   
- _   C-z  C-x   C-c  C-v  @redo   _   _   @dr0 @dms @dp0 @kill   _      
- _              _   @lfun @lfun @nav  mrtp mltp          
+ _   lmet lalt @lctl lsft @prnt       _   @ml  @md  @mr  @mwd    _  _
+ _   C-z  C-x   C-c  C-v  @redo   _   _   @dr0 @dms @dp0 @kill   _
+ _              _   @lfun @lfun @nav  mrtp mltp
 )
 
 (deflayer mos_mac ;; mouse layer
@@ -133,9 +133,9 @@
  _   _   _   _   _   _                _   _   _   _   _    _   _   _
 
  _   bspc @tlft tab @trgt @lnch       _   @mwl @mu  @mwr @mwu    _  _  _
- _   lctl @ocm @mopt lsft @prnt       _   @ml  @md  @mr  @mwd    _  _   
- _   M-z  M-x   M-c  M-v  @redo   _   _   @dr0 @dms @dp0 @kill   _      
- _              _   @lfun @lfun @nav  mrtp mltp          
+ _   lctl @ocm @mopt lsft @prnt       _   @ml  @md  @mr  @mwd    _  _
+ _   M-z  M-x   M-c  M-v  @redo   _   _   @dr0 @dms @dp0 @kill   _
+ _              _   @lfun @lfun @nav  mrtp mltp
 )
 
 ;; -------------------------------------------------------------------------------------
@@ -148,7 +148,7 @@
  _    _    _    _    _   @gho        _    _    _    _    _    _  _  _
  _    _    _   @ema @ter  _          _    _    _    _    _    _  _
  _    _    _    _    _   @bro   _    _    _    _    _    _    _
- _              _    _    _     _    _    _ 
+ _              _    _    _     _    _    _
 )
 
 ;; -------------------------------------------------------------------------------------
@@ -163,14 +163,14 @@
  _    _   _   _   _   _       _   _   _  @l_  _    _   _   _
  _    _   _   _   _   _       _   _   _   _   _    _   _
  _    _   _   _   _   _   _   _   _   _   _   _    _
- _    _   _   _   _   _   _ 
+ _    _   _   _   _   _   _
 )
 
 
 ;; -------------------------------------------------------------------------------------
 ;; combo definition
 
-(defcfg 
+(defcfg
   concurrent-tap-hold yes
   danger-enable-cmd yes
   process-unmapped-keys yes
