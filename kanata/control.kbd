@@ -5,6 +5,7 @@
   gr C-S-7
 
   ;; other alias
+  prxy M-S-p
   launch M-spc ;; launch applications
   tlft M-S-[
   trgt M-S-]
@@ -24,6 +25,7 @@
   S-T (tap-hold-press $tap-time $hold-time tab lalt)
   vstav (tap-dance 200 ( M-v (macro M-S-v 50 M-2) (macro M-S-v 50 M-3) (macro M-S-v 50 M-4) (macro M-S-v 50 M-5)))
   cpyc (tap-dance 400 ( M-c (macro A-S-left M-c right)))
+  hycps (tap-hold 200 200 A-tab (layer-toggle aernum))
 
   ;; Aerospace
   a⇥win A-tab

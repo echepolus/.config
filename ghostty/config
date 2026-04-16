@@ -21,8 +21,8 @@ cursor-opacity          = 0.8
 cursor-style            = block
 cursor-style-blink      = true 
 cursor-invert-fg-bg     = true
-adjust-cursor-height    = +20%
-adjust-cursor-thickness = +150%
+adjust-cursor-height    = +5%
+adjust-cursor-thickness = +100%
 mouse-hide-while-typing = true
 
 # Padding
@@ -38,8 +38,8 @@ macos-option-as-alt     = true
 confirm-close-surface   = false
 
 # Shortcuts
-keybind                 = alt+left=unbind
-keybind                 = alt+right=unbind
+#keybind                 = alt+left=unbind
+#keybind                 = alt+right=unbind
 keybind                 = global:ctrl+shift+5=toggle_quick_terminal
 
 # ADDED BY ALEXEY

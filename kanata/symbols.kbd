@@ -36,7 +36,7 @@
   / (switch ((base-layer rus)) S-\ break () / break )
   \ (unmod \)
   № (switch ((base-layer rus)) S-3 break () (macro @ru 50 S-3 50 @en) break)
-  racc (macro @en 50 S-A-e 50 @ru)
+  racc (macro @en 50 S-A-e 50)
 
   ;; -------------------------------------------------------------------------------------
   ;; Unicode symbols
@@ -173,7 +173,7 @@
   9> (fork 9 @> (lsft rsft))
 
 ;; home row mods, MacOS version
-  mopt (tap-hold $tap-time $hold-middle S-tab lsft)
+  mopt (tap-hold $tap-time $hold-middle S-tab lalt)
   ocm (tap-hold $tap-time $hold-pinky lalt lmet)
   ;; modtaps (GCAS)
   ;; sym

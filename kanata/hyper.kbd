@@ -37,8 +37,8 @@
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
  _ _     _     _     _     _         _     _     _     _     _      _ _ _ 
 
- _ _     _     @op-f @phot @book     _     _     _     _     _      _ _ _
- _ _     @anki @op-s @codd @gram     @op-m @note @emcs _     _      _ _
+ _ _     _     @op-f @phot @aerb     _     _     _     _     _      _ _ _
+ _ _     @anki @op-s @codd C-g       @op-m @note @emcs _     _      _ _
  _ @zen  @zen  @op-c _     _      _  _     _     _     _     _      _
  _             _     _     _      _  _     _                  
 )
@@ -65,7 +65,7 @@
   aera (cmd "open" "-a" "Anki")
   aerf C-A-M-f
   aerp C-A-M-p
-  aerb C-A-M-b
+  aerb (macro C-x b)
   aerr C-A-M-r
   aert C-A-M-t
   aerg C-A-M-g

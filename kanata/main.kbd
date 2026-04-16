@@ -88,9 +88,9 @@
 @lfun   f1  f2  f3  f4  f5      f6  f7  f8  f9  f10    f11 f12 _
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
- _ @!?  @<«  @=≈  @>»  @`       @lrd @[  @_  @]  @'  _   _   _
- _ @h$₽ @hlb @h-  @hrb @+±      @%°  @h{ @h; @h} @h“ @racc  _
- _ @#№  @*   @:   @/\  @at  _   @^   @\  @~  @&  @|¦ _
+ _ @!?  @<«  @=≈  @>»  @`       @lrd @[   @_  @]   @'  _   _   _
+ _ @h$₽ @h{  @h-  @h}  @+±      @%°  @hlb @h; @hrb @h“ @racc  _
+ _ @#№  @*   @:   @/\  @at  _   @^   @\   @~  @&   @|¦ _
  @lfun       _    _  @lfun  _   XX  _
 )
 
@@ -98,9 +98,9 @@
  @lau _   _   _   _   _         _   _   _   _   _    _   _   _
  _    _   _   _   _   _         _   _   _   _   _    _   _   _
 
- _  f12  f7  f8  f9 volu        @., 1   2   3 @del   _   _   ret
+ _  f12  f7  f8  f9 volu        0   1   2   3 @del   _   _   ret
  _ @f11 @f4 @f5 @f6 vold      ret @h4 @h5 @h6 @.,    _   _
- _  f10  f1  f2  f3 mute    _   0   7   8   9 @hbspc _
+ _  f10  f1  f2  f3 mute    _   0   7   8   9  .    _
  _   _        @lau @lcmd  @nav  @rcmd @lau
 )
 
@@ -112,8 +112,8 @@
  _        _    _    _    _    _        _    _    _    _    _      _   _   _
  f13     f1   f2   f3   f3   f5        f6   f7   f8   f9   f10    f11 f12 @lrd
 
- _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del    _   _   _
-@lrd @all @ocm @mopt @S-T @prnt        @mcon left down rght bspc  _   _
+ _  @qlz @cls @tlft @trgt @lnch        ins @home   up  @end @del  _   _   _
+@hycps @all @ocm @mopt @S-T @prnt      @mcon left down rght bspc  _   _
  _  M-z M-x @cpyc C-S-tab @vstav C-tab mltp pgup @file pgdn @kill _
  _              _   @lfun @lcmd  @nav  @lfun @sym
 )
@@ -146,7 +146,7 @@
  _    _   _   _   _   _       _   _   _   _   _    _   _   _
 
  _    _    _    _    _   @gho        _    _    _    _    _    _  _  _
- _    _    _   @ema @ter  _          _    _    _    _    _    _  _
+ _    _    _   @ema @ter C-g         _    _    _    _    _    _  _
  _    _    _    _    _   @bro   _    _    _    _    _    _    _
  _              _    _    _     _    _    _
 )
@@ -184,9 +184,9 @@
   (x c) @_   $chord-time all-released    (          sym     nav mos qwe)
   (c v) -    $chord-time all-released    (          sym     nav mos qwe)
   (r f) @``  $chord-time all-released    (          sym fun nav mos qwe)
-  (e d) @''  $chord-time all-released    (          sym fun nav mos qwe)
+  (e f) @''  $chord-time all-released    (          sym fun nav mos qwe)
   (w r) @<>  $chord-time all-released    (              fun nav mos qwe)
-  (s f) @[]  $chord-time all-released    (              fun nav mos qwe)
+  (s f) @{}  $chord-time all-released    (              fun nav mos qwe)
   (w e) @aern $chord-time all-released ( )
 
   ;; right side
@@ -195,14 +195,14 @@
   (j i) @“”  $chord-time all-released    (          sym fun nav mos qwe)
   (h u) @''  $chord-time all-released    (          sym fun nav mos qwe)
   (i k) @brc $chord-time all-released    (          sym fun nav mos qwe)
-  (u o) @{}  $chord-time all-released    (              fun nav mos qwe)
+  (u o) @[]  $chord-time all-released    (              fun nav mos qwe)
   (j l) @brc $chord-time all-released    (              fun nav mos qwe)
   (m .) @[] $chord-time all-released     (              fun nav mos qwe)
-  (i o) @ex' $chord-time all-released    (          sym fun nav mos qwe)
+;;(i o) @ex' $chord-time all-released    (          sym fun nav mos qwe)
   (u i) @ex` $chord-time all-released    (          sym fun nav mos qwe)
   (m ,) @ex[ $chord-time all-released    (          sym fun nav mos qwe)
   (, .) @ex] $chord-time all-released    (          sym fun nav mos qwe)
-;;(i o) @aeri $chord-time all-released ( )
+  (i o) @aeri $chord-time all-released ( )
 
   (f spc) @a⇥spc $chord-time all-released ( )
   (d spc) @a⇥win $chord-time all-released ( )

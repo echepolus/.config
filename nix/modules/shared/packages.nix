@@ -4,15 +4,21 @@ let
     slpp
     pip
     rich
+    mysql-connector
     virtualenv
     black
+    requests
+    faker
+    textual
+    pyqt5
     epc
     sexpdata
     six
     inflect
     unidecode
     pyaml
-    pypandoc
+    feedparser
+    python-dateutil
   ]);
 
   myPHP = pkgs.php82.withExtensions ({ enabled, all }: enabled ++ (with all; [
@@ -31,21 +37,27 @@ with pkgs; [
   aspellDicts.el # Modern Greek dictionary for aspell
   aspellDicts.grc # Ancient Greek dictionary for aspell
   aspellDicts.la # Latin dictionary for aspell
+  
 
   # B
   bash-completion # Bash completion scripts
   bat # Cat clone with syntax highlighting
-
+  bear
+  
   # C
   coreutils # Basic file/text/shell utilities
+  clang-tools
+  cppcheck
+  check
 
   # D
   direnv # Environment variable management per directory
   difftastic # Structural diff tool
   djvulibre
+  docker
   
   # E
-
+  exiftool
   # F
   fd # Fast find alternative
   fzf # Fuzzy finder
@@ -55,6 +67,10 @@ with pkgs; [
   gh # GitHub CLI
   glow # Markdown renderer for terminal
   ghostscript # PDF to images converter
+  gdb
+  gcc
+  gnupg
+  graphviz
     
   # H
   htop # Interactive process viewer
@@ -74,6 +90,7 @@ with pkgs; [
   # L
   lnav # Log file navigator
   libpng
+  lldb
 
   # M
   myPHP # Custom PHP with extensions
@@ -82,24 +99,28 @@ with pkgs; [
 
   # N
   ncurses
-  nodejs
-  nodePackages.live-server # Development server with live reload
-  nodePackages.nodemon # Node.js file watcher
-  (hiPrio nodePackages.prettier) # Code formatter
   ncdu
+  nodejs_20
+  nethack
 
   # O
   openssh # SSH client and server
+  openjdk
 
   # P
   pass # Stores, retrieves, generates, synchronizes passwords
   pandoc # Document converter
   poppler # PDF to plain text tool
+  pkg-config
+  plantuml
 
   # Q
+  qt5.qtbase
+  
 
   # R
   ripgrep # Fast text search tool
+  rbenv
 
   # S
   sqlite # SQL database engine
@@ -115,9 +136,11 @@ with pkgs; [
   uv # Python package installer
 
   # V
-
+  
+  
   # W
   wget # File downloader
+  w3m
 
   # X
 
@@ -127,11 +150,7 @@ with pkgs; [
   # Z
   zip # ZIP archive creator
   zsh-powerlevel10k # Zsh theme
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  zsh-completions
   zoxide
   zlib
-  zsh-fzf-tab
 
 ] ++ myFonts

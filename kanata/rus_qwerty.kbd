@@ -4,16 +4,37 @@
 
  _     @й   @lц  @у   @к   @е        @н   @г   @ш   @lщ  @з   @х   @ъ @mos 
 @hyp   @hф  @hы  @hв  @hа  @п        @р   @hо  @hл  @hд  @hж  @э   \ 
- _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @*ю   @.,? rsft
+ _     @lя  @ч   @с   @м   @и   @ё   @т   @ьъ  @б   @*ю  @., rsft
  _               _ @lfun @lcmd @nav  @rcmd @rfun
+ )
+
+(deflayer alt-rus-eng 
+@lfun   🔅   🔆   @mc @sls @dtn      @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊   _
+
+@mos   1   2   3   4   5         6   7   8   9   0  -    _    _
+
+ _     q   w   f   p   b         j   l   u   y   ;   [   ]   _   
+@hyp   a   r   s   t   g         m   n   e   i   o   '   \
+ _     z   x   c   d   v   `    k   h   ,   .   /   rsft
+ _            _  @lfun @lcmd   @nav  @rcmd @rfun
+ )
+
+(deflayer ctl-rus-eng 
+@lfun   🔅   🔆   @mc @sls @dtn      @dnd ◀◀   ▶⏸   ▶▶   🔇   🔉   🔊   _
+
+@mos   1   2   3   4   5         6   7   8   9   0  -    _    _
+
+ _     q   w   f   p   b         j   l   u   y   ;   [   ]   _   
+@hyp   a   r   s   t   g         m   n   e   i   o   '   \
+ _     z   x   c   d   v   `    k   h   ,   .   /   rsft
+ _            _  @lfun @lcmd   @nav  @rcmd @rfun
 )
 
-(defalias
-  ;; Russian letters
 
+(defalias
   ц w
   ь m
-  ьъ (fork m (unmod ]) (lsft rsft)) ;; diktor
+  ьъ (fork m (unmod ]) (lsft rsft))
   я z
   з p
   в d
@@ -57,16 +78,19 @@
 )
 
 (defalias
-   .,? (tap-dance 190 ( @., S-7))
+;;   .,? (tap-dance 190 ( @., S-7))
    ;; modtaps (GCAS)
    ;; rus ;; йцукен
-   hф (tap-hold $tap-time $hold-pinky @ф (layer-toggle app))
-   hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
-   hв (tap-hold $tap-time $hold-middle @в (multi lctl (layer-while-held eng)))
-   hа (tap-hold $tap-time $hold-index @а (multi lalt (layer-while-held eng)))
+    hф (tap-hold $tap-time $hold-pinky @ф (layer-toggle app))
+  hы (tap-hold $tap-time $hold-ring @ы (multi lmet (layer-while-held eng)))
+  hв (tap-hold $tap-time $hold-middle @в  (multi lalt (layer-while-held alt-rus-eng)))
+  hа (tap-hold $tap-time $hold-middle @а (multi lctl (layer-while-held ctl-rus-eng)))
+;;   hв (tap-hold $tap-time $hold-middle @в (multi lalt (layer-while-held eng)))
+;;   hа (tap-hold $tap-time $hold-index @а (multi lctl (layer-while-held eng)))
 
-   hо (tap-hold $tap-time $hold-index @о (multi lalt (layer-while-held eng)))
-   hл (tap-hold $tap-time $hold-middle @л (multi lctl (layer-while-held eng)))
+  hо (tap-hold $tap-time $hold-index @о (multi rctl (layer-while-held ctl-rus-eng)))
+  hл (tap-hold $tap-time $hold-index @л (multi ralt (layer-while-held alt-rus-eng)))
+;;   hл (tap-hold $tap-time $hold-middle @л (multi lalt (layer-while-held eng)))
    hд (tap-hold $tap-time $hold-ring @д (multi lmet (layer-while-held eng)))
    hж (tap-hold $tap-time $hold-pinky @ж (layer-toggle hyper))
 )

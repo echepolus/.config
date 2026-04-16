@@ -1,7 +1,5 @@
 {
   description = "General Purpose Configuration with secrets for MacOS and NixOS";
-
-  # Перечень внешних источников, откуда подтягиваем внешние флейки 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
@@ -37,9 +35,9 @@
       linuxSystems = [ "x86_64-linux" "aarch64-linux" ];
       darwinSystems = [ "aarch64-darwin" "x86_64-darwin" ];
       forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-      devShell = system: 
-        let 
-          pkgs = nixpkgs.legacyPackages.${system}; 
+      devShell = system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
         in {
           default = with pkgs; mkShell {
             nativeBuildInputs = with pkgs; [ bashInteractive git age ];
@@ -79,15 +77,13 @@
     {
       devShells = forAllSystems devShell;
       apps = nixpkgs.lib.genAttrs linuxSystems mkLinuxApps // nixpkgs.lib.genAttrs darwinSystems mkDarwinApps;
-
       darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (system:
         darwin.lib.darwinSystem {
           inherit system;
           specialArgs = inputs // { inherit user; };
           modules = [
             home-manager.darwinModules.home-manager
-            nix-homebrew.darwinModules.nix-homebrew
-            {
+            nix-homebrew.darwinModules.nix-homebrew {
               nix-homebrew = {
                 inherit user;
                 enable = true;
@@ -123,6 +119,5 @@
             ];
           }
         );
-     };
+    };
 }
-

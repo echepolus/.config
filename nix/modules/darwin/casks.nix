@@ -1,24 +1,9 @@
-{ ... }:
+_:
 
 [
-  # Development Tools
-  "warp"
-  "v2rayu"
-  "wireshark-app"
-  "tailscale-app"
-
-  # Communication Tools
-  "zoom"
-  "ayugram"
-
-  # Utility Tools
-  "pearcleaner"
-
-  # Entertainment Tools
-  "vlc"
-  
   # A
   "anki"
+  "android-platform-tools"
  
   # B
 
@@ -36,7 +21,7 @@
   
   # J
 
-  # Keyboard
+  # K
   "kawa-app"
 
   # L
@@ -45,13 +30,28 @@
 
   # Q
 
+  # P
+  "pearcleaner"
+  
   # R
 
   # S
   "utm"
 
-  # Z
-  "zen"
+  # T
+  "tailscale-app"
+  
+  # V
+  "v2rayu"
+  "vlc"
+  
+  # W
+  "wireshark-app"
+  "warp"
 
   # X
+
+  # Z
+  "zen"
+  "zoom"
 ]

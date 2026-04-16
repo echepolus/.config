@@ -37,12 +37,12 @@ _               _ @lfun @lcmd  @nav  @rcmd @sym
   ῎ ;
 
   ;; modtaps (GCAS)
-  hφ (tap-hold $tap-time $hold-ring @φ (multi lalt (layer-while-held eng)))
-  hδ (tap-hold $tap-time $hold-pinky @δ (multi lctl (layer-while-held eng)))
+  hφ (tap-hold $tap-time $hold-ring @φ (multi lctl (layer-while-held eng)))
+  hδ (tap-hold $tap-time $hold-pinky @δ (multi lalt (layer-while-held eng)))
   hσ (tap-hold $tap-time $hold-middle @σ (multi lmet (layer-while-held eng)))
   hλ (tap-hold $tap-time $hold-middle @λ (multi lmet (layer-while-held eng)))
-  hκ (tap-hold $tap-time $hold-pinky @κ (multi lctl (layer-while-held eng)))
-  hξ (tap-hold $tap-time $hold-ring @ξ (multi lalt (layer-while-held eng)))
+  hκ (tap-hold $tap-time $hold-pinky @κ (multi lalt (layer-while-held eng)))
+  hξ (tap-hold $tap-time $hold-ring @ξ (multi lctl (layer-while-held eng)))
   hα (tap-hold $tap-time $hold-ring @α (layer-toggle app))
   hο- (tap-hold $tap-time $hold-pinky _ (layer-toggle swi))
   h´ (tap-hold $tap-time $hold-pinky _ (layer-toggle hyper))
